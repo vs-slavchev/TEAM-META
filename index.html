@@ -4,8 +4,38 @@
   <head>
     <meta charset="utf-8">
   </head>
-
   <body>
+
+    <!-- LOGIN FORM
+    - change username to email? -->
+    <div>
+      <form method="post" action="./php/login.php">
+        <fieldset>
+          <legend>Enter credentials:</legend>
+          <input type="email" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+          <button type="submit">Log in</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div>
+      <form method="post" action="./php/register.php">
+        <fieldset>
+            <label for="email">Email Address:</label>
+            <input type="email" name="email" placeholder="Email Address">
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Password">
+            <label for="password">Confirm Password:</label>
+            <input type="password" name="confirm_password" placeholder="Confirm Password">
+            <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+   <form method="post" action="./php/logout.php">
+    <button type="submit">Logout</button>
+   </form>
   </body>
 
 </html>

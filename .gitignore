@@ -1,3 +1,4 @@
 ~$*
 *.txt~
 *.md~
+*db_login_details.php
