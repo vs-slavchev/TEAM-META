@@ -40,7 +40,20 @@
 </div>
 <div class="body">
 	<p class="home-pt3-title">Reservation</p>
-	<!-- insert php forms I guess? dunno-->	
+	<!-- insert php forms I guess? dunno-->
+	<div>
+      <form method="post" action="./php/register.php">
+        <fieldset>
+          <legend>Register:</legend>
+            <input type="email" name="email" placeholder="Email Address">
+            <input type="text" name="first_name" placeholder="First name">
+            <input type="text" name="last_name" placeholder="Last name">
+            <input type="text" name="paypal" placeholder="PayPal account">
+            <input type="text" name="phone_number" placeholder="Phone number">
+            <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>	
 	<!-- map to build using google dev API, can't with just iframe without API key-->
 </div>
 </BODY>
