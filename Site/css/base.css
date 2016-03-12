@@ -64,6 +64,7 @@ p.nav-btn {
 div.body {
   width: 60vw;
   margin: auto;
+  margin-top: 10vh;
 }
 
 a{

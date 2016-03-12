@@ -45,8 +45,14 @@ p.home-pt3-title {
   text-align: center;
 }
 
-p.temporal-data {
+.temporal-data {
   font-family: Helvetica;
   text-align: justify;
   font-size: 17;
+}
+
+p.contact-title {
+  font-family: Frontier;
+  font-size: 35;
+  color: lightgray;
 }
