@@ -1,0 +1,33 @@
+div.initial {
+  background-image: ;
+  width: 100vw;
+  height: 100vh;
+  margin-left: -34%;
+}
+
+div.performers{
+  
+  display: inline-block;
+  word-wrap: break-word;
+  width: 60vw;
+  margin: auto;
+  height: auto; 
+}
+
+div.list-performers {
+  
+}
+
+div.info {
+  display: inline-block;
+  word-wrap: break-word;
+  width: 60vw;
+  height: auto;
+  
+}
+
+div.dunno {
+  word-wrap: break-word;
+  position: absolute;
+  width: 60vw;
+}
