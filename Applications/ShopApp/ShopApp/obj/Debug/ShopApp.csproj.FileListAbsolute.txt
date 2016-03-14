@@ -1,0 +1,9 @@
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\bin\Debug\ShopApp.exe.config
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\bin\Debug\ShopApp.exe
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\bin\Debug\ShopApp.pdb
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\obj\Debug\ShopApp.csprojResolveAssemblyReference.cache
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\obj\Debug\ShopApp.Form1.resources
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\obj\Debug\ShopApp.Properties.Resources.resources
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\obj\Debug\ShopApp.csproj.GenerateResource.Cache
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\obj\Debug\ShopApp.exe
+D:\Project P-phase\TEAM-META\Applications\ShopApp\ShopApp\obj\Debug\ShopApp.pdb
