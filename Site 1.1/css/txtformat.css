@@ -1,0 +1,58 @@
+p {margin: 0;}
+
+@font-face {
+    font-family: Frontier;
+    src: url('../fonts/finalnew.eot');
+    src: url('../fonts/finalnew.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/finalnew.woff') format('woff'),
+         url('../fonts/finalnew.woff2') format('woff2'),
+         url('../fonts/finalnew.ttf') format('truetype'),
+         url('../fonts/finalnew.svg#svgFontName') format('svg');
+}
+
+@font-face {
+    font-family: Code;
+    src: url('../fonts/CODE Light.eot');
+    src: url('../fonts/CODE Light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/CODE Light.woff') format('woff'),
+         url('../fonts/CODE Light.woff2') format('woff2'),
+         url('../fonts/CODE Light.ttf') format('truetype'),
+         url('../fonts/CODE Light.svg#svgFontName') format('svg');
+}
+
+@font-face {
+    font-family: Trajan;
+    src: url('../fonts/Trajan.eot');
+    src: url('../fonts/Trajan.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Trajan.woff') format('woff'),
+         url('../fonts/Trajan.woff2') format('woff2'),
+         url('../fonts/Trajan.ttf') format('truetype'),
+         url('../fonts/Trajan.svg#svgFontName') format('svg');
+}
+
+p.home-pt2-title {
+  font-family: Frontier;
+  font-size: 100;
+  color: lightgray;
+  text-align: center;
+}
+
+
+p.home-pt3-title {
+  font-family: Trajan;
+  font-size: 50;
+  color: lightgray;
+  text-align: center;
+}
+
+.temporal-data {
+  font-family: Helvetica;
+  text-align: justify;
+  font-size: 17;
+}
+
+p.contact-title {
+  font-family: Frontier;
+  font-size: 35;
+  color: lightgray;
+}
