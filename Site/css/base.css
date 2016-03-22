@@ -71,3 +71,8 @@ a{
 	color:#FFF;
 	text-decoration:none;
 }
+
+li{
+    display: inline;
+    float: left;
+}
