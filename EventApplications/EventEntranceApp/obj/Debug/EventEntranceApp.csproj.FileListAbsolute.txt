@@ -1,0 +1,2 @@
+C:\Users\vs\Files\C#-Projects\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
+C:\Users\vs\Files\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config

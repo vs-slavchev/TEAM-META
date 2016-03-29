@@ -31,3 +31,10 @@ div.dunno {
   position: absolute;
   width: 60vw;
 }
+
+img.front-pic {
+  width: 100vw;
+  height: 100vh;
+  margin-top: -12vh;
+  margin-left: -20vw;
+}

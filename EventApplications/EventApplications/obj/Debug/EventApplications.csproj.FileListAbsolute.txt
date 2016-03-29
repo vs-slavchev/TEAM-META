@@ -1,0 +1,1 @@
+c:\users\vs\Files\C#-Projects\EventApplications\EventApplications\bin\Debug\EventApplications.exe.config

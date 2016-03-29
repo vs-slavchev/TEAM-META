@@ -1,0 +1,27 @@
+li.odd-row, li.even-row {
+  display: block;
+  width: 100%;
+}
+
+li.odd-row {
+  padding-left: 9vw;
+}
+
+div.performer {
+  display: inline-block;
+  margin-left: 6vw;
+  padding: 0;
+}
+
+img.performer-pic {
+  display: block;
+  height: 30vh;
+  width: 12vw;
+}
+
+p.performer-name {
+  text-align: center;
+  font-family: Code;
+  color: red;
+  font-size: 2vw;
+}
