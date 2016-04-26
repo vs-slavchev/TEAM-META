@@ -18,7 +18,7 @@ namespace Status_InspectionApp
     {
         private MySqlConnection connection = null;
         private static DBConnection instance = null;
-        private string config = "Server=localhost; database=dbi345959; UID=dbi345959; password=2XArGTUPc9";
+        private string config = "server=athena01.fhict.local; database=dbi345959; userid=dbi345959; password=2XArGTUPc9;";
 
         public static DBConnection Instance()
         {
@@ -49,30 +49,28 @@ namespace Status_InspectionApp
             }
         }
 
-        public Person ExecuteSelect(string clientId)
+        public Person ExecuteSelect(string user_id)
         {
             MySqlDataReader reader = null;
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
-                cmd.CommandText = "INSERT INTO Authors(Name) VALUES(@Name)";
-                cmd.Prepare();
 
-                cmd.Parameters.AddWithValue("@Name", "Trygve Gulbranssen");
+                cmd.CommandText = "SELECT user_id, first_name, last_name, phone_number FROM user WHERE user_id = '@user_id';";
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@user_id", user_id);
 
                 reader = cmd.ExecuteReader();
+                string id = reader.GetString(0);
+                string first_name = reader.GetString(1);
+                string last_name = reader.GetString(2);
+                string phone_number = reader.GetString(3);
 
-                return new Person(reader); // reader is of type MySqlDataReader
-
-                // put in person constructor
                 while (reader.Read())
                 {
-                    Console.WriteLine(reader.GetInt32(0) + ": "
-                        + reader.GetString(1));
+                    return new Person(id, first_name, last_name, phone_number);
                 }
-                // till here
-
             }
             catch (MySqlException ex)
             {
@@ -89,12 +87,13 @@ namespace Status_InspectionApp
                     connection.Close();
                 }
             }
+            return null;
         }
 
         public void Close()
         {
             connection.Close();
         }
-                
+
     }
 }
