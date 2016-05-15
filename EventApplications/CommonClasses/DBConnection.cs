@@ -7,29 +7,14 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
-namespace Status_InspectionApp
+namespace CommonClasses
 {
-
-    /* The database connection class is a singleton. It will not have state, so using a global structure
-     * is not supposed to affect our architecture in a negative way. 
-     */
-
     class DBConnection
     {
         private MySqlConnection connection = null;
-        private static DBConnection instance = null;
         private string config = "server=athena01.fhict.local; database=dbi345959; userid=dbi345959; password=2XArGTUPc9;";
 
-        public static DBConnection Instance()
-        {
-            if (instance == null)
-            {
-                instance = new DBConnection();
-            }
-            return instance;
-        }
-
-        private DBConnection()
+        public DBConnection()
         {
             try
             {
@@ -57,7 +42,7 @@ namespace Status_InspectionApp
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT user_id, first_name, last_name, phone_number FROM user WHERE user_id = '@user_id';";
+                cmd.CommandText = "SELECT user_id, first_name, last_name, phone_number FROM users WHERE user_id = '@user_id';";
                 cmd.Prepare();
                 cmd.Parameters.AddWithValue("@user_id", user_id);
 
@@ -94,6 +79,5 @@ namespace Status_InspectionApp
         {
             connection.Close();
         }
-
     }
 }

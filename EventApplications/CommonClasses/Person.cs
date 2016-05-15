@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Status_InspectionApp
+namespace CommonClasses
 {
     class Person
     {
@@ -20,6 +20,5 @@ namespace Status_InspectionApp
             this.Last_name = last_name;
             this.Phone_number = phone_number;
         }
-
     }
 }

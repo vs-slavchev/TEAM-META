@@ -1,9 +1,0 @@
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\bin\Debug\Status_InspectionApp.exe.config
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\bin\Debug\Status_InspectionApp.exe
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\bin\Debug\Status_InspectionApp.pdb
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\obj\Debug\Status_InspectionApp.csprojResolveAssemblyReference.cache
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\obj\Debug\Status_InspectionApp.Form1.resources
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\obj\Debug\Status_InspectionApp.Properties.Resources.resources
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\obj\Debug\Status_InspectionApp.csproj.GenerateResource.Cache
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\obj\Debug\Status_InspectionApp.exe
-D:\Project P-phase\TEAM-META\Applications\Status_InspectionApp\Status_InspectionApp\obj\Debug\Status_InspectionApp.pdb

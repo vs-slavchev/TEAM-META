@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Status_InspectionApp
+namespace StatusInspectionApp
 {
     public partial class Form1 : Form
     {
@@ -16,5 +16,38 @@ namespace Status_InspectionApp
         {
             InitializeComponent();
         }
+
+        private void btClearResult_Click(object sender, EventArgs e)
+        {
+            Clear(lbEmail);
+            Clear(lbMoney);
+            Clear(lbHasEntered);
+            Clear(lbMoneySpent);
+            Clear(lbMoneyTransferred);
+        }
+
+        private void btUpdateOverallStatus_Click(object sender, EventArgs e)
+        {
+            Clear(lbVisitorsEntered);
+            Clear(lbVisitorsNotEntered);
+            Clear(lbVisitorsLeft);
+            Clear(lbTotalBalance);
+            Clear(lbTotalMoneyPaid);
+            Clear(lbCampSpotsBooked);
+            liCampSpots.Items.Clear();
+
+
+        }
+
+        private void Clear(Label lb)
+        {
+            lb.Text = "---";
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
