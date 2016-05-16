@@ -1,0 +1,12 @@
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\StatusInspectionApp.exe.config
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\StatusInspectionApp.exe
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\StatusInspectionApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\CommonClasses.exe
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\MySql.Data.dll
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\CommonClasses.pdb
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.csprojResolveAssemblyReference.cache
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.Form1.resources
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.Properties.Resources.resources
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.csproj.GenerateResource.Cache
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.exe
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.pdb

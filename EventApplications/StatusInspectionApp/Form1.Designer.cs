@@ -34,7 +34,7 @@
             this.tbLastname = new System.Windows.Forms.TextBox();
             this.tbId = new System.Windows.Forms.TextBox();
             this.lbMoneyTransferred = new System.Windows.Forms.Label();
-            this.lbMoneySpent = new System.Windows.Forms.Label();
+            this.lbMoneySpentFood = new System.Windows.Forms.Label();
             this.lbHasEntered = new System.Windows.Forms.Label();
             this.lbMoney = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
@@ -62,18 +62,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.liCampSpots = new System.Windows.Forms.ListBox();
+            this.liVisitors = new System.Windows.Forms.ListBox();
             this.gbVisitorStatus.SuspendLayout();
             this.bgOverallStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbVisitorStatus
             // 
+            this.gbVisitorStatus.Controls.Add(this.liVisitors);
             this.gbVisitorStatus.Controls.Add(this.btSearch);
             this.gbVisitorStatus.Controls.Add(this.btClearResult);
             this.gbVisitorStatus.Controls.Add(this.tbLastname);
             this.gbVisitorStatus.Controls.Add(this.tbId);
             this.gbVisitorStatus.Controls.Add(this.lbMoneyTransferred);
-            this.gbVisitorStatus.Controls.Add(this.lbMoneySpent);
+            this.gbVisitorStatus.Controls.Add(this.lbMoneySpentFood);
             this.gbVisitorStatus.Controls.Add(this.lbHasEntered);
             this.gbVisitorStatus.Controls.Add(this.lbMoney);
             this.gbVisitorStatus.Controls.Add(this.lbEmail);
@@ -85,9 +87,9 @@
             this.gbVisitorStatus.Controls.Add(this.label1);
             this.gbVisitorStatus.Controls.Add(this.lbLastname);
             this.gbVisitorStatus.Controls.Add(this.lbId);
-            this.gbVisitorStatus.Location = new System.Drawing.Point(21, 12);
+            this.gbVisitorStatus.Location = new System.Drawing.Point(22, 12);
             this.gbVisitorStatus.Name = "gbVisitorStatus";
-            this.gbVisitorStatus.Size = new System.Drawing.Size(250, 399);
+            this.gbVisitorStatus.Size = new System.Drawing.Size(429, 595);
             this.gbVisitorStatus.TabIndex = 0;
             this.gbVisitorStatus.TabStop = false;
             this.gbVisitorStatus.Text = "Visitor Status";
@@ -96,16 +98,17 @@
             // 
             this.btSearch.Location = new System.Drawing.Point(10, 87);
             this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(223, 23);
+            this.btSearch.Size = new System.Drawing.Size(413, 23);
             this.btSearch.TabIndex = 16;
             this.btSearch.Text = "Search";
             this.btSearch.UseVisualStyleBackColor = true;
+            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
             // btClearResult
             // 
-            this.btClearResult.Location = new System.Drawing.Point(13, 289);
+            this.btClearResult.Location = new System.Drawing.Point(6, 563);
             this.btClearResult.Name = "btClearResult";
-            this.btClearResult.Size = new System.Drawing.Size(220, 23);
+            this.btClearResult.Size = new System.Drawing.Size(417, 23);
             this.btClearResult.TabIndex = 15;
             this.btClearResult.Text = "Clear result";
             this.btClearResult.UseVisualStyleBackColor = true;
@@ -113,14 +116,14 @@
             // 
             // tbLastname
             // 
-            this.tbLastname.Location = new System.Drawing.Point(82, 61);
+            this.tbLastname.Location = new System.Drawing.Point(145, 61);
             this.tbLastname.Name = "tbLastname";
             this.tbLastname.Size = new System.Drawing.Size(151, 20);
             this.tbLastname.TabIndex = 14;
             // 
             // tbId
             // 
-            this.tbId.Location = new System.Drawing.Point(82, 31);
+            this.tbId.Location = new System.Drawing.Point(145, 31);
             this.tbId.Name = "tbId";
             this.tbId.Size = new System.Drawing.Size(151, 20);
             this.tbId.TabIndex = 13;
@@ -134,14 +137,14 @@
             this.lbMoneyTransferred.TabIndex = 12;
             this.lbMoneyTransferred.Text = "---";
             // 
-            // lbMoneySpent
+            // lbMoneySpentFood
             // 
-            this.lbMoneySpent.AutoSize = true;
-            this.lbMoneySpent.Location = new System.Drawing.Point(142, 231);
-            this.lbMoneySpent.Name = "lbMoneySpent";
-            this.lbMoneySpent.Size = new System.Drawing.Size(16, 13);
-            this.lbMoneySpent.TabIndex = 11;
-            this.lbMoneySpent.Text = "---";
+            this.lbMoneySpentFood.AutoSize = true;
+            this.lbMoneySpentFood.Location = new System.Drawing.Point(142, 231);
+            this.lbMoneySpentFood.Name = "lbMoneySpentFood";
+            this.lbMoneySpentFood.Size = new System.Drawing.Size(16, 13);
+            this.lbMoneySpentFood.TabIndex = 11;
+            this.lbMoneySpentFood.Text = "---";
             // 
             // lbHasEntered
             // 
@@ -218,7 +221,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 122);
+            this.label1.Location = new System.Drawing.Point(142, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 2;
@@ -259,9 +262,9 @@
             this.bgOverallStatus.Controls.Add(this.label8);
             this.bgOverallStatus.Controls.Add(this.label7);
             this.bgOverallStatus.Controls.Add(this.liCampSpots);
-            this.bgOverallStatus.Location = new System.Drawing.Point(297, 12);
+            this.bgOverallStatus.Location = new System.Drawing.Point(472, 12);
             this.bgOverallStatus.Name = "bgOverallStatus";
-            this.bgOverallStatus.Size = new System.Drawing.Size(304, 399);
+            this.bgOverallStatus.Size = new System.Drawing.Size(450, 595);
             this.bgOverallStatus.TabIndex = 1;
             this.bgOverallStatus.TabStop = false;
             this.bgOverallStatus.Text = "Overall Status";
@@ -270,7 +273,7 @@
             // 
             this.btUpdateOverallStatus.Location = new System.Drawing.Point(7, 20);
             this.btUpdateOverallStatus.Name = "btUpdateOverallStatus";
-            this.btUpdateOverallStatus.Size = new System.Drawing.Size(291, 23);
+            this.btUpdateOverallStatus.Size = new System.Drawing.Size(434, 23);
             this.btUpdateOverallStatus.TabIndex = 14;
             this.btUpdateOverallStatus.Text = "Update information";
             this.btUpdateOverallStatus.UseVisualStyleBackColor = true;
@@ -307,7 +310,7 @@
             // lbVisitorsLeft
             // 
             this.lbVisitorsLeft.AutoSize = true;
-            this.lbVisitorsLeft.Location = new System.Drawing.Point(147, 113);
+            this.lbVisitorsLeft.Location = new System.Drawing.Point(147, 120);
             this.lbVisitorsLeft.Name = "lbVisitorsLeft";
             this.lbVisitorsLeft.Size = new System.Drawing.Size(16, 13);
             this.lbVisitorsLeft.TabIndex = 10;
@@ -370,7 +373,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 113);
+            this.label9.Location = new System.Drawing.Point(7, 120);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 13);
             this.label9.TabIndex = 3;
@@ -399,14 +402,23 @@
             this.liCampSpots.FormattingEnabled = true;
             this.liCampSpots.Location = new System.Drawing.Point(7, 257);
             this.liCampSpots.Name = "liCampSpots";
-            this.liCampSpots.Size = new System.Drawing.Size(291, 134);
+            this.liCampSpots.Size = new System.Drawing.Size(434, 329);
             this.liCampSpots.TabIndex = 0;
+            // 
+            // liVisitors
+            // 
+            this.liVisitors.FormattingEnabled = true;
+            this.liVisitors.Location = new System.Drawing.Point(6, 293);
+            this.liVisitors.Name = "liVisitors";
+            this.liVisitors.Size = new System.Drawing.Size(417, 264);
+            this.liVisitors.TabIndex = 17;
+            this.liVisitors.SelectedIndexChanged += new System.EventHandler(this.liVisitors_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 423);
+            this.ClientSize = new System.Drawing.Size(942, 619);
             this.Controls.Add(this.bgOverallStatus);
             this.Controls.Add(this.gbVisitorStatus);
             this.Name = "Form1";
@@ -425,7 +437,7 @@
         private System.Windows.Forms.TextBox tbLastname;
         private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.Label lbMoneyTransferred;
-        private System.Windows.Forms.Label lbMoneySpent;
+        private System.Windows.Forms.Label lbMoneySpentFood;
         private System.Windows.Forms.Label lbHasEntered;
         private System.Windows.Forms.Label lbMoney;
         private System.Windows.Forms.Label lbEmail;
@@ -455,6 +467,7 @@
         private System.Windows.Forms.Button btSearch;
         private System.Windows.Forms.Button btClearResult;
         private System.Windows.Forms.Button btUpdateOverallStatus;
+        private System.Windows.Forms.ListBox liVisitors;
     }
 }
 

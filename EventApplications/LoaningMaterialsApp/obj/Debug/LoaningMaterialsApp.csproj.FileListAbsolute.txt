@@ -1,0 +1,12 @@
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\Loaning_materialsApp.exe.config
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\Loaning_materialsApp.exe
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\Loaning_materialsApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\CommonClasses.exe
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\MySql.Data.dll
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\CommonClasses.pdb
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\LoaningMaterialsApp.csprojResolveAssemblyReference.cache
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.Form1.resources
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.Properties.Resources.resources
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\LoaningMaterialsApp.csproj.GenerateResource.Cache
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.exe
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.pdb
