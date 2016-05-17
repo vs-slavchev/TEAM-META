@@ -33,7 +33,7 @@ namespace CommonClasses
             }
         }
 
-        public List<Person> ExecuteSelectVisitor(string dbField, string value)
+        public List<Person> SelectVisitor(string dbField, string value)
         {
             MySqlDataReader reader = null;
             List<Person> visitors = new List<Person>();
@@ -42,19 +42,15 @@ namespace CommonClasses
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT user_id, email, first_name, last_name, phone_number "
-                                + "FROM users WHERE " + dbField + " = '" + value + "';";
+                cmd.CommandText = "SELECT * "
+                                + "FROM user "
+                                + "WHERE " + dbField + " = '" + value + "';";
 
                 reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    string id = reader.GetString(0);
-                    string email = reader.GetString(1);
-                    string first_name = reader.GetString(2);
-                    string last_name = reader.GetString(3);
-                    string phone_number = reader.GetString(4);
-                    visitors.Add(new Person(id, email, first_name, last_name, phone_number));
+                    visitors.Add(new Person(reader));
                 }
                 return visitors;
             }
@@ -68,12 +64,45 @@ namespace CommonClasses
                 {
                     reader.Close();
                 }
-                if (connection != null)
-                {
-                    //connection.Close();
-                }
             }
             return null;
+        }
+
+        public int ScalarCount(string dbCondition, string dbTable)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT COUNT(*) "
+                                + "FROM " + dbTable + " "
+                                + "WHERE " + dbCondition + ";";
+
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            return -1;
+        }
+
+        public double ScalarSum(string dbField, string dbTable)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "SELECT SUM(" + dbField + ") "
+                                + "FROM " + dbTable + ";";
+
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            return -1;
         }
 
         public void Close()

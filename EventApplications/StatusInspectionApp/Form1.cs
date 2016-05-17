@@ -27,11 +27,11 @@ namespace StatusInspectionApp
         {
             if (tbId.Text != "")
             {
-                visitors = connection.ExecuteSelectVisitor("user_id", tbId.Text);
+                visitors = connection.SelectVisitor("user_id", tbId.Text);
             }
             else if (tbLastname.Text != "")
             {
-                visitors = connection.ExecuteSelectVisitor("last_name", tbLastname.Text);
+                visitors = connection.SelectVisitor("last_name", tbLastname.Text);
             }
             else
             {
@@ -50,6 +50,7 @@ namespace StatusInspectionApp
 
         private void btUpdateOverallStatus_Click(object sender, EventArgs e)
         {
+            //clear lablels and listbox
             Clear(lbVisitorsEntered);
             Clear(lbVisitorsNotEntered);
             Clear(lbVisitorsLeft);
@@ -59,8 +60,21 @@ namespace StatusInspectionApp
             liCampSpots.Items.Clear();
 
             //get updated info
+            int visitorsEntered = connection.ScalarCount("has_entered", "user");
+            int visitorsNotEntered = connection.ScalarCount("NOT has_entered", "user");
+            int visitorsLeft = connection.ScalarCount("has_left", "user");
+            double totalMoneyBalance = connection.ScalarSum("money", "user");
+            double totalMoneyPaid = connection.ScalarSum("total_money", "user") - totalMoneyBalance;
+            //int numberCampSpotsBooked = connection.ScalarSum("total_money", "camp");
 
             //print updated info
+            lbVisitorsEntered.Text = Convert.ToString(visitorsEntered);
+            lbVisitorsNotEntered.Text = Convert.ToString(visitorsNotEntered);
+            lbVisitorsLeft.Text = Convert.ToString(visitorsLeft);
+            lbTotalBalance.Text = Convert.ToString(totalMoneyBalance);
+            lbTotalMoneyPaid.Text = Convert.ToString(totalMoneyPaid);
+            //lbCampSpotsBooked.Text = Convert.ToString();
+
         }
 
         private void btClearResult_Click(object sender, EventArgs e)
@@ -83,18 +97,22 @@ namespace StatusInspectionApp
 
                 ClearResultLabels();
                 lbEmail.Text = visitor.Email;
-                //lbMoney =
-                //lbHasEntered = 
-                //lbMoneySpentFood = 
-                //lbMoneyTransferred = 
+                lbPhoneNumber.Text = visitor.Phone_number;
+                lbMoney.Text = Convert.ToString(visitor.Money);
+                lbHasEntered.Text = visitor.HasEntered.ToString();
+                lbHasLeft.Text = visitor.HasLeft.ToString();
+                //lbMoneySpentFood.Text = 
+                //lbMoneyTransferred.Text = 
             }
         }
 
         private void ClearResultLabels()
         {
             Clear(lbEmail);
+            Clear(lbPhoneNumber);
             Clear(lbMoney);
             Clear(lbHasEntered);
+            Clear(lbHasLeft);
             Clear(lbMoneySpentFood);
             Clear(lbMoneyTransferred);
         }

@@ -63,12 +63,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.liCampSpots = new System.Windows.Forms.ListBox();
             this.liVisitors = new System.Windows.Forms.ListBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lbPhoneNumber = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbHasLeft = new System.Windows.Forms.Label();
             this.gbVisitorStatus.SuspendLayout();
             this.bgOverallStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbVisitorStatus
             // 
+            this.gbVisitorStatus.Controls.Add(this.lbHasLeft);
+            this.gbVisitorStatus.Controls.Add(this.label15);
+            this.gbVisitorStatus.Controls.Add(this.lbPhoneNumber);
+            this.gbVisitorStatus.Controls.Add(this.label14);
             this.gbVisitorStatus.Controls.Add(this.liVisitors);
             this.gbVisitorStatus.Controls.Add(this.btSearch);
             this.gbVisitorStatus.Controls.Add(this.btClearResult);
@@ -118,20 +126,20 @@
             // 
             this.tbLastname.Location = new System.Drawing.Point(145, 61);
             this.tbLastname.Name = "tbLastname";
-            this.tbLastname.Size = new System.Drawing.Size(151, 20);
+            this.tbLastname.Size = new System.Drawing.Size(278, 20);
             this.tbLastname.TabIndex = 14;
             // 
             // tbId
             // 
             this.tbId.Location = new System.Drawing.Point(145, 31);
             this.tbId.Name = "tbId";
-            this.tbId.Size = new System.Drawing.Size(151, 20);
+            this.tbId.Size = new System.Drawing.Size(278, 20);
             this.tbId.TabIndex = 13;
             // 
             // lbMoneyTransferred
             // 
             this.lbMoneyTransferred.AutoSize = true;
-            this.lbMoneyTransferred.Location = new System.Drawing.Point(142, 261);
+            this.lbMoneyTransferred.Location = new System.Drawing.Point(142, 333);
             this.lbMoneyTransferred.Name = "lbMoneyTransferred";
             this.lbMoneyTransferred.Size = new System.Drawing.Size(16, 13);
             this.lbMoneyTransferred.TabIndex = 12;
@@ -140,7 +148,7 @@
             // lbMoneySpentFood
             // 
             this.lbMoneySpentFood.AutoSize = true;
-            this.lbMoneySpentFood.Location = new System.Drawing.Point(142, 231);
+            this.lbMoneySpentFood.Location = new System.Drawing.Point(142, 300);
             this.lbMoneySpentFood.Name = "lbMoneySpentFood";
             this.lbMoneySpentFood.Size = new System.Drawing.Size(16, 13);
             this.lbMoneySpentFood.TabIndex = 11;
@@ -149,7 +157,7 @@
             // lbHasEntered
             // 
             this.lbHasEntered.AutoSize = true;
-            this.lbHasEntered.Location = new System.Drawing.Point(142, 201);
+            this.lbHasEntered.Location = new System.Drawing.Point(142, 241);
             this.lbHasEntered.Name = "lbHasEntered";
             this.lbHasEntered.Size = new System.Drawing.Size(16, 13);
             this.lbHasEntered.TabIndex = 10;
@@ -158,7 +166,7 @@
             // lbMoney
             // 
             this.lbMoney.AutoSize = true;
-            this.lbMoney.Location = new System.Drawing.Point(142, 170);
+            this.lbMoney.Location = new System.Drawing.Point(142, 210);
             this.lbMoney.Name = "lbMoney";
             this.lbMoney.Size = new System.Drawing.Size(16, 13);
             this.lbMoney.TabIndex = 9;
@@ -167,7 +175,7 @@
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(142, 143);
+            this.lbEmail.Location = new System.Drawing.Point(142, 153);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(16, 13);
             this.lbEmail.TabIndex = 8;
@@ -176,7 +184,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 261);
+            this.label6.Location = new System.Drawing.Point(7, 333);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(117, 13);
             this.label6.TabIndex = 7;
@@ -185,7 +193,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 231);
+            this.label5.Location = new System.Drawing.Point(10, 300);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 6;
@@ -194,7 +202,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 201);
+            this.label4.Location = new System.Drawing.Point(10, 241);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 5;
@@ -203,7 +211,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 171);
+            this.label3.Location = new System.Drawing.Point(10, 210);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
@@ -212,7 +220,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 143);
+            this.label2.Location = new System.Drawing.Point(10, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 3;
@@ -408,11 +416,47 @@
             // liVisitors
             // 
             this.liVisitors.FormattingEnabled = true;
-            this.liVisitors.Location = new System.Drawing.Point(6, 293);
+            this.liVisitors.Location = new System.Drawing.Point(6, 371);
             this.liVisitors.Name = "liVisitors";
-            this.liVisitors.Size = new System.Drawing.Size(417, 264);
+            this.liVisitors.Size = new System.Drawing.Size(417, 186);
             this.liVisitors.TabIndex = 17;
             this.liVisitors.SelectedIndexChanged += new System.EventHandler(this.liVisitors_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 180);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.TabIndex = 18;
+            this.label14.Text = "phone number:";
+            // 
+            // lbPhoneNumber
+            // 
+            this.lbPhoneNumber.AutoSize = true;
+            this.lbPhoneNumber.Location = new System.Drawing.Point(142, 180);
+            this.lbPhoneNumber.Name = "lbPhoneNumber";
+            this.lbPhoneNumber.Size = new System.Drawing.Size(16, 13);
+            this.lbPhoneNumber.TabIndex = 19;
+            this.lbPhoneNumber.Text = "---";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 270);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "has left:";
+            // 
+            // lbHasLeft
+            // 
+            this.lbHasLeft.AutoSize = true;
+            this.lbHasLeft.Location = new System.Drawing.Point(142, 270);
+            this.lbHasLeft.Name = "lbHasLeft";
+            this.lbHasLeft.Size = new System.Drawing.Size(16, 13);
+            this.lbHasLeft.TabIndex = 21;
+            this.lbHasLeft.Text = "---";
             // 
             // Form1
             // 
@@ -468,6 +512,10 @@
         private System.Windows.Forms.Button btClearResult;
         private System.Windows.Forms.Button btUpdateOverallStatus;
         private System.Windows.Forms.ListBox liVisitors;
+        private System.Windows.Forms.Label lbPhoneNumber;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbHasLeft;
+        private System.Windows.Forms.Label label15;
     }
 }
 
