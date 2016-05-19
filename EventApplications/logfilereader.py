@@ -1,8 +1,8 @@
 import MySQLdb
-conn = MySQLdb.connect(host = "",
-                       user = "",
-                       passwd = "",
-                       db = "")
+conn = MySQLdb.connect(host = "athena01.fhict.local",
+                       user = "dbi345959",
+                       passwd = "2XArGTUPc9",
+                       db = "dbi345959")
 c = conn.cursor()
 
 from tkinter import *
