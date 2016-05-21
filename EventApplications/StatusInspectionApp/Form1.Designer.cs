@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gbVisitorStatus = new System.Windows.Forms.GroupBox();
+            this.lbHasLeft = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbPhoneNumber = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.liVisitors = new System.Windows.Forms.ListBox();
             this.btSearch = new System.Windows.Forms.Button();
             this.btClearResult = new System.Windows.Forms.Button();
             this.tbLastname = new System.Windows.Forms.TextBox();
-            this.tbId = new System.Windows.Forms.TextBox();
             this.lbMoneyTransferred = new System.Windows.Forms.Label();
             this.lbMoneySpentFood = new System.Windows.Forms.Label();
             this.lbHasEntered = new System.Windows.Forms.Label();
@@ -45,7 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbLastname = new System.Windows.Forms.Label();
-            this.lbId = new System.Windows.Forms.Label();
             this.bgOverallStatus = new System.Windows.Forms.GroupBox();
             this.btUpdateOverallStatus = new System.Windows.Forms.Button();
             this.lbCampSpotsBooked = new System.Windows.Forms.Label();
@@ -62,17 +66,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.liCampSpots = new System.Windows.Forms.ListBox();
-            this.liVisitors = new System.Windows.Forms.ListBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lbPhoneNumber = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lbHasLeft = new System.Windows.Forms.Label();
+            this.btRetrieveQRData = new System.Windows.Forms.Button();
             this.gbVisitorStatus.SuspendLayout();
             this.bgOverallStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbVisitorStatus
             // 
+            this.gbVisitorStatus.Controls.Add(this.btRetrieveQRData);
             this.gbVisitorStatus.Controls.Add(this.lbHasLeft);
             this.gbVisitorStatus.Controls.Add(this.label15);
             this.gbVisitorStatus.Controls.Add(this.lbPhoneNumber);
@@ -81,7 +82,6 @@
             this.gbVisitorStatus.Controls.Add(this.btSearch);
             this.gbVisitorStatus.Controls.Add(this.btClearResult);
             this.gbVisitorStatus.Controls.Add(this.tbLastname);
-            this.gbVisitorStatus.Controls.Add(this.tbId);
             this.gbVisitorStatus.Controls.Add(this.lbMoneyTransferred);
             this.gbVisitorStatus.Controls.Add(this.lbMoneySpentFood);
             this.gbVisitorStatus.Controls.Add(this.lbHasEntered);
@@ -94,7 +94,6 @@
             this.gbVisitorStatus.Controls.Add(this.label2);
             this.gbVisitorStatus.Controls.Add(this.label1);
             this.gbVisitorStatus.Controls.Add(this.lbLastname);
-            this.gbVisitorStatus.Controls.Add(this.lbId);
             this.gbVisitorStatus.Location = new System.Drawing.Point(22, 12);
             this.gbVisitorStatus.Name = "gbVisitorStatus";
             this.gbVisitorStatus.Size = new System.Drawing.Size(429, 595);
@@ -102,11 +101,56 @@
             this.gbVisitorStatus.TabStop = false;
             this.gbVisitorStatus.Text = "Visitor Status";
             // 
+            // lbHasLeft
+            // 
+            this.lbHasLeft.AutoSize = true;
+            this.lbHasLeft.Location = new System.Drawing.Point(142, 270);
+            this.lbHasLeft.Name = "lbHasLeft";
+            this.lbHasLeft.Size = new System.Drawing.Size(16, 13);
+            this.lbHasLeft.TabIndex = 21;
+            this.lbHasLeft.Text = "---";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 270);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "has left:";
+            // 
+            // lbPhoneNumber
+            // 
+            this.lbPhoneNumber.AutoSize = true;
+            this.lbPhoneNumber.Location = new System.Drawing.Point(142, 180);
+            this.lbPhoneNumber.Name = "lbPhoneNumber";
+            this.lbPhoneNumber.Size = new System.Drawing.Size(16, 13);
+            this.lbPhoneNumber.TabIndex = 19;
+            this.lbPhoneNumber.Text = "---";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 180);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.TabIndex = 18;
+            this.label14.Text = "phone number:";
+            // 
+            // liVisitors
+            // 
+            this.liVisitors.FormattingEnabled = true;
+            this.liVisitors.Location = new System.Drawing.Point(6, 371);
+            this.liVisitors.Name = "liVisitors";
+            this.liVisitors.Size = new System.Drawing.Size(417, 186);
+            this.liVisitors.TabIndex = 17;
+            this.liVisitors.SelectedIndexChanged += new System.EventHandler(this.liVisitors_SelectedIndexChanged);
+            // 
             // btSearch
             // 
-            this.btSearch.Location = new System.Drawing.Point(10, 87);
+            this.btSearch.Location = new System.Drawing.Point(6, 87);
             this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(413, 23);
+            this.btSearch.Size = new System.Drawing.Size(417, 23);
             this.btSearch.TabIndex = 16;
             this.btSearch.Text = "Search";
             this.btSearch.UseVisualStyleBackColor = true;
@@ -128,13 +172,6 @@
             this.tbLastname.Name = "tbLastname";
             this.tbLastname.Size = new System.Drawing.Size(278, 20);
             this.tbLastname.TabIndex = 14;
-            // 
-            // tbId
-            // 
-            this.tbId.Location = new System.Drawing.Point(145, 31);
-            this.tbId.Name = "tbId";
-            this.tbId.Size = new System.Drawing.Size(278, 20);
-            this.tbId.TabIndex = 13;
             // 
             // lbMoneyTransferred
             // 
@@ -229,7 +266,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(142, 120);
+            this.label1.Location = new System.Drawing.Point(196, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 2;
@@ -240,18 +277,9 @@
             this.lbLastname.AutoSize = true;
             this.lbLastname.Location = new System.Drawing.Point(7, 64);
             this.lbLastname.Name = "lbLastname";
-            this.lbLastname.Size = new System.Drawing.Size(69, 13);
+            this.lbLastname.Size = new System.Drawing.Size(104, 13);
             this.lbLastname.TabIndex = 1;
-            this.lbLastname.Text = "by last name:";
-            // 
-            // lbId
-            // 
-            this.lbId.AutoSize = true;
-            this.lbId.Location = new System.Drawing.Point(7, 34);
-            this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(32, 13);
-            this.lbId.TabIndex = 0;
-            this.lbId.Text = "by id:";
+            this.lbLastname.Text = "search by last name:";
             // 
             // bgOverallStatus
             // 
@@ -279,7 +307,7 @@
             // 
             // btUpdateOverallStatus
             // 
-            this.btUpdateOverallStatus.Location = new System.Drawing.Point(7, 20);
+            this.btUpdateOverallStatus.Location = new System.Drawing.Point(10, 26);
             this.btUpdateOverallStatus.Name = "btUpdateOverallStatus";
             this.btUpdateOverallStatus.Size = new System.Drawing.Size(434, 23);
             this.btUpdateOverallStatus.TabIndex = 14;
@@ -299,7 +327,7 @@
             // lbTotalMoneyPaid
             // 
             this.lbTotalMoneyPaid.AutoSize = true;
-            this.lbTotalMoneyPaid.Location = new System.Drawing.Point(147, 170);
+            this.lbTotalMoneyPaid.Location = new System.Drawing.Point(147, 174);
             this.lbTotalMoneyPaid.Name = "lbTotalMoneyPaid";
             this.lbTotalMoneyPaid.Size = new System.Drawing.Size(16, 13);
             this.lbTotalMoneyPaid.TabIndex = 12;
@@ -308,17 +336,16 @@
             // lbTotalBalance
             // 
             this.lbTotalBalance.AutoSize = true;
-            this.lbTotalBalance.Location = new System.Drawing.Point(147, 143);
+            this.lbTotalBalance.Location = new System.Drawing.Point(147, 144);
             this.lbTotalBalance.Name = "lbTotalBalance";
             this.lbTotalBalance.Size = new System.Drawing.Size(16, 13);
             this.lbTotalBalance.TabIndex = 11;
             this.lbTotalBalance.Text = "---";
-            this.lbTotalBalance.Click += new System.EventHandler(this.label17_Click);
             // 
             // lbVisitorsLeft
             // 
             this.lbVisitorsLeft.AutoSize = true;
-            this.lbVisitorsLeft.Location = new System.Drawing.Point(147, 120);
+            this.lbVisitorsLeft.Location = new System.Drawing.Point(147, 116);
             this.lbVisitorsLeft.Name = "lbVisitorsLeft";
             this.lbVisitorsLeft.Size = new System.Drawing.Size(16, 13);
             this.lbVisitorsLeft.TabIndex = 10;
@@ -354,7 +381,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 201);
+            this.label12.Location = new System.Drawing.Point(7, 201);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(103, 13);
             this.label12.TabIndex = 6;
@@ -363,7 +390,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 171);
+            this.label11.Location = new System.Drawing.Point(7, 174);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 13);
             this.label11.TabIndex = 5;
@@ -372,7 +399,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 143);
+            this.label10.Location = new System.Drawing.Point(7, 144);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(105, 13);
             this.label10.TabIndex = 4;
@@ -381,7 +408,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 120);
+            this.label9.Location = new System.Drawing.Point(7, 116);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 13);
             this.label9.TabIndex = 3;
@@ -413,50 +440,14 @@
             this.liCampSpots.Size = new System.Drawing.Size(434, 329);
             this.liCampSpots.TabIndex = 0;
             // 
-            // liVisitors
+            // btRetrieveQRData
             // 
-            this.liVisitors.FormattingEnabled = true;
-            this.liVisitors.Location = new System.Drawing.Point(6, 371);
-            this.liVisitors.Name = "liVisitors";
-            this.liVisitors.Size = new System.Drawing.Size(417, 186);
-            this.liVisitors.TabIndex = 17;
-            this.liVisitors.SelectedIndexChanged += new System.EventHandler(this.liVisitors_SelectedIndexChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 180);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(78, 13);
-            this.label14.TabIndex = 18;
-            this.label14.Text = "phone number:";
-            // 
-            // lbPhoneNumber
-            // 
-            this.lbPhoneNumber.AutoSize = true;
-            this.lbPhoneNumber.Location = new System.Drawing.Point(142, 180);
-            this.lbPhoneNumber.Name = "lbPhoneNumber";
-            this.lbPhoneNumber.Size = new System.Drawing.Size(16, 13);
-            this.lbPhoneNumber.TabIndex = 19;
-            this.lbPhoneNumber.Text = "---";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 270);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 13);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "has left:";
-            // 
-            // lbHasLeft
-            // 
-            this.lbHasLeft.AutoSize = true;
-            this.lbHasLeft.Location = new System.Drawing.Point(142, 270);
-            this.lbHasLeft.Name = "lbHasLeft";
-            this.lbHasLeft.Size = new System.Drawing.Size(16, 13);
-            this.lbHasLeft.TabIndex = 21;
-            this.lbHasLeft.Text = "---";
+            this.btRetrieveQRData.Location = new System.Drawing.Point(6, 26);
+            this.btRetrieveQRData.Name = "btRetrieveQRData";
+            this.btRetrieveQRData.Size = new System.Drawing.Size(417, 23);
+            this.btRetrieveQRData.TabIndex = 22;
+            this.btRetrieveQRData.Text = "Retrieve ID from QR reader";
+            this.btRetrieveQRData.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -465,6 +456,7 @@
             this.ClientSize = new System.Drawing.Size(942, 619);
             this.Controls.Add(this.bgOverallStatus);
             this.Controls.Add(this.gbVisitorStatus);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.gbVisitorStatus.ResumeLayout(false);
@@ -479,7 +471,6 @@
 
         private System.Windows.Forms.GroupBox gbVisitorStatus;
         private System.Windows.Forms.TextBox tbLastname;
-        private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.Label lbMoneyTransferred;
         private System.Windows.Forms.Label lbMoneySpentFood;
         private System.Windows.Forms.Label lbHasEntered;
@@ -492,7 +483,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbLastname;
-        private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.GroupBox bgOverallStatus;
         private System.Windows.Forms.Label lbTotalBalance;
         private System.Windows.Forms.Label lbVisitorsLeft;
@@ -516,6 +506,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbHasLeft;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btRetrieveQRData;
     }
 }
 

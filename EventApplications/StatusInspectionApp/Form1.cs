@@ -15,48 +15,52 @@ namespace StatusInspectionApp
     {
 
         private DBConnection connection;
-        private List<Person> visitors;
+        private StatusPanelController statusController;
 
         public Form1()
         {
             InitializeComponent();
             connection = new DBConnection();
+            statusController = new StatusPanelController(connection);
+
+            statusController.RetrieveQRData = btRetrieveQRData;
+            statusController.LastName = tbLastname;
+            statusController.SearchByLastName = btSearch;
+            statusController.Email = lbEmail;
+            statusController.PhoneNumber = lbPhoneNumber;
+            statusController.Money = lbMoney;
+            statusController.HasEntered = lbHasEntered;
+            statusController.HasLeft = lbHasLeft;
+            statusController.MoneySpentOnFood = lbMoneySpentFood;
+            statusController.TotalMoney = lbMoneyTransferred;
+            statusController.Visitors = liVisitors;
+            statusController.ClearResult = btClearResult;
         }
 
         private void btSearch_Click(object sender, EventArgs e)
         {
-            if (tbId.Text != "")
-            {
-                visitors = connection.SelectVisitor("user_id", tbId.Text);
-            }
-            else if (tbLastname.Text != "")
-            {
-                visitors = connection.SelectVisitor("last_name", tbLastname.Text);
-            }
-            else
-            {
-                return;
-            }
+            statusController.SearchByLastNameButtonClick();
+        }
 
-            tbId.Clear();
-            tbLastname.Clear();
-            ClearResultLabels();
+        private void liVisitors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            statusController.VisitorsListBoxSelectedIndexChanged();
+        }
 
-            liVisitors.Items.Clear();
-            foreach (Person p in visitors){
-                liVisitors.Items.Add(p);
-            }
+        private void btClearResult_Click(object sender, EventArgs e)
+        {
+            statusController.ClearResultsButtonClick();
         }
 
         private void btUpdateOverallStatus_Click(object sender, EventArgs e)
         {
             //clear lablels and listbox
-            Clear(lbVisitorsEntered);
-            Clear(lbVisitorsNotEntered);
-            Clear(lbVisitorsLeft);
-            Clear(lbTotalBalance);
-            Clear(lbTotalMoneyPaid);
-            Clear(lbCampSpotsBooked);
+            StatusPanelController.Clear(lbVisitorsEntered);
+            StatusPanelController.Clear(lbVisitorsNotEntered);
+            StatusPanelController.Clear(lbVisitorsLeft);
+            StatusPanelController.Clear(lbTotalBalance);
+            StatusPanelController.Clear(lbTotalMoneyPaid);
+            StatusPanelController.Clear(lbCampSpotsBooked);
             liCampSpots.Items.Clear();
 
             //get updated info
@@ -74,52 +78,7 @@ namespace StatusInspectionApp
             lbTotalBalance.Text = Convert.ToString(totalMoneyBalance);
             lbTotalMoneyPaid.Text = Convert.ToString(totalMoneyPaid);
             //lbCampSpotsBooked.Text = Convert.ToString();
-
         }
 
-        private void btClearResult_Click(object sender, EventArgs e)
-        {
-            ClearResultLabels();
-            liVisitors.Items.Clear();
-        }
-
-        private void Clear(Label lb)
-        {
-            lb.Text = "---";
-        }
-
-        private void liVisitors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Person visitor;
-            if (liVisitors.SelectedItem is Person)
-            {
-                visitor = (Person)(liVisitors.SelectedItem);
-
-                ClearResultLabels();
-                lbEmail.Text = visitor.Email;
-                lbPhoneNumber.Text = visitor.Phone_number;
-                lbMoney.Text = Convert.ToString(visitor.Money);
-                lbHasEntered.Text = visitor.HasEntered.ToString();
-                lbHasLeft.Text = visitor.HasLeft.ToString();
-                //lbMoneySpentFood.Text = 
-                //lbMoneyTransferred.Text = 
-            }
-        }
-
-        private void ClearResultLabels()
-        {
-            Clear(lbEmail);
-            Clear(lbPhoneNumber);
-            Clear(lbMoney);
-            Clear(lbHasEntered);
-            Clear(lbHasLeft);
-            Clear(lbMoneySpentFood);
-            Clear(lbMoneyTransferred);
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -10,3 +10,7 @@ C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInsp
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.exe
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\StatusInspectionApp.exe.manifest
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\StatusInspectionApp.application
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.exe.manifest
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.application

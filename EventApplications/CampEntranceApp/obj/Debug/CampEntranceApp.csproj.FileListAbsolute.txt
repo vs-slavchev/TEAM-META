@@ -9,3 +9,4 @@ C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceAp
 C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.exe
 C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.Form1.resources
