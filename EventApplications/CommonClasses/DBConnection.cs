@@ -22,9 +22,13 @@ namespace CommonClasses
             connectionString.Password = "2XArGTUPc9";
             connectionString.ConnectionTimeout = 30;
 
+            connection = new MySqlConnection(connectionString.ToString());
+        }
+
+        public void Open()
+        {
             try
             {
-                connection = new MySqlConnection(connectionString.ToString());
                 connection.Open();
             }
             catch (MySqlException ex)
@@ -33,9 +37,20 @@ namespace CommonClasses
             }
         }
 
-        public List<Person> SelectVisitor(string dbField, string value)
+        public void Close()
         {
-            MySqlDataReader reader = null;
+            try
+            {
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+        }
+
+        public MySqlDataReader ReaderQuery(string dbCondition, string dbTable)
+        {
             List<Person> visitors = new List<Person>();
             try
             {
@@ -43,27 +58,14 @@ namespace CommonClasses
                 cmd.Connection = connection;
 
                 cmd.CommandText = "SELECT * "
-                                + "FROM user "
-                                + "WHERE " + dbField + " = '" + value + "';";
+                                + "FROM " + dbTable + " "
+                                + "WHERE " + dbCondition + ";";
 
-                reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    visitors.Add(new Person(reader));
-                }
-                return visitors;
+                return cmd.ExecuteReader();
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("Error: " + ex.ToString());
-            }
-            finally
-            {
-                if (reader != null)
-                {
-                    reader.Close();
-                }
             }
             return null;
         }
@@ -105,9 +107,5 @@ namespace CommonClasses
             return -1;
         }
 
-        public void Close()
-        {
-            connection.Close();
-        }
     }
 }

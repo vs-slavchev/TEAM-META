@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>z3F1ME1kXiOosvRw5ms/hBtySJfx8E0g5iLR3LLP6yI=</dsig:DigestValue>
+        <dsig:DigestValue>u0Pap5VMhxLJEYhLSdcvJzBtW3li/irBCEWO+46Der4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StatusInspectionApp.exe" size="131584">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StatusInspectionApp.exe" size="132096">
       <assemblyIdentity name="StatusInspectionApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KbZcuY/qaoItGTZcdP1bU5B+GaEUIVCDvq8Xcg0OM+c=</dsig:DigestValue>
+        <dsig:DigestValue>R0jm7kDAKIk42n6Oj/SoqXQsTWaPreL7Gf1erUJA8uU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace CommonClasses
 {
@@ -15,8 +17,8 @@ namespace CommonClasses
     {
 
         public Button RetrieveQRData { get; set; }
-        public TextBox LastName { get; set; }
-        public Button SearchByLastName { get; set; }
+        public TextBox SearchLastName { get; set; }
+        public Button SearchByLastNameButton { get; set; }
         public Label Email { get; set; }
         public Label PhoneNumber { get; set; }
         public Label Money { get; set; }
@@ -28,7 +30,7 @@ namespace CommonClasses
         public Button ClearResult { get; set; }
 
         private DBConnection connection;
-        private List<Person> visitors;
+        private List<Person> visitors = new List<Person>();
 
         public StatusPanelController(DBConnection connection)
         {
@@ -37,20 +39,40 @@ namespace CommonClasses
 
         public void SearchByLastNameButtonClick()
         {
-            if (LastName.Text != "")
-            {
-                visitors = connection.SelectVisitor("last_name", LastName.Text);
-            }
-            else
+            if (SearchLastName.Text.Equals(""))
             {
                 return;
             }
 
-            LastName.Clear();
+            MySqlDataReader reader = null;
+            try
+            {
+                connection.Open();
+                reader = connection.ReaderQuery("last_name = '" + SearchLastName.Text + "'", "user");
+                while (reader.Read())
+                {
+                    visitors.Add(new Person(reader));
+                }
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+
+            SearchLastName.Clear();
             ClearResultLabels();
 
             Visitors.Items.Clear();
-            foreach (Person p in visitors){
+            foreach (Person p in visitors)
+            {
                 Visitors.Items.Add(p);
             }
         }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gbVisitorStatus = new System.Windows.Forms.GroupBox();
+            this.btRetrieveQRData = new System.Windows.Forms.Button();
             this.lbHasLeft = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lbPhoneNumber = new System.Windows.Forms.Label();
@@ -37,7 +38,7 @@
             this.liVisitors = new System.Windows.Forms.ListBox();
             this.btSearch = new System.Windows.Forms.Button();
             this.btClearResult = new System.Windows.Forms.Button();
-            this.tbLastname = new System.Windows.Forms.TextBox();
+            this.tbSearchLastname = new System.Windows.Forms.TextBox();
             this.lbMoneyTransferred = new System.Windows.Forms.Label();
             this.lbMoneySpentFood = new System.Windows.Forms.Label();
             this.lbHasEntered = new System.Windows.Forms.Label();
@@ -66,13 +67,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.liCampSpots = new System.Windows.Forms.ListBox();
-            this.btRetrieveQRData = new System.Windows.Forms.Button();
             this.gbVisitorStatus.SuspendLayout();
             this.bgOverallStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbVisitorStatus
             // 
+            this.gbVisitorStatus.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gbVisitorStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gbVisitorStatus.Controls.Add(this.btRetrieveQRData);
             this.gbVisitorStatus.Controls.Add(this.lbHasLeft);
             this.gbVisitorStatus.Controls.Add(this.label15);
@@ -81,7 +83,7 @@
             this.gbVisitorStatus.Controls.Add(this.liVisitors);
             this.gbVisitorStatus.Controls.Add(this.btSearch);
             this.gbVisitorStatus.Controls.Add(this.btClearResult);
-            this.gbVisitorStatus.Controls.Add(this.tbLastname);
+            this.gbVisitorStatus.Controls.Add(this.tbSearchLastname);
             this.gbVisitorStatus.Controls.Add(this.lbMoneyTransferred);
             this.gbVisitorStatus.Controls.Add(this.lbMoneySpentFood);
             this.gbVisitorStatus.Controls.Add(this.lbHasEntered);
@@ -96,15 +98,25 @@
             this.gbVisitorStatus.Controls.Add(this.lbLastname);
             this.gbVisitorStatus.Location = new System.Drawing.Point(22, 12);
             this.gbVisitorStatus.Name = "gbVisitorStatus";
-            this.gbVisitorStatus.Size = new System.Drawing.Size(429, 595);
+            this.gbVisitorStatus.Size = new System.Drawing.Size(429, 686);
             this.gbVisitorStatus.TabIndex = 0;
             this.gbVisitorStatus.TabStop = false;
             this.gbVisitorStatus.Text = "Visitor Status";
             // 
+            // btRetrieveQRData
+            // 
+            this.btRetrieveQRData.Location = new System.Drawing.Point(6, 19);
+            this.btRetrieveQRData.Name = "btRetrieveQRData";
+            this.btRetrieveQRData.Size = new System.Drawing.Size(417, 78);
+            this.btRetrieveQRData.TabIndex = 22;
+            this.btRetrieveQRData.Text = "Retrieve ID from QR reader";
+            this.btRetrieveQRData.UseVisualStyleBackColor = true;
+            this.btRetrieveQRData.Click += new System.EventHandler(this.btRetrieveQRData_Click);
+            // 
             // lbHasLeft
             // 
             this.lbHasLeft.AutoSize = true;
-            this.lbHasLeft.Location = new System.Drawing.Point(142, 270);
+            this.lbHasLeft.Location = new System.Drawing.Point(142, 260);
             this.lbHasLeft.Name = "lbHasLeft";
             this.lbHasLeft.Size = new System.Drawing.Size(16, 13);
             this.lbHasLeft.TabIndex = 21;
@@ -113,7 +125,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 270);
+            this.label15.Location = new System.Drawing.Point(10, 260);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(44, 13);
             this.label15.TabIndex = 20;
@@ -122,7 +134,7 @@
             // lbPhoneNumber
             // 
             this.lbPhoneNumber.AutoSize = true;
-            this.lbPhoneNumber.Location = new System.Drawing.Point(142, 180);
+            this.lbPhoneNumber.Location = new System.Drawing.Point(142, 170);
             this.lbPhoneNumber.Name = "lbPhoneNumber";
             this.lbPhoneNumber.Size = new System.Drawing.Size(16, 13);
             this.lbPhoneNumber.TabIndex = 19;
@@ -131,7 +143,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(10, 180);
+            this.label14.Location = new System.Drawing.Point(10, 170);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 18;
@@ -140,17 +152,17 @@
             // liVisitors
             // 
             this.liVisitors.FormattingEnabled = true;
-            this.liVisitors.Location = new System.Drawing.Point(6, 371);
+            this.liVisitors.Location = new System.Drawing.Point(6, 465);
             this.liVisitors.Name = "liVisitors";
-            this.liVisitors.Size = new System.Drawing.Size(417, 186);
+            this.liVisitors.Size = new System.Drawing.Size(417, 160);
             this.liVisitors.TabIndex = 17;
             this.liVisitors.SelectedIndexChanged += new System.EventHandler(this.liVisitors_SelectedIndexChanged);
             // 
             // btSearch
             // 
-            this.btSearch.Location = new System.Drawing.Point(6, 87);
+            this.btSearch.Location = new System.Drawing.Point(6, 425);
             this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(417, 23);
+            this.btSearch.Size = new System.Drawing.Size(417, 34);
             this.btSearch.TabIndex = 16;
             this.btSearch.Text = "Search";
             this.btSearch.UseVisualStyleBackColor = true;
@@ -158,25 +170,25 @@
             // 
             // btClearResult
             // 
-            this.btClearResult.Location = new System.Drawing.Point(6, 563);
+            this.btClearResult.Location = new System.Drawing.Point(6, 628);
             this.btClearResult.Name = "btClearResult";
-            this.btClearResult.Size = new System.Drawing.Size(417, 23);
+            this.btClearResult.Size = new System.Drawing.Size(417, 52);
             this.btClearResult.TabIndex = 15;
             this.btClearResult.Text = "Clear result";
             this.btClearResult.UseVisualStyleBackColor = true;
             this.btClearResult.Click += new System.EventHandler(this.btClearResult_Click);
             // 
-            // tbLastname
+            // tbSearchLastname
             // 
-            this.tbLastname.Location = new System.Drawing.Point(145, 61);
-            this.tbLastname.Name = "tbLastname";
-            this.tbLastname.Size = new System.Drawing.Size(278, 20);
-            this.tbLastname.TabIndex = 14;
+            this.tbSearchLastname.Location = new System.Drawing.Point(145, 399);
+            this.tbSearchLastname.Name = "tbSearchLastname";
+            this.tbSearchLastname.Size = new System.Drawing.Size(278, 20);
+            this.tbSearchLastname.TabIndex = 14;
             // 
             // lbMoneyTransferred
             // 
             this.lbMoneyTransferred.AutoSize = true;
-            this.lbMoneyTransferred.Location = new System.Drawing.Point(142, 333);
+            this.lbMoneyTransferred.Location = new System.Drawing.Point(142, 320);
             this.lbMoneyTransferred.Name = "lbMoneyTransferred";
             this.lbMoneyTransferred.Size = new System.Drawing.Size(16, 13);
             this.lbMoneyTransferred.TabIndex = 12;
@@ -185,7 +197,7 @@
             // lbMoneySpentFood
             // 
             this.lbMoneySpentFood.AutoSize = true;
-            this.lbMoneySpentFood.Location = new System.Drawing.Point(142, 300);
+            this.lbMoneySpentFood.Location = new System.Drawing.Point(142, 290);
             this.lbMoneySpentFood.Name = "lbMoneySpentFood";
             this.lbMoneySpentFood.Size = new System.Drawing.Size(16, 13);
             this.lbMoneySpentFood.TabIndex = 11;
@@ -194,7 +206,7 @@
             // lbHasEntered
             // 
             this.lbHasEntered.AutoSize = true;
-            this.lbHasEntered.Location = new System.Drawing.Point(142, 241);
+            this.lbHasEntered.Location = new System.Drawing.Point(142, 230);
             this.lbHasEntered.Name = "lbHasEntered";
             this.lbHasEntered.Size = new System.Drawing.Size(16, 13);
             this.lbHasEntered.TabIndex = 10;
@@ -203,7 +215,7 @@
             // lbMoney
             // 
             this.lbMoney.AutoSize = true;
-            this.lbMoney.Location = new System.Drawing.Point(142, 210);
+            this.lbMoney.Location = new System.Drawing.Point(142, 200);
             this.lbMoney.Name = "lbMoney";
             this.lbMoney.Size = new System.Drawing.Size(16, 13);
             this.lbMoney.TabIndex = 9;
@@ -212,7 +224,7 @@
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(142, 153);
+            this.lbEmail.Location = new System.Drawing.Point(142, 140);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(16, 13);
             this.lbEmail.TabIndex = 8;
@@ -221,7 +233,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 333);
+            this.label6.Location = new System.Drawing.Point(10, 320);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(117, 13);
             this.label6.TabIndex = 7;
@@ -230,7 +242,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 300);
+            this.label5.Location = new System.Drawing.Point(10, 290);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 13);
             this.label5.TabIndex = 6;
@@ -239,7 +251,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 241);
+            this.label4.Location = new System.Drawing.Point(10, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 5;
@@ -248,7 +260,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 210);
+            this.label3.Location = new System.Drawing.Point(10, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
@@ -257,7 +269,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 153);
+            this.label2.Location = new System.Drawing.Point(10, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 3;
@@ -266,16 +278,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(196, 130);
+            this.label1.Location = new System.Drawing.Point(142, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Result:";
+            this.label1.Text = "Info:";
             // 
             // lbLastname
             // 
             this.lbLastname.AutoSize = true;
-            this.lbLastname.Location = new System.Drawing.Point(7, 64);
+            this.lbLastname.Location = new System.Drawing.Point(15, 402);
             this.lbLastname.Name = "lbLastname";
             this.lbLastname.Size = new System.Drawing.Size(104, 13);
             this.lbLastname.TabIndex = 1;
@@ -283,6 +295,8 @@
             // 
             // bgOverallStatus
             // 
+            this.bgOverallStatus.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.bgOverallStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bgOverallStatus.Controls.Add(this.btUpdateOverallStatus);
             this.bgOverallStatus.Controls.Add(this.lbCampSpotsBooked);
             this.bgOverallStatus.Controls.Add(this.lbTotalMoneyPaid);
@@ -300,7 +314,7 @@
             this.bgOverallStatus.Controls.Add(this.liCampSpots);
             this.bgOverallStatus.Location = new System.Drawing.Point(472, 12);
             this.bgOverallStatus.Name = "bgOverallStatus";
-            this.bgOverallStatus.Size = new System.Drawing.Size(450, 595);
+            this.bgOverallStatus.Size = new System.Drawing.Size(450, 686);
             this.bgOverallStatus.TabIndex = 1;
             this.bgOverallStatus.TabStop = false;
             this.bgOverallStatus.Text = "Overall Status";
@@ -372,7 +386,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 241);
+            this.label13.Location = new System.Drawing.Point(6, 335);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(116, 13);
             this.label13.TabIndex = 7;
@@ -435,30 +449,22 @@
             // liCampSpots
             // 
             this.liCampSpots.FormattingEnabled = true;
-            this.liCampSpots.Location = new System.Drawing.Point(7, 257);
+            this.liCampSpots.Location = new System.Drawing.Point(6, 351);
             this.liCampSpots.Name = "liCampSpots";
             this.liCampSpots.Size = new System.Drawing.Size(434, 329);
             this.liCampSpots.TabIndex = 0;
-            // 
-            // btRetrieveQRData
-            // 
-            this.btRetrieveQRData.Location = new System.Drawing.Point(6, 26);
-            this.btRetrieveQRData.Name = "btRetrieveQRData";
-            this.btRetrieveQRData.Size = new System.Drawing.Size(417, 23);
-            this.btRetrieveQRData.TabIndex = 22;
-            this.btRetrieveQRData.Text = "Retrieve ID from QR reader";
-            this.btRetrieveQRData.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 619);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(942, 710);
             this.Controls.Add(this.bgOverallStatus);
             this.Controls.Add(this.gbVisitorStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Status Inspection";
             this.gbVisitorStatus.ResumeLayout(false);
             this.gbVisitorStatus.PerformLayout();
             this.bgOverallStatus.ResumeLayout(false);
@@ -470,7 +476,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbVisitorStatus;
-        private System.Windows.Forms.TextBox tbLastname;
+        private System.Windows.Forms.TextBox tbSearchLastname;
         private System.Windows.Forms.Label lbMoneyTransferred;
         private System.Windows.Forms.Label lbMoneySpentFood;
         private System.Windows.Forms.Label lbHasEntered;

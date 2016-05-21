@@ -19,7 +19,7 @@ if (isset($_POST['email']) &&
   $paypal = mysql_entities_fix_string($_POST['paypal']);
   $phone_number = mysql_entities_fix_string($_POST['phone_number']);
 
-  $query = "INSERT INTO users (email, first_name, last_name, paypal, phone_number)
+  $query = "INSERT INTO user (email, first_name, last_name, paypal, phone_number)
   VALUES ('$email', '$first_name', '$last_name', '$paypal', '$phone_number');";
   $result = mysql_query($query);
   if (!$result) die (mysql_fatal_error("Denied access"));

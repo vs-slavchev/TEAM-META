@@ -35,7 +35,7 @@ namespace CommonClasses
 
         public override string ToString()
         {
-            return "id: " + Id + "; first name: " + First_name
+            return "first name: " + First_name
                 + "; last name: " + Last_name + "; email: " + Email;
         }
     }

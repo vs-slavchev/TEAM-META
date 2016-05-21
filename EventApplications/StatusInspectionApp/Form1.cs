@@ -24,8 +24,8 @@ namespace StatusInspectionApp
             statusController = new StatusPanelController(connection);
 
             statusController.RetrieveQRData = btRetrieveQRData;
-            statusController.LastName = tbLastname;
-            statusController.SearchByLastName = btSearch;
+            statusController.SearchLastName = tbSearchLastname;
+            statusController.SearchByLastNameButton = btSearch;
             statusController.Email = lbEmail;
             statusController.PhoneNumber = lbPhoneNumber;
             statusController.Money = lbMoney;
@@ -35,6 +35,11 @@ namespace StatusInspectionApp
             statusController.TotalMoney = lbMoneyTransferred;
             statusController.Visitors = liVisitors;
             statusController.ClearResult = btClearResult;
+        }
+
+        private void btRetrieveQRData_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btSearch_Click(object sender, EventArgs e)
@@ -64,12 +69,14 @@ namespace StatusInspectionApp
             liCampSpots.Items.Clear();
 
             //get updated info
+            connection.Open();
             int visitorsEntered = connection.ScalarCount("has_entered", "user");
             int visitorsNotEntered = connection.ScalarCount("NOT has_entered", "user");
             int visitorsLeft = connection.ScalarCount("has_left", "user");
             double totalMoneyBalance = connection.ScalarSum("money", "user");
             double totalMoneyPaid = connection.ScalarSum("total_money", "user") - totalMoneyBalance;
-            //int numberCampSpotsBooked = connection.ScalarSum("total_money", "camp");
+            //int numberCampSpotsBooked = connection.ScalarCount("is_booked", "camp");
+            connection.Close();
 
             //print updated info
             lbVisitorsEntered.Text = Convert.ToString(visitorsEntered);
@@ -77,8 +84,9 @@ namespace StatusInspectionApp
             lbVisitorsLeft.Text = Convert.ToString(visitorsLeft);
             lbTotalBalance.Text = Convert.ToString(totalMoneyBalance);
             lbTotalMoneyPaid.Text = Convert.ToString(totalMoneyPaid);
-            //lbCampSpotsBooked.Text = Convert.ToString();
+            //lbCampSpotsBooked.Text = Convert.ToString(numberCampSpotsBooked);
         }
+
 
     }
 }
