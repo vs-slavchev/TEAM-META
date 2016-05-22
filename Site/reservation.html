@@ -39,6 +39,7 @@
 	</div>
 </div>
 <div class="body">
+    <div class="bgc">
 	<p class="home-pt3-title">Reservation</p>
 	<div style="width:150px; margin-left:42%">
       <form method="post" action="./php/register.php">
@@ -56,13 +57,13 @@
 					</li><li style="padding:3px;">
             <input type="text" name="phone_number" placeholder="Phone number">
 					</li><li style="padding:3px;">
-            <button type="submit" style="margin-left:80%; margin-top:10px;">Submit</button>
+                <input type="button" type="submit" onclick="location.href='email.html';"style="margin-left:80%; margin-top:10px;" value="Submit" />
 						</li>
 					</ul>
         </fieldset>
       </form>
     </div>
-    <div>
+    <div class="info-list">
         TICKETS:<br>
     The entrance price for the festival is 55 euro. After the reservation you will get an unique identity number by e-mail and you will be asked to deposit <b>20 euro</b> in to the bank account of the event. At the
 entrance of the event you will be checked quickly if you are allowed to enter the event. If you did not pay at all or enough, you will have to pay. The penalty fee for not paying on time is 10
@@ -79,5 +80,6 @@ the whole weekend; not for a single day. Reservation for a camping spot is 30 eu
         </div>
 	<!-- map to build using google dev API, can't with just iframe without API key-->
 </div>
+    </div>
 </BODY>
 </HTML>

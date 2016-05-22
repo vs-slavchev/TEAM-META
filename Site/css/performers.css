@@ -3,13 +3,9 @@ li.odd-row, li.even-row {
   width: 100%;
 }
 
-li.odd-row {
-  padding-left: 9vw;
-}
-
 div.performer {
   display: inline-block;
-  margin-left: 6vw;
+  margin: 1vw;
   padding: 0;
 }
 

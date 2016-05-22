@@ -1,4 +1,8 @@
-body{margin: 0; padding: 0; background: gray;}
+body{
+    margin: 0; padding: 0; background-image: url("../pics/maxresdefault.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
 div{margin: 0; padding: 0;}
 
 div.toolbar-container {
@@ -7,6 +11,7 @@ div.toolbar-container {
   width: 100vw;
   height: 8vh;
   overflow: hidden;
+    background-color: rgba(24,5,21,0.7);
 }
 
 div.toolbar {
@@ -62,9 +67,20 @@ p.nav-btn {
 }
 
 div.body {
-  width: 60vw;
+  text-align: center;
+  width: 70vw;
   margin: auto;
   margin-top: 10vh;
+}
+
+div.body1 {
+  text-align: center;
+  width: 70%;
+  margin: auto;
+    margin: 1%;
+  margin-top: 10vh;
+    margin-left: 5%;
+    float: left;
 }
 
 a{
@@ -74,5 +90,17 @@ a{
 
 li{
     display: inline;
+    float: left;
+}
+.bgc{
+    background-color: rgba(62,14,54,0.9);
+}
+.info-list {
+    color: aliceblue;
+}
+.sup{
+    width: 20%;
+    margin: 1%;
+  margin-top: 10vh;
     float: left;
 }
