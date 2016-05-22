@@ -39,6 +39,10 @@ namespace CommonClasses
 
         public void SearchByLastNameButtonClick()
         {
+            ClearResultLabels();
+            Visitors.Items.Clear();
+            visitors.Clear();
+
             if (SearchLastName.Text.Equals(""))
             {
                 return;
@@ -99,20 +103,21 @@ namespace CommonClasses
         {
             ClearResultLabels();
             Visitors.Items.Clear();
+            visitors.Clear();
         }
 
         private void ClearResultLabels()
         {
-            Clear(Email);
-            Clear(PhoneNumber);
-            Clear(Money);
-            Clear(HasEntered);
-            Clear(HasLeft);
-            Clear(MoneySpentOnFood);
-            Clear(TotalMoney);
+            ClearLabel(Email);
+            ClearLabel(PhoneNumber);
+            ClearLabel(Money);
+            ClearLabel(HasEntered);
+            ClearLabel(HasLeft);
+            ClearLabel(MoneySpentOnFood);
+            ClearLabel(TotalMoney);
         }
 
-        public static void Clear(Label lb)
+        public static void ClearLabel(Label lb)
         {
             lb.Text = "---";
         }

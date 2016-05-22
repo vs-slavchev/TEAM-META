@@ -60,12 +60,12 @@ namespace StatusInspectionApp
         private void btUpdateOverallStatus_Click(object sender, EventArgs e)
         {
             //clear lablels and listbox
-            StatusPanelController.Clear(lbVisitorsEntered);
-            StatusPanelController.Clear(lbVisitorsNotEntered);
-            StatusPanelController.Clear(lbVisitorsLeft);
-            StatusPanelController.Clear(lbTotalBalance);
-            StatusPanelController.Clear(lbTotalMoneyPaid);
-            StatusPanelController.Clear(lbCampSpotsBooked);
+            StatusPanelController.ClearLabel(lbVisitorsEntered);
+            StatusPanelController.ClearLabel(lbVisitorsNotEntered);
+            StatusPanelController.ClearLabel(lbVisitorsLeft);
+            StatusPanelController.ClearLabel(lbTotalBalance);
+            StatusPanelController.ClearLabel(lbTotalMoneyPaid);
+            StatusPanelController.ClearLabel(lbCampSpotsBooked);
             liCampSpots.Items.Clear();
 
             //get updated info

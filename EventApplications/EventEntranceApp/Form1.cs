@@ -16,6 +16,7 @@ namespace EventEntranceApp
 
         private DBConnection connection;
         private StatusPanelController statusController;
+        private string userId = "4";
 
         public Form1()
         {
@@ -37,6 +38,11 @@ namespace EventEntranceApp
             statusController.ClearResult = btClearResult;
         }
 
+        private void btRetrieveQRData_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btSearch_Click(object sender, EventArgs e)
         {
             statusController.SearchByLastNameButtonClick();
@@ -50,6 +56,47 @@ namespace EventEntranceApp
         private void btClearResult_Click(object sender, EventArgs e)
         {
             statusController.ClearResultsButtonClick();
+        }
+
+        private void btInsertInfo_Click(object sender, EventArgs e)
+        {
+            string email = tbEmail.Text;
+            string firstName = tbFirstName.Text;
+            string lastName = tbLastName.Text;
+            string phoneNumber = tbPhoneNumber.Text;
+            string paypal = tbPaypal.Text;
+
+            string queryString = String.Format(Queries.USER_INSERT,
+                                 email, firstName, lastName, phoneNumber, paypal);
+            connection.Open();
+            connection.ExecuteNonQuery(queryString);
+            connection.Close();
+
+            ClearInsertFields();
+        }
+
+        private void btClearFields_Click(object sender, EventArgs e)
+        {
+            ClearInsertFields();
+        }
+
+        private void btMarkAsEntered_Click(object sender, EventArgs e)
+        {
+            string queryString = String.Format(Queries.USER_UPDATE,
+                                 "has_entered", "true", userId);
+
+            connection.Open();
+            connection.ExecuteNonQuery(queryString);
+            connection.Close();
+        }
+
+        private void ClearInsertFields()
+        {
+            tbEmail.Clear();
+            tbFirstName.Clear();
+            tbLastName.Clear();
+            tbPhoneNumber.Clear();
+            tbPaypal.Clear();
         }
 
     }

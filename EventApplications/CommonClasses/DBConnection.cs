@@ -51,7 +51,6 @@ namespace CommonClasses
 
         public MySqlDataReader ReaderQuery(string dbCondition, string dbTable)
         {
-            List<Person> visitors = new List<Person>();
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -105,6 +104,22 @@ namespace CommonClasses
                 MessageBox.Show("Error: " + ex.ToString());
             }
             return -1;
+        }
+
+        public void ExecuteNonQuery(string query)
+        {
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = query;
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
         }
 
     }

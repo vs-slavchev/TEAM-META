@@ -51,24 +51,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbLastname = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbPaypal = new System.Windows.Forms.TextBox();
+            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btInsertInfo = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btClearFields = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.liReasons = new System.Windows.Forms.ListBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btMarkAsEntered = new System.Windows.Forms.Button();
             this.lbAllowedToEnter = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btMarkAsEntered = new System.Windows.Forms.Button();
-            this.btClearFields = new System.Windows.Forms.Button();
-            this.btInsertInfo = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.liReasons = new System.Windows.Forms.ListBox();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.tbLastName = new System.Windows.Forms.TextBox();
-            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
-            this.tbPaypal = new System.Windows.Forms.TextBox();
             this.gbVisitorStatus.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,6 +114,7 @@
             this.btRetrieveQRData.TabIndex = 22;
             this.btRetrieveQRData.Text = "Retrieve ID from QR reader";
             this.btRetrieveQRData.UseVisualStyleBackColor = true;
+            this.btRetrieveQRData.Click += new System.EventHandler(this.btRetrieveQRData_Click);
             // 
             // lbHasLeft
             // 
@@ -253,7 +254,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 200);
+            this.label4.Location = new System.Drawing.Point(10, 230);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 5;
@@ -262,7 +263,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 230);
+            this.label3.Location = new System.Drawing.Point(10, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
@@ -317,6 +318,106 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supply information";
             // 
+            // tbPaypal
+            // 
+            this.tbPaypal.Location = new System.Drawing.Point(128, 147);
+            this.tbPaypal.Name = "tbPaypal";
+            this.tbPaypal.Size = new System.Drawing.Size(371, 20);
+            this.tbPaypal.TabIndex = 32;
+            // 
+            // tbPhoneNumber
+            // 
+            this.tbPhoneNumber.Location = new System.Drawing.Point(128, 117);
+            this.tbPhoneNumber.Name = "tbPhoneNumber";
+            this.tbPhoneNumber.Size = new System.Drawing.Size(371, 20);
+            this.tbPhoneNumber.TabIndex = 31;
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Location = new System.Drawing.Point(128, 87);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(371, 20);
+            this.tbLastName.TabIndex = 30;
+            // 
+            // tbFirstName
+            // 
+            this.tbFirstName.Location = new System.Drawing.Point(128, 57);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(371, 20);
+            this.tbFirstName.TabIndex = 29;
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(128, 27);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(371, 20);
+            this.tbEmail.TabIndex = 28;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(17, 150);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "paypal number:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 90);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(55, 13);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "last name:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 60);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "first name:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "phone number:";
+            // 
+            // btInsertInfo
+            // 
+            this.btInsertInfo.Location = new System.Drawing.Point(6, 184);
+            this.btInsertInfo.Name = "btInsertInfo";
+            this.btInsertInfo.Size = new System.Drawing.Size(493, 52);
+            this.btInsertInfo.TabIndex = 24;
+            this.btInsertInfo.Text = "Insert info";
+            this.btInsertInfo.UseVisualStyleBackColor = true;
+            this.btInsertInfo.Click += new System.EventHandler(this.btInsertInfo_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "email:";
+            // 
+            // btClearFields
+            // 
+            this.btClearFields.Location = new System.Drawing.Point(6, 239);
+            this.btClearFields.Name = "btClearFields";
+            this.btClearFields.Size = new System.Drawing.Size(493, 52);
+            this.btClearFields.TabIndex = 23;
+            this.btClearFields.Text = "Clear fields";
+            this.btClearFields.UseVisualStyleBackColor = true;
+            this.btClearFields.Click += new System.EventHandler(this.btClearFields_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -331,6 +432,34 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Enter";
+            // 
+            // liReasons
+            // 
+            this.liReasons.FormattingEnabled = true;
+            this.liReasons.Location = new System.Drawing.Point(6, 149);
+            this.liReasons.Name = "liReasons";
+            this.liReasons.Size = new System.Drawing.Size(493, 212);
+            this.liReasons.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 133);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(52, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Reasons:";
+            // 
+            // btMarkAsEntered
+            // 
+            this.btMarkAsEntered.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btMarkAsEntered.Location = new System.Drawing.Point(382, 6);
+            this.btMarkAsEntered.Name = "btMarkAsEntered";
+            this.btMarkAsEntered.Size = new System.Drawing.Size(117, 117);
+            this.btMarkAsEntered.TabIndex = 2;
+            this.btMarkAsEntered.Text = "Mark as Entered";
+            this.btMarkAsEntered.UseVisualStyleBackColor = true;
+            this.btMarkAsEntered.Click += new System.EventHandler(this.btMarkAsEntered_Click);
             // 
             // lbAllowedToEnter
             // 
@@ -351,131 +480,6 @@
             this.label7.Size = new System.Drawing.Size(223, 31);
             this.label7.TabIndex = 0;
             this.label7.Text = "Allowed to enter?";
-            // 
-            // btMarkAsEntered
-            // 
-            this.btMarkAsEntered.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btMarkAsEntered.Location = new System.Drawing.Point(382, 6);
-            this.btMarkAsEntered.Name = "btMarkAsEntered";
-            this.btMarkAsEntered.Size = new System.Drawing.Size(117, 117);
-            this.btMarkAsEntered.TabIndex = 2;
-            this.btMarkAsEntered.Text = "Mark as Entered";
-            this.btMarkAsEntered.UseVisualStyleBackColor = true;
-            // 
-            // btClearFields
-            // 
-            this.btClearFields.Location = new System.Drawing.Point(6, 239);
-            this.btClearFields.Name = "btClearFields";
-            this.btClearFields.Size = new System.Drawing.Size(493, 52);
-            this.btClearFields.TabIndex = 23;
-            this.btClearFields.Text = "Clear fields";
-            this.btClearFields.UseVisualStyleBackColor = true;
-            // 
-            // btInsertInfo
-            // 
-            this.btInsertInfo.Location = new System.Drawing.Point(6, 184);
-            this.btInsertInfo.Name = "btInsertInfo";
-            this.btInsertInfo.Size = new System.Drawing.Size(493, 52);
-            this.btInsertInfo.TabIndex = 24;
-            this.btInsertInfo.Text = "Insert info";
-            this.btInsertInfo.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 120);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 13);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "phone number:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 30);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 13);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "email:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 60);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 13);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "first name:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 90);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 13);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "last name:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 150);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 13);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "paypal number:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 133);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Reasons:";
-            // 
-            // liReasons
-            // 
-            this.liReasons.FormattingEnabled = true;
-            this.liReasons.Location = new System.Drawing.Point(6, 149);
-            this.liReasons.Name = "liReasons";
-            this.liReasons.Size = new System.Drawing.Size(493, 212);
-            this.liReasons.TabIndex = 4;
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Location = new System.Drawing.Point(128, 27);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(371, 20);
-            this.tbEmail.TabIndex = 28;
-            // 
-            // tbFirstName
-            // 
-            this.tbFirstName.Location = new System.Drawing.Point(128, 57);
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(371, 20);
-            this.tbFirstName.TabIndex = 29;
-            // 
-            // tbLastName
-            // 
-            this.tbLastName.Location = new System.Drawing.Point(128, 87);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(371, 20);
-            this.tbLastName.TabIndex = 30;
-            // 
-            // tbPhoneNumber
-            // 
-            this.tbPhoneNumber.Location = new System.Drawing.Point(128, 117);
-            this.tbPhoneNumber.Name = "tbPhoneNumber";
-            this.tbPhoneNumber.Size = new System.Drawing.Size(371, 20);
-            this.tbPhoneNumber.TabIndex = 31;
-            // 
-            // tbPaypal
-            // 
-            this.tbPaypal.Location = new System.Drawing.Point(128, 147);
-            this.tbPaypal.Name = "tbPaypal";
-            this.tbPaypal.Size = new System.Drawing.Size(371, 20);
-            this.tbPaypal.TabIndex = 32;
             // 
             // Form1
             // 

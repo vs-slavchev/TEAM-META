@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonClasses.exe" size="15360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonClasses.exe" size="15872">
       <assemblyIdentity name="CommonClasses" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>u0Pap5VMhxLJEYhLSdcvJzBtW3li/irBCEWO+46Der4=</dsig:DigestValue>
+        <dsig:DigestValue>B4QMW4EKNorOIj3uW2LxdWlwrQQRu1v4//7v+5Oq23g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -73,7 +73,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>R0jm7kDAKIk42n6Oj/SoqXQsTWaPreL7Gf1erUJA8uU=</dsig:DigestValue>
+        <dsig:DigestValue>h8OGFnfZ6+Nel8FQlk7hATw8MZQxR1MYg60GqIkdQOo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
