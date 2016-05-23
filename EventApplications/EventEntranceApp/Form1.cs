@@ -16,7 +16,6 @@ namespace EventEntranceApp
 
         private DBConnection connection;
         private StatusPanelController statusController;
-        private string userId = "4";
 
         public Form1()
         {
@@ -40,7 +39,36 @@ namespace EventEntranceApp
 
         private void btRetrieveQRData_Click(object sender, EventArgs e)
         {
+            statusController.RetrieveQRcodeFromReader();
 
+            if (!(statusController.Visitors.SelectedItem is Person))
+            {
+                return;
+            }
+
+            AllowedToEnterReasonsPrint((Person)statusController.Visitors.SelectedItem);
+        }
+
+        private void AllowedToEnterReasonsPrint(Person visitor)
+        {
+            bool allowedToEnter = true;
+            if (visitor.MoneyOwed > 0.00)
+            {
+                liReasons.Items.Add("Not all fees have been paid.");
+                allowedToEnter = false;
+            }
+            if (visitor.HasLeft)
+            {
+                liReasons.Items.Add("Visitor has already left.");
+                allowedToEnter = false;
+            }
+            if (visitor.First_name.Equals("") || visitor.Last_name.Equals(""))
+            {
+                liReasons.Items.Add("Not all information about visitor was supplied.");
+                allowedToEnter = false;
+            }
+
+            lbAllowedToEnter.Text = allowedToEnter ? "YES" : "NO";
         }
 
         private void btSearch_Click(object sender, EventArgs e)
@@ -56,6 +84,8 @@ namespace EventEntranceApp
         private void btClearResult_Click(object sender, EventArgs e)
         {
             statusController.ClearResultsButtonClick();
+            liReasons.Items.Clear();
+            lbAllowedToEnter.Text = "--";
         }
 
         private void btInsertInfo_Click(object sender, EventArgs e)
@@ -83,7 +113,7 @@ namespace EventEntranceApp
         private void btMarkAsEntered_Click(object sender, EventArgs e)
         {
             string queryString = String.Format(Queries.USER_UPDATE,
-                                 "has_entered", "true", userId);
+                                 "has_entered", "true", statusController.UserIdFromQRreader);
 
             connection.Open();
             connection.ExecuteNonQuery(queryString);

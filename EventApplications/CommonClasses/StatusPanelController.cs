@@ -10,7 +10,7 @@ using MySql.Data.MySqlClient;
 namespace CommonClasses
 {
     /*
-     * The class controlls all the status inspection panels for
+     * Controlls all the status inspection panels for
      * a single person. 
      */
     public class StatusPanelController
@@ -28,20 +28,60 @@ namespace CommonClasses
         public Label TotalMoney { get; set; }
         public ListBox Visitors { get; set; }
         public Button ClearResult { get; set; }
+        private string moneyStringFormat = "{0:0.00} €";
+
+        public string UserIdFromQRreader { get; private set; }
 
         private DBConnection connection;
-        private List<Person> visitors = new List<Person>();
+        private string PcId;
 
         public StatusPanelController(DBConnection connection)
         {
             this.connection = connection;
         }
 
+        public void RetrieveQRcodeFromReader()
+        {
+            ClearResultsAndVisitors();
+
+            MySqlDataReader readerUser = null, readerForDevice = null;
+            try
+            {
+                connection.Open();
+                readerForDevice = connection.ReaderQuery("device_id = '" + PcId + "'", "reader_device");
+                while (readerForDevice.Read())
+                {
+                    UserIdFromQRreader = readerForDevice["qr_value"].ToString();
+                }
+
+                readerUser = connection.ReaderQuery("user_id = '" + UserIdFromQRreader + "'", "user");
+                while (readerUser.Read())
+                {
+                    Visitors.Items.Add(new Person(readerUser));
+                    Visitors.SelectedIndex = 0;
+                }
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            finally
+            {
+                if (readerForDevice != null)
+                {
+                    readerForDevice.Close();
+                }
+                if (readerUser != null)
+                {
+                    readerUser.Close();
+                }
+            }
+        }
+
         public void SearchByLastNameButtonClick()
         {
-            ClearResultLabels();
-            Visitors.Items.Clear();
-            visitors.Clear();
+            ClearResultsAndVisitors();
 
             if (SearchLastName.Text.Equals(""))
             {
@@ -55,7 +95,7 @@ namespace CommonClasses
                 reader = connection.ReaderQuery("last_name = '" + SearchLastName.Text + "'", "user");
                 while (reader.Read())
                 {
-                    visitors.Add(new Person(reader));
+                    Visitors.Items.Add(new Person(reader));
                 }
                 connection.Close();
             }
@@ -72,13 +112,6 @@ namespace CommonClasses
             }
 
             SearchLastName.Clear();
-            ClearResultLabels();
-
-            Visitors.Items.Clear();
-            foreach (Person p in visitors)
-            {
-                Visitors.Items.Add(p);
-            }
         }
 
         public void VisitorsListBoxSelectedIndexChanged()
@@ -91,19 +124,23 @@ namespace CommonClasses
                 ClearResultLabels();
                 Email.Text = visitor.Email;
                 PhoneNumber.Text = visitor.Phone_number;
-                Money.Text = Convert.ToString(visitor.Money);
+                Money.Text = String.Format(moneyStringFormat, visitor.Money);
                 HasEntered.Text = visitor.HasEntered.ToString();
                 HasLeft.Text = visitor.HasLeft.ToString();
-                //MoneySpentOnFood.Text = 
-                TotalMoney.Text = visitor.TotalMoney.ToString();
+                //MoneySpentOnFood.Text = String.Format(moneyStringFormat, complex query);
+                TotalMoney.Text = String.Format(moneyStringFormat, visitor.TotalMoney);
             }
         }
 
         public void ClearResultsButtonClick()
         {
+            ClearResultsAndVisitors();
+        }
+
+        public void ClearResultsAndVisitors()
+        {
             ClearResultLabels();
             Visitors.Items.Clear();
-            visitors.Clear();
         }
 
         private void ClearResultLabels()
