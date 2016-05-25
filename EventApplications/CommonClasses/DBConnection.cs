@@ -11,25 +11,25 @@ namespace CommonClasses
 {
     public class DBConnection
     {
-        private MySqlConnection connection = null;
-        private MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder();
+        private MySqlConnection mysqlConnection = null;
 
         public DBConnection()
         {
+            MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder();
             connectionString.Server = "athena01.fhict.local";
             connectionString.Database = "dbi345959";
             connectionString.UserID = "dbi345959";
             connectionString.Password = "2XArGTUPc9";
             connectionString.ConnectionTimeout = 30;
 
-            connection = new MySqlConnection(connectionString.ToString());
+            mysqlConnection = new MySqlConnection(connectionString.ToString());
         }
 
         public void Open()
         {
             try
             {
-                connection.Open();
+                mysqlConnection.Open();
             }
             catch (MySqlException ex)
             {
@@ -41,7 +41,7 @@ namespace CommonClasses
         {
             try
             {
-                connection.Close();
+                mysqlConnection.Close();
             }
             catch (MySqlException ex)
             {
@@ -49,18 +49,19 @@ namespace CommonClasses
             }
         }
 
-        public MySqlDataReader ReaderQuery(string dbCondition, string dbTable)
+        private MySqlCommand createCommand(string query)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = mysqlConnection;
+            cmd.CommandText = query;
+            return cmd;
+        }
+
+        public MySqlDataReader ExecuteReaderQuery(string query)
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection;
-
-                cmd.CommandText = "SELECT * "
-                                + "FROM " + dbTable + " "
-                                + "WHERE " + dbCondition + ";";
-
-                return cmd.ExecuteReader();
+                return createCommand(query).ExecuteReader();
             }
             catch (MySqlException ex)
             {
@@ -69,35 +70,11 @@ namespace CommonClasses
             return null;
         }
 
-        public int ScalarCount(string dbCondition, string dbTable)
+        public double ExecuteScalar(string query)
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandText = "SELECT COUNT(*) "
-                                + "FROM " + dbTable + " "
-                                + "WHERE " + dbCondition + ";";
-
-                return Convert.ToInt32(cmd.ExecuteScalar());
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error: " + ex.ToString());
-            }
-            return -1;
-        }
-
-        public double ScalarSum(string dbField, string dbTable)
-        {
-            try
-            {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandText = "SELECT SUM(" + dbField + ") "
-                                + "FROM " + dbTable + ";";
-
-                return Convert.ToInt32(cmd.ExecuteScalar());
+                return Convert.ToDouble(createCommand(query).ExecuteScalar());
             }
             catch (MySqlException ex)
             {
@@ -110,17 +87,12 @@ namespace CommonClasses
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandText = query;
-
-                cmd.ExecuteNonQuery();
+                createCommand(query).ExecuteNonQuery();
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("Error: " + ex.ToString());
             }
         }
-
     }
 }
