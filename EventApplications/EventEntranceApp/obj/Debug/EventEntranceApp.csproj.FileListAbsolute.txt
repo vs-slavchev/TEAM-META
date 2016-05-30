@@ -12,3 +12,6 @@ C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntrance
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.Form1.resources
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb

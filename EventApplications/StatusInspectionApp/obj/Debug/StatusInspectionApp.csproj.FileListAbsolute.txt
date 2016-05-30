@@ -14,3 +14,6 @@ C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\StatusInsp
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\StatusInspectionApp.application
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.exe.manifest
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.application
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\StatusInspectionApp.exe.config
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.exe
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.pdb
