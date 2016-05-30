@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonClasses.exe" size="15360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CommonClasses.exe" size="16384">
       <assemblyIdentity name="CommonClasses" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>A7ra02HNt6n+XKh7lkWesyFia9q3Xuncs+k/FxIrB1k=</dsig:DigestValue>
+        <dsig:DigestValue>vSCkvdJB5ffnPQgU2D4lLs9gsVBZvqlF7V0kSB9CN4Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StatusInspectionApp.exe" size="132096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StatusInspectionApp.exe" size="132608">
       <assemblyIdentity name="StatusInspectionApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>s1Wl027jggBn3kiTAxjHudkPbRQkEv+of8yX6N+PCGc=</dsig:DigestValue>
+        <dsig:DigestValue>IHhzNQetijcb1RTBvtJRVvnLBXvPbCTjdknl0s24EHU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

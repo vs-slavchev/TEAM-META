@@ -467,9 +467,9 @@
             this.lbAllowedToEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAllowedToEnter.Location = new System.Drawing.Point(239, 38);
             this.lbAllowedToEnter.Name = "lbAllowedToEnter";
-            this.lbAllowedToEnter.Size = new System.Drawing.Size(96, 55);
+            this.lbAllowedToEnter.Size = new System.Drawing.Size(56, 55);
             this.lbAllowedToEnter.TabIndex = 1;
-            this.lbAllowedToEnter.Text = "NO";
+            this.lbAllowedToEnter.Text = "--";
             // 
             // label7
             // 

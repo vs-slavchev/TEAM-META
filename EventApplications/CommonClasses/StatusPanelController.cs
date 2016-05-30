@@ -10,7 +10,7 @@ using MySql.Data.MySqlClient;
 namespace CommonClasses
 {
     /*
-     * The class controlls all the status inspection panels for
+     * Controlls all the status inspection panels for
      * a single person. 
      */
     public class StatusPanelController
@@ -29,19 +29,69 @@ namespace CommonClasses
         public ListBox Visitors { get; set; }
         public Button ClearResult { get; set; }
 
+        public string UserIdFromQRreader { get; private set; }
+
         private DBConnection connection;
-        private List<Person> visitors = new List<Person>();
+        private string PcId;
 
         public StatusPanelController(DBConnection connection)
         {
             this.connection = connection;
+            PcId = Prompt.ShowDialog("Enter PC ID", "Device setup");
+            NullQRvalueInDB();
+        }
+
+        public void SelectUserFromQRReaderCode()
+        {
+            ClearResultsAndVisitors();
+
+            MySqlDataReader readerUser = null, readerForDevice = null;
+            try
+            {
+                // receive the scanned QR value
+                connection.Open();
+                string query = String.Format(Queries.SELECT, "reader_device", "device_id", PcId);
+                readerForDevice = connection.ExecuteReaderQuery(query);
+                while (readerForDevice.Read())
+                {
+                    UserIdFromQRreader = readerForDevice["qr_value"].ToString();
+                }
+                readerForDevice.Close();
+                if (UserIdFromQRreader.Equals(""))
+                {
+                    MessageBox.Show("QR scanner has NOT read a value!", "Warning");
+                }
+
+                // use the QR value to find the user
+                string user_query = String.Format(Queries.SELECT, "user", "user_id", UserIdFromQRreader);
+                readerUser = connection.ExecuteReaderQuery(user_query);
+                while (readerUser.Read())
+                {
+                    Visitors.Items.Add(new Person(readerUser));
+                    Visitors.SelectedIndex = 0;
+                }
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            finally
+            {
+                if (readerForDevice != null)
+                {
+                    readerForDevice.Close();
+                }
+                if (readerUser != null)
+                {
+                    readerUser.Close();
+                }
+            }
         }
 
         public void SearchByLastNameButtonClick()
         {
-            ClearResultLabels();
-            Visitors.Items.Clear();
-            visitors.Clear();
+            ClearResultsAndVisitors();
 
             if (SearchLastName.Text.Equals(""))
             {
@@ -52,10 +102,11 @@ namespace CommonClasses
             try
             {
                 connection.Open();
-                reader = connection.ReaderQuery("last_name = '" + SearchLastName.Text + "'", "user");
+                string query = String.Format(Queries.SELECT, "user", "last_name", SearchLastName.Text);
+                reader = connection.ExecuteReaderQuery(query);
                 while (reader.Read())
                 {
-                    visitors.Add(new Person(reader));
+                    Visitors.Items.Add(new Person(reader));
                 }
                 connection.Close();
             }
@@ -72,13 +123,6 @@ namespace CommonClasses
             }
 
             SearchLastName.Clear();
-            ClearResultLabels();
-
-            Visitors.Items.Clear();
-            foreach (Person p in visitors)
-            {
-                Visitors.Items.Add(p);
-            }
         }
 
         public void VisitorsListBoxSelectedIndexChanged()
@@ -91,19 +135,40 @@ namespace CommonClasses
                 ClearResultLabels();
                 Email.Text = visitor.Email;
                 PhoneNumber.Text = visitor.Phone_number;
-                Money.Text = Convert.ToString(visitor.Money);
+                Money.Text = String.Format(Queries.MONEY_FORMAT, visitor.Money);
                 HasEntered.Text = visitor.HasEntered.ToString();
                 HasLeft.Text = visitor.HasLeft.ToString();
-                //MoneySpentOnFood.Text = 
-                TotalMoney.Text = visitor.TotalMoney.ToString();
+                //MoneySpentOnFood.Text = String.Format(moneyStringFormat, complex query);
+                TotalMoney.Text = String.Format(Queries.MONEY_FORMAT, visitor.TotalMoney);
+            }
+        }
+
+        private void NullQRvalueInDB()
+        {
+            UserIdFromQRreader = "";
+            try
+            {
+                connection.Open();
+                string query = String.Format(Queries.READER_DEVICE_QR_NULL, PcId);
+                connection.ExecuteNonQuery(query);
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
             }
         }
 
         public void ClearResultsButtonClick()
         {
+            ClearResultsAndVisitors();
+            NullQRvalueInDB();
+        }
+
+        public void ClearResultsAndVisitors()
+        {
             ClearResultLabels();
             Visitors.Items.Clear();
-            visitors.Clear();
         }
 
         private void ClearResultLabels()

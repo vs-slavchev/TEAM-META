@@ -39,7 +39,7 @@ namespace StatusInspectionApp
 
         private void btRetrieveQRData_Click(object sender, EventArgs e)
         {
-
+            statusController.SelectUserFromQRReaderCode();
         }
 
         private void btSearch_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace StatusInspectionApp
 
         private void btUpdateOverallStatus_Click(object sender, EventArgs e)
         {
-            //clear lablels and listbox
+            //clear labels and listbox
             StatusPanelController.ClearLabel(lbVisitorsEntered);
             StatusPanelController.ClearLabel(lbVisitorsNotEntered);
             StatusPanelController.ClearLabel(lbVisitorsLeft);
@@ -70,21 +70,28 @@ namespace StatusInspectionApp
 
             //get updated info
             connection.Open();
-            int visitorsEntered = connection.ScalarCount("has_entered", "user");
-            int visitorsNotEntered = connection.ScalarCount("NOT has_entered", "user");
-            int visitorsLeft = connection.ScalarCount("has_left", "user");
-            double totalMoneyBalance = connection.ScalarSum("money", "user");
-            double totalMoneyPaid = connection.ScalarSum("total_money", "user") - totalMoneyBalance;
-            //int numberCampSpotsBooked = connection.ScalarCount("is_booked", "camp");
+            int visitorsEntered =
+                (int)connection.ExecuteScalar(String.Format(Queries.SELECT_COUNT, "user", "has_entered"));
+            int visitorsNotEntered =
+                (int)connection.ExecuteScalar(String.Format(Queries.SELECT_COUNT, "user", "NOT has_entered"));
+            int visitorsLeft =
+                (int)connection.ExecuteScalar(String.Format(Queries.SELECT_COUNT, "user", "has_left"));
+            double totalMoneyBalance =
+                connection.ExecuteScalar(String.Format(Queries.SELECT_SUM, "money", "user"));
+            double totalMoneyPaid =
+                connection.ExecuteScalar(String.Format(Queries.SELECT_SUM, "total_money", "user"));
+            totalMoneyPaid -= totalMoneyBalance;
+            int numberCampSpotsBooked =
+                (int)connection.ExecuteScalar(String.Format(Queries.SELECT_COUNT,"camp", "user_count > 0"));
             connection.Close();
 
             //print updated info
             lbVisitorsEntered.Text = Convert.ToString(visitorsEntered);
             lbVisitorsNotEntered.Text = Convert.ToString(visitorsNotEntered);
             lbVisitorsLeft.Text = Convert.ToString(visitorsLeft);
-            lbTotalBalance.Text = Convert.ToString(totalMoneyBalance);
-            lbTotalMoneyPaid.Text = Convert.ToString(totalMoneyPaid);
-            //lbCampSpotsBooked.Text = Convert.ToString(numberCampSpotsBooked);
+            lbTotalBalance.Text = String.Format(Queries.MONEY_FORMAT, totalMoneyBalance);
+            lbTotalMoneyPaid.Text = String.Format(Queries.MONEY_FORMAT, totalMoneyPaid);
+            lbCampSpotsBooked.Text = Convert.ToString(numberCampSpotsBooked);
         }
 
 

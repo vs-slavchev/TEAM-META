@@ -15,7 +15,7 @@ with open(root.filename, "r") as f:
     for i in range(4): f.readline()
     for line in f:
         SLog = line.split()
-        c.execute("INSERT INTO TRANSACTIONS(DEPOSIT_ID, AMOUNT) VALUES ('%s', '%s')" % (SLog[0], SLog[1]))
-
+        c.execute("UPDATE USER SET money = money + ('%s'), total_money = total_money + ('%s') WHERE USER_ID = ('%s')" % (SLog[1], SLog[1], SLog[0]))
+		
 conn.commit()        
 conn.close()
