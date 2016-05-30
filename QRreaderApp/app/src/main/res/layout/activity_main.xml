@@ -16,17 +16,28 @@
         android:id="@+id/bt_scan"
         android:clickable="true"
         android:enabled="true"
-        android:layout_above="@+id/tv_scanContent"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="78dp" />
+        android:layout_marginTop="128dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/tv_scanContent"
-        android:layout_marginBottom="49dp"
-        android:layout_alignParentBottom="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ready to scan"
+        android:id="@+id/tv_scanStatus"
+        android:layout_below="@+id/bt_scan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ready to connect to DB"
+        android:id="@+id/tv_response"
+        android:layout_marginTop="71dp"
+        android:layout_below="@+id/tv_scanStatus"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

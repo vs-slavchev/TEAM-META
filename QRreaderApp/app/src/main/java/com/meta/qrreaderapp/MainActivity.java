@@ -20,7 +20,7 @@ import com.google.zxing.integration.android.IntentResult;
 public class MainActivity extends AppCompatActivity implements OnClickListener{
 
     private Button scanBtn;
-    private TextView contentTxt;
+    private TextView tvResponse, tvScanStatus;
 
     private String deviceId = "";
 
@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         setContentView(R.layout.activity_main);
 
         scanBtn = (Button)findViewById(R.id.bt_scan);
-        contentTxt = (TextView)findViewById(R.id.tv_scanContent);
+        tvResponse = (TextView)findViewById(R.id.tv_response);
+        tvScanStatus = (TextView)findViewById(R.id.tv_scanStatus);
 
         scanBtn.setOnClickListener(this);
 
@@ -41,13 +42,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Enter device Id:");
 
-        // Set up the input
         final EditText input = new EditText(this);
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
 
-        // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -66,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
     @Override
     public void onClick(View v) {
+        tvScanStatus.setText("scanning...");
+        tvResponse.setText("");
+
         //start the scan intent
         if(v.getId()==R.id.bt_scan){
             IntentIntegrator scanIntegrator = new IntentIntegrator(this);
@@ -80,8 +81,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
         if (scanningResult != null) {
             String scanContent = scanningResult.getContents();
-            contentTxt.setText("CONTENT: " + scanContent);
+            tvScanStatus.setText("Scan successful.");
+            tvResponse.setText("connecting with DB...");
+
+            new DBConnectActivity(this, tvResponse).execute(deviceId, scanContent);
         }else{
+            tvScanStatus.setText("Scan failed.");
             Toast toast = Toast.makeText(getApplicationContext(),
                     "No scan data received!", Toast.LENGTH_SHORT);
             toast.show();
