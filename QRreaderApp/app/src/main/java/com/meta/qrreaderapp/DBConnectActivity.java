@@ -27,7 +27,7 @@ public class DBConnectActivity extends AsyncTask<String,Void,String> {
         String phone_id = params[0];
         String qr_value = params[1];
 
-        String link = "http://athena.fhict.nl/users/i344103/meta/android_db_connector.php";
+        String link = "http://athena.fhict.nl/users/i345959/php/android_db_connector.php";
         try {
             String data = URLEncoder.encode("phone_id", "UTF-8") + "=" + URLEncoder.encode(phone_id, "UTF-8")
                     + "&" + URLEncoder.encode("qr_value", "UTF-8") + "=" + URLEncoder.encode(qr_value, "UTF-8");

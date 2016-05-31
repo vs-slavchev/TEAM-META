@@ -24,7 +24,7 @@ if (isset($_POST['email']) &&
   $result = mysql_query($query);
   if (!$result) die (mysql_fatal_error("Denied access"));
 
-  header("Location: ../index.html");
+  header("Location: ../email.html");
 
 } else
 {
