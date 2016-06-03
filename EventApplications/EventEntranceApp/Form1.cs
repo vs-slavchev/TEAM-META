@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Net;
 using CommonClasses;
 
 namespace EventEntranceApp
@@ -101,9 +104,14 @@ namespace EventEntranceApp
                 MessageBox.Show("Required info is not input!", "Warning");
                 return;
             }
-
+            string qr_code = GetPost(email);
+            if (qr_code.Equals(string.Empty))
+            {
+                MessageBox.Show("Could not generate a QR code.", "Failure");
+                return;
+            }
             string queryString = String.Format(Queries.USER_INSERT,
-                                 email, firstName, lastName, phoneNumber, paypal);
+                                 email, firstName, lastName, phoneNumber, paypal, qr_code);
             connection.Open();
             connection.ExecuteNonQuery(queryString);
             connection.Close();
@@ -119,13 +127,13 @@ namespace EventEntranceApp
 
         private void btMarkAsEntered_Click(object sender, EventArgs e)
         {
-            if (statusController.UserIdFromQRreader.Equals(""))
+            if (statusController.UserQrCode.Equals(""))
             {
                 MessageBox.Show("No user is currently selected.", "Warning");
                 return;
             }
             string queryString = String.Format(Queries.USER_UPDATE,
-                                 "has_entered", "true", statusController.UserIdFromQRreader);
+                                 "has_entered", "true", statusController.UserQrCode);
 
             connection.Open();
             connection.ExecuteNonQuery(queryString);
@@ -139,6 +147,20 @@ namespace EventEntranceApp
             tbLastName.Clear();
             tbPhoneNumber.Clear();
             tbPaypal.Clear();
+        }
+
+        public static string GetPost(string value)
+        {
+            string URI = "http://athena.fhict.nl/users/i345959/php/email_hasher.php";
+
+            string myParameters = "email=" + value;
+
+            using (WebClient wc = new WebClient())
+            {
+                wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                string HtmlResult = wc.UploadString(URI, myParameters);
+                return HtmlResult;
+            }
         }
 
     }

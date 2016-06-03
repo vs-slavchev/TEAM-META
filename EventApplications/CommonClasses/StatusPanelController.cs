@@ -29,16 +29,14 @@ namespace CommonClasses
         public ListBox Visitors { get; set; }
         public Button ClearResult { get; set; }
 
-        public string UserIdFromQRreader { get; private set; }
-
         private DBConnection connection;
         private string PcId;
+        public string UserQrCode { get; private set; }
 
         public StatusPanelController(DBConnection connection)
         {
             this.connection = connection;
             PcId = Prompt.ShowDialog("Enter PC ID", "Device setup");
-            NullQRvalueInDB();
         }
 
         public void SelectUserFromQRReaderCode()
@@ -54,16 +52,19 @@ namespace CommonClasses
                 readerForDevice = connection.ExecuteReaderQuery(query);
                 while (readerForDevice.Read())
                 {
-                    UserIdFromQRreader = readerForDevice["qr_value"].ToString();
+                    UserQrCode = readerForDevice["qr_value"].ToString();
                 }
                 readerForDevice.Close();
-                if (UserIdFromQRreader.Equals(""))
+                connection.Close();
+                if (UserQrCode.Equals(""))
                 {
                     MessageBox.Show("QR scanner has NOT read a value!", "Warning");
+                    //return;
                 }
 
                 // use the QR value to find the user
-                string user_query = String.Format(Queries.SELECT, "user", "user_id", UserIdFromQRreader);
+                string user_query = String.Format(Queries.SELECT, "user", "qr_code", UserQrCode);
+                connection.Open();
                 readerUser = connection.ExecuteReaderQuery(user_query);
                 while (readerUser.Read())
                 {
@@ -145,11 +146,10 @@ namespace CommonClasses
 
         private void NullQRvalueInDB()
         {
-            UserIdFromQRreader = "";
             try
             {
                 connection.Open();
-                string query = String.Format(Queries.READER_DEVICE_QR_NULL, PcId);
+                string query = String.Format(Queries.NULL_QR_READER_DEVICE, PcId);
                 connection.ExecuteNonQuery(query);
                 connection.Close();
             }
@@ -163,6 +163,7 @@ namespace CommonClasses
         {
             ClearResultsAndVisitors();
             NullQRvalueInDB();
+            UserQrCode = "";
         }
 
         public void ClearResultsAndVisitors()

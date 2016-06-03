@@ -18,12 +18,12 @@ namespace CommonClasses
     {
         public static readonly string MONEY_FORMAT = "{0:0.00} €";
         public static readonly string USER_INSERT = "INSERT INTO user "
-            + "(email, first_name, last_name, phone_number, paypal) "
-            + "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}');";
+            + "(email, first_name, last_name, phone_number, paypal, qr_code) "
+            + "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');";
 
         public static readonly string USER_UPDATE = "UPDATE user "
                                                   + "SET {0} = {1} "
-                                                  + "WHERE user_id = {2};";
+                                                  + "WHERE qr_code = {2};";
 
         public static readonly string SELECT = "SELECT * "
                                              + "FROM {0} "
@@ -36,7 +36,7 @@ namespace CommonClasses
                                                    + "FROM {0} "
                                                    + "WHERE {1};";
 
-        public static readonly string READER_DEVICE_QR_NULL = "UPDATE reader_device "
+        public static readonly string NULL_QR_READER_DEVICE = "UPDATE reader_device "
                                                   + "SET qr_value = NULL "
                                                   + "WHERE device_id = {0};";
         
