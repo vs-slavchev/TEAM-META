@@ -53,7 +53,13 @@ public class DBConnectActivity extends AsyncTask<String,Void,String> {
                 break;
             }
             // the returned string is the number of affected rows
-            return sb.toString().equals("1") ? "Connection successful." : "Previous QR code is not yet serviced.";
+            if (sb.toString().equals("1")){
+                return "Connection successful.";
+            }
+            else if (sb.toString().equals("0")){
+                return "Previous QR code is not yet serviced.";
+            }
+            return sb.toString();
 
         } catch(Exception e){
             return new String("Exception: " + e.getMessage());

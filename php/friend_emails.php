@@ -9,12 +9,14 @@ mysql_select_db($db_database) or die(mysql_fatal_error("Unable to select databas
 
 for ($i = 1; $i <=5; $i++)
 {
-  $field_name = 'email' + (string)$i;
-  if (isset($_POST[$field_name]))
+  $field_name = 'email' . (string)$i;
+  if (isset($_POST[$field_name]) && !empty($_POST[$field_name]))
   {
     $email = mysql_entities_fix_string($_POST[$field_name]);
 
-    $query = "INSERT INTO user (email) VALUES ('$email');";
+    $token = tokenize_qr_code($email);
+    $query = "INSERT INTO user (email, qr_code) VALUES ('$email', '$token');";
+
     $result = mysql_query($query);
     if (!$result) die (mysql_fatal_error("Denied access"));
   }

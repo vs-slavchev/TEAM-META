@@ -18,9 +18,11 @@ if (isset($_POST['email']) &&
   $last_name = mysql_entities_fix_string($_POST['last_name']);
   $paypal = mysql_entities_fix_string($_POST['paypal']);
   $phone_number = mysql_entities_fix_string($_POST['phone_number']);
+  
+  $token = tokenize_qr_code($email);
 
-  $query = "INSERT INTO user (email, first_name, last_name, paypal, phone_number)
-  VALUES ('$email', '$first_name', '$last_name', '$paypal', '$phone_number');";
+  $query = "INSERT INTO user (email, first_name, last_name, paypal, phone_number, qr_code)
+  VALUES ('$email', '$first_name', '$last_name', '$paypal', '$phone_number', '$token');";
   $result = mysql_query($query);
   if (!$result) die (mysql_fatal_error("Denied access"));
 

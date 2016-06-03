@@ -1,5 +1,14 @@
 <?php
+require_once 'db_login_details.php';
+
 // Util functions
+function tokenize_qr_code($email)
+{
+  $left_salt = $salt1 . strrev($email);
+  $right_salt = strlen($email) . $salt2;
+  return sha1("$left_salt$email$right_salt");
+}
+
 function mysql_fatal_error($msg)
 {
   $sql_msg = mysql_error();
