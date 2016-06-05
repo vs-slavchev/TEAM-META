@@ -15,3 +15,6 @@ C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntrance
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
+D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
+D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
+D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb

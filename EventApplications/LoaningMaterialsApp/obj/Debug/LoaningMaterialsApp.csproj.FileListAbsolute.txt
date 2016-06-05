@@ -10,3 +10,17 @@ C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_ma
 C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\LoaningMaterialsApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.exe
 C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.pdb
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\LoaningMaterialsApp.csprojResolveAssemblyReference.cache
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.Form1.resources
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.Properties.Resources.resources
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\LoaningMaterialsApp.csproj.GenerateResource.Cache
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.exe
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.pdb
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\Loaning_materialsApp.exe.config
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\Loaning_materialsApp.exe
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\Loaning_materialsApp.pdb
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\CommonClasses.exe
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\MySql.Data.dll
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\ObjectListView.dll
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\CommonClasses.pdb
+D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\ObjectListView.xml
