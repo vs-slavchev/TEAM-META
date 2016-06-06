@@ -18,13 +18,25 @@ if (isset($_POST['email']) &&
   $last_name = mysql_entities_fix_string($_POST['last_name']);
   $paypal = mysql_entities_fix_string($_POST['paypal']);
   $phone_number = mysql_entities_fix_string($_POST['phone_number']);
-  
+  $camp_select = mysql_entities_fix_string($_POST['selectCamp']);
+  $camp_id = $camp_select != "NULL" ? ("'" . $camp_select . "'") : "NULL";
+
   $token = tokenize_qr_code($email);
 
-  $query = "INSERT INTO user (email, first_name, last_name, paypal, phone_number, qr_code)
-  VALUES ('$email', '$first_name', '$last_name', '$paypal', '$phone_number', '$token');";
+  $query = "INSERT INTO user (email, first_name, last_name,
+            paypal, phone_number, qr_code, camp_id)
+            VALUES ('$email', '$first_name', '$last_name',
+            '$paypal', '$phone_number', '$token', $camp_id);";
   $result = mysql_query($query);
   if (!$result) die (mysql_fatal_error("Denied access"));
+
+  if ($camp_id != "NULL")
+  {
+    session_start();
+    $_SESSION['camp_id'] = $camp_select;
+    session_write_close();
+    #exit();
+  }
 
   header("Location: ../email.html");
 

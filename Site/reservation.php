@@ -26,7 +26,7 @@
 				</li>
 				<li class="nav-item">
 					<p class="nav-btn">
-						<a href="reservation.html">Reservation</a>
+						<a href="reservation.php">Reservation</a>
 					</p>
 				</li>
 				<li class="nav-item">
@@ -56,6 +56,35 @@
             <input type="text" name="paypal" placeholder="PayPal account">
 						</li><li style="padding:3px;">
             <input type="text" name="phone_number" placeholder="Phone number">
+						</li><li style="padding:3px;">
+						<p>You can select a camp if you want to book one:</p>
+						<select name="selectCamp">
+						  <option value="NULL">Select...</option>
+
+							<?php
+							require_once 'php/db_login_details.php';
+							require_once 'php/util.php';
+
+							$conn = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
+							if (!$conn) {
+							    die("Connection failed: " . mysqli_connect_error());
+							}
+
+							$sql = "SELECT * FROM camp WHERE user_count = 0;";
+							$result = mysqli_query($conn, $sql);
+
+							if (mysqli_num_rows($result) > 0) {
+							    while($row = mysqli_fetch_assoc($result)) {
+							      $camp_num = $row["camp_id"];
+
+										echo '<option value="' . $camp_num . '">Camp ' . $camp_num . '</option>';
+							    }
+							} else {
+							    echo "No empty camps, sorry!";
+							}
+							mysqli_close($conn);
+							?>
+						</select>
 						</li>
 					</ul>
 					<button type="submit">Submit</button>
