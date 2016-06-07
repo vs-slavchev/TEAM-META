@@ -14,7 +14,7 @@ namespace Loaning_materialsApp
         public int ID { get; set; }
         private decimal price;
         public decimal Price { get; set; }
-        private int renter;
-        public int Renter { get; set; }
+        private string renter;
+        public string Renter { get; set; }
     }
 }
