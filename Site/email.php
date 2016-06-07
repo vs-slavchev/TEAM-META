@@ -1,3 +1,4 @@
+
 <HTML>
 <HEAD>
 <TITLE>Reservations</TITLE>
@@ -26,7 +27,7 @@
 				</li>
 				<li class="nav-item">
 					<p class="nav-btn">
-						<a href="reservation.html">Reservation</a>
+						<a href="reservation.php">Reservation</a>
 					</p>
 				</li>
 				<li class="nav-item">

@@ -24,3 +24,6 @@ D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\MySql.D
 D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\ObjectListView.dll
 D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\CommonClasses.pdb
 D:\GitHub\Meta\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\ObjectListView.xml
+D:\Project P-phase\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\Loaning_materialsApp.exe.config
+D:\Project P-phase\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.exe
+D:\Project P-phase\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.pdb
