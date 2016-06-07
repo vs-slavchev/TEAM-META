@@ -37,7 +37,7 @@ namespace Loaning_materialsApp
                 NewMat.ID = datareader.GetInt32("material_id");
                 NewMat.Name = datareader.GetString("Type");
                 NewMat.Price = datareader.GetDecimal("rent_price");
-                NewMat.Renter = datareader.GetInt32("user_qr");
+                NewMat.Renter = datareader.GetString("user_qr");
                 totalrentprofit += NewMat.Price;
                 mats.Add(NewMat);
             }
@@ -95,7 +95,7 @@ namespace Loaning_materialsApp
             NewMat.ID = Convert.ToInt32(listView2.Items[0].SubItems[1].Text);
             NewMat.Name = listView2.Items[0].SubItems[2].Text;
             NewMat.Price = Convert.ToDecimal(listView2.Items[0].SubItems[3].Text);
-            NewMat.Renter = Convert.ToInt32(r);
+            NewMat.Renter = r;
             listView2.Items[0].SubItems[4].Text = Convert.ToString(Convert.ToInt32(listView2.Items[0].SubItems[4].Text)-1);
             conn.Open();
             conn.ExecuteNonQuery(String.Format("INSERT INTO `material_loan`(`user_qr`, `material_id`) VALUES({0}, {1})", NewMat.Renter, NewMat.ID));
@@ -112,7 +112,7 @@ namespace Loaning_materialsApp
             NewMat.ID = Convert.ToInt32(listView2.Items[1].SubItems[1].Text);
             NewMat.Name = listView2.Items[1].SubItems[2].Text;
             NewMat.Price = Convert.ToDecimal(listView2.Items[1].SubItems[3].Text);
-            NewMat.Renter = Convert.ToInt32(r);
+            NewMat.Renter = r;
             listView2.Items[1].SubItems[4].Text = Convert.ToString(Convert.ToInt32(listView2.Items[1].SubItems[4].Text) - 1);
             conn.Open();
             conn.ExecuteNonQuery(String.Format("INSERT INTO `material_loan`(`user_qr`, `material_id`) VALUES({0}, {1})", NewMat.Renter, NewMat.ID));
@@ -129,7 +129,7 @@ namespace Loaning_materialsApp
             NewMat.ID = Convert.ToInt32(listView2.Items[2].SubItems[1].Text);
             NewMat.Name = listView2.Items[2].SubItems[2].Text;
             NewMat.Price = Convert.ToDecimal(listView2.Items[2].SubItems[3].Text);
-            NewMat.Renter = Convert.ToInt32(r);
+            NewMat.Renter = r;
             listView2.Items[2].SubItems[4].Text = Convert.ToString(Convert.ToInt32(listView2.Items[2].SubItems[4].Text) - 1);
             conn.Open();
             conn.ExecuteNonQuery(String.Format("INSERT INTO `material_loan`(`user_qr`, `material_id`) VALUES({0}, {1})", NewMat.Renter, NewMat.ID));
@@ -146,7 +146,7 @@ namespace Loaning_materialsApp
             NewMat.ID = Convert.ToInt32(listView2.Items[3].SubItems[1].Text);
             NewMat.Name = listView2.Items[3].SubItems[2].Text;
             NewMat.Price = Convert.ToDecimal(listView2.Items[3].SubItems[3].Text);
-            NewMat.Renter = Convert.ToInt32(r);
+            NewMat.Renter = r;
             listView2.Items[3].SubItems[4].Text = Convert.ToString(Convert.ToInt32(listView2.Items[3].SubItems[4].Text) - 1);
             conn.Open();
             conn.ExecuteNonQuery(String.Format("INSERT INTO `material_loan`(`user_qr`, `material_id`) VALUES({0}, {1})", NewMat.Renter, NewMat.ID));
@@ -163,7 +163,7 @@ namespace Loaning_materialsApp
             NewMat.ID = Convert.ToInt32(listView2.Items[4].SubItems[1].Text);
             NewMat.Name = listView2.Items[4].SubItems[2].Text;
             NewMat.Price = Convert.ToDecimal(listView2.Items[4].SubItems[3].Text);
-            NewMat.Renter = Convert.ToInt32(r);
+            NewMat.Renter = r;
             listView2.Items[4].SubItems[4].Text = Convert.ToString(Convert.ToInt32(listView2.Items[4].SubItems[4].Text) - 1);
             conn.Open();
             conn.ExecuteNonQuery(String.Format("INSERT INTO `material_loan`(`user_qr`, `material_id`) VALUES({0}, {1})", NewMat.Renter, NewMat.ID));
@@ -176,7 +176,7 @@ namespace Loaning_materialsApp
         private void button6_Click(object sender, EventArgs e)
         {
             int matID = Convert.ToInt32(textBox1.Text);
-            int userID = Convert.ToInt32(textBox3.Text);
+            string userID = textBox3.Text;
             for (int i = 0; i<mats.Count(); i++)
             {
                 if((matID == mats[i].ID) && (userID == mats[i].Renter)) { mats.RemoveAt(i); break; }
