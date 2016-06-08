@@ -16,10 +16,10 @@ namespace CommonClasses
         public DBConnection()
         {
             MySqlConnectionStringBuilder connectionString = new MySqlConnectionStringBuilder();
-            connectionString.Server = "athena01.fhict.local";
-            connectionString.Database = "dbi345959";
-            connectionString.UserID = "dbi345959";
-            connectionString.Password = "2XArGTUPc9";
+            connectionString.Server = DatabaseDetails.SERVER;
+            connectionString.Database = DatabaseDetails.DATABASE;
+            connectionString.UserID = DatabaseDetails.USER;
+            connectionString.Password = DatabaseDetails.PASSWORD;
             connectionString.ConnectionTimeout = 30;
 
             mysqlConnection = new MySqlConnection(connectionString.ToString());
@@ -88,6 +88,79 @@ namespace CommonClasses
             try
             {
                 createCommand(query).ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+        }
+
+        public Person GetPersonFromQRreader(string PcId)
+        {
+            string UserQrCode = "";
+            Person visitor = null;
+            MySqlDataReader readerUser = null, readerForDevice = null;
+            try
+            {
+                // receive the scanned QR value
+                Open();
+                string query = String.Format(Queries.SELECT, "reader_device", "device_id", PcId);
+                readerForDevice = ExecuteReaderQuery(query);
+                while (readerForDevice.Read())
+                {
+                    UserQrCode = readerForDevice["qr_value"].ToString();
+                }
+                readerForDevice.Close();
+                Close();
+                if (UserQrCode.Equals(""))
+                {
+                    MessageBox.Show("QR scanner has NOT read a value!", "Warning");
+                    return null;
+                }
+
+                // use the QR value to find the user
+                string user_query = String.Format(Queries.SELECT, "user", "qr_code", UserQrCode);
+                Open();
+                readerUser = ExecuteReaderQuery(user_query);
+                while (readerUser.Read())
+                {
+                    visitor = new Person(readerUser);
+                }
+                Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            finally
+            {
+                if (readerForDevice != null)
+                {
+                    readerForDevice.Close();
+                }
+                if (readerUser != null)
+                {
+                    readerUser.Close();
+                }
+            }
+
+            if (visitor == null)
+            {
+                MessageBox.Show("Invalid visitor information!", "Error");
+            }
+
+            return visitor;
+        }
+
+        public void NullQRvalueInDB(string PcId)
+        {
+            try
+            {
+                Open();
+                string query = String.Format(Queries.NULL_QR_READER_DEVICE, PcId);
+                ExecuteNonQuery(query);
+                Close();
             }
             catch (MySqlException ex)
             {

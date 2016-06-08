@@ -42,52 +42,12 @@ namespace CommonClasses
         public void SelectUserFromQRReaderCode()
         {
             ClearResultsAndVisitors();
-
-            MySqlDataReader readerUser = null, readerForDevice = null;
-            try
+            Person visitor = connection.GetPersonFromQRreader(PcId);
+            if (visitor != null)
             {
-                // receive the scanned QR value
-                connection.Open();
-                string query = String.Format(Queries.SELECT, "reader_device", "device_id", PcId);
-                readerForDevice = connection.ExecuteReaderQuery(query);
-                while (readerForDevice.Read())
-                {
-                    UserQrCode = readerForDevice["qr_value"].ToString();
-                }
-                readerForDevice.Close();
-                connection.Close();
-                if (UserQrCode.Equals(""))
-                {
-                    MessageBox.Show("QR scanner has NOT read a value!", "Warning");
-                    //return;
-                }
-
-                // use the QR value to find the user
-                string user_query = String.Format(Queries.SELECT, "user", "qr_code", UserQrCode);
-                connection.Open();
-                readerUser = connection.ExecuteReaderQuery(user_query);
-                while (readerUser.Read())
-                {
-                    Visitors.Items.Add(new Person(readerUser));
-                    Visitors.SelectedIndex = 0;
-                }
-                connection.Close();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error: " + ex.ToString());
-            }
-            finally
-            {
-                if (readerForDevice != null)
-                {
-                    readerForDevice.Close();
-                }
-                if (readerUser != null)
-                {
-                    readerUser.Close();
-                }
-            }
+                Visitors.Items.Add(visitor);
+                Visitors.SelectedIndex = 0;
+            }             
         }
 
         public void SearchByLastNameButtonClick()
@@ -144,25 +104,12 @@ namespace CommonClasses
             }
         }
 
-        private void NullQRvalueInDB()
-        {
-            try
-            {
-                connection.Open();
-                string query = String.Format(Queries.NULL_QR_READER_DEVICE, PcId);
-                connection.ExecuteNonQuery(query);
-                connection.Close();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error: " + ex.ToString());
-            }
-        }
+        
 
         public void ClearResultsButtonClick()
         {
             ClearResultsAndVisitors();
-            NullQRvalueInDB();
+            connection.NullQRvalueInDB(PcId);
             UserQrCode = "";
         }
 

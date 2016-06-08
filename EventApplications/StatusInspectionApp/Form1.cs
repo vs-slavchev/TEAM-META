@@ -92,6 +92,8 @@ namespace StatusInspectionApp
             lbTotalBalance.Text = String.Format(Queries.MONEY_FORMAT, totalMoneyBalance);
             lbTotalMoneyPaid.Text = String.Format(Queries.MONEY_FORMAT, totalMoneyPaid);
             lbCampSpotsBooked.Text = Convert.ToString(numberCampSpotsBooked);
+
+            //add list of free camp spots
         }
 
 
