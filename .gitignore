@@ -1,7 +1,8 @@
+*db_login_details.php
+*connection_data.py
 ~$*
 *.txt~
 *.md~
-*db_login_details.php
 *.cache
 *.Cache
 *.suo
