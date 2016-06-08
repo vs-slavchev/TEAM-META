@@ -3,8 +3,8 @@ require_once 'db_login_details.php';
 require_once 'util.php';
 
 session_start();
-$camp_id = "";
-$organizer_code = "";
+$camp_id = "NULL";
+$organizer_code = "NULL";
 if (isset($_SESSION['camp_id']) && isset($_SESSION['organizer_code']))
 {
   $camp_id = $_SESSION['camp_id'];
@@ -28,8 +28,8 @@ for ($i = 1; $i <=5; $i++)
 
     #add a guest entry and set the camp_id (can be NULL)
     $token = generate_qr_code($email);
-    $query = "INSERT INTO user (email, qr_code, camp_id)
-              VALUES ('$email', '$token', $camp_id);";
+    $query = "INSERT INTO user (email, qr_code, camp_id, money_owed)
+              VALUES ('$email', '$token', $camp_id, $entrance_cost);";
 
     $result = mysql_query($query);
     if (!$result) die (mysql_fatal_error("Denied access"));
@@ -37,17 +37,25 @@ for ($i = 1; $i <=5; $i++)
   }
 }
 
-#increase the money_owed of the organizer for each guest
-#if ($number_guests > 0)
-#{
-#  $guests_price = $number_guests * $guest_camp_cost;
-#  $query = "UPDATE user
-#            SET money_owed = money_owed + $guests_price
-#            WHERE organizer_code = '$organizer_code';";
-#
-#  $result = mysql_query($query);
-#  if (!$result) die (mysql_fatal_error("Denied access"));
-#}
+if ($number_guests > 0 && $camp_id != "NULL")
+{
+  #increase the money_owed of the organizer for each guest
+  $guests_price = $number_guests * $guest_camp_cost;
+  $query = "UPDATE user
+            SET money_owed = money_owed + $guests_price
+            WHERE qr_code = '$organizer_code';";
+
+  $result = mysql_query($query);
+  if (!$result) die (mysql_fatal_error("Denied access"));
+
+  #increase the user_count in the camp
+  $query = "UPDATE camp
+            SET user_count = user_count + $number_guests
+            WHERE camp_id = $camp_id;";
+
+  $result = mysql_query($query);
+  if (!$result) die (mysql_fatal_error("Denied access"));
+}
 
 
 header("Location: ../index.html");

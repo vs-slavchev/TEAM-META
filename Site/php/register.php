@@ -22,29 +22,29 @@ if (isset($_POST['email']) &&
 
   $qr_code = generate_qr_code($email);
 
+  #values if no camp is to be reserved
   $camp_id = "NULL";
-  $camp_cost = 0;
+  $total_money_owed = $entrance_cost;
+
   if ($camp_select != "NULL")
   {
     #NULL doesn't need single quotes but a valid value does
     $camp_id = "'" . $camp_select . "'";
     #only the person making the reservation pays the camp reservation cost
-    $camp_cost = $camp_reservation_cost;
+    $total_money_owed += $camp_reservation_cost;
 
     #set camp organizer
-    #$query = "UPDATE camp
-    #          SET user_count = 1, organizer_code = '$qr_code'
-    #          WHERE camp_id = '$camp_id';";
-    #$result = mysql_query($query);
-    #if (!$result) die (mysql_fatal_error("Denied access"));
+    $query = "UPDATE camp
+              SET user_count = 1, organizer_code = '$qr_code'
+              WHERE camp_id = $camp_id;";
+    $result = mysql_query($query);
+    if (!$result) die (mysql_fatal_error("Denied access"));
 
     session_start();
     $_SESSION['camp_id'] = $camp_id;
     $_SESSION['organizer_code'] = $qr_code;
     session_write_close();
   }
-
-  $total_money_owed = $entrance_cost + $camp_cost;
 
   $query = "INSERT INTO user (email, first_name, last_name,
             paypal, phone_number, qr_code, camp_id, money_owed)
