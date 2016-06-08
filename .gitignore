@@ -1,5 +1,6 @@
 *db_login_details.php
 Scripts/connection_data.py
+EventApplications/CommonClasses/DatabaseDetails.cs
 ~$*
 *.txt~
 *.md~
