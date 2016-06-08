@@ -4,4 +4,5 @@
 *db_login_details.php
 *.cache
 *.Cache
+*.suo
 visual studio 2013
