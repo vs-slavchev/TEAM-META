@@ -39,6 +39,15 @@ namespace CommonClasses
         public static readonly string NULL_QR_READER_DEVICE = "UPDATE reader_device "
                                                   + "SET qr_value = NULL "
                                                   + "WHERE device_id = {0};";
-        
+
+        public static readonly string DELETE_LOAN_MATERIAL = "DELETE FROM `material_loan` "
+                                                           + "WHERE `user_qr`={0} AND `material_id`={1}";
+
+        public static readonly string UPDATE_MATERIAL_QUANTITY = "UPDATE `material` SET `quantity_left`=`quantity_left` + {0} "
+                                                               + "WHERE `material_id` = {1}";
+
+        public static readonly string INSERT_MATERIAL_LOAN = "INSERT INTO `material_loan`(`user_qr`, `material_id`) "
+                                                           + "VALUES({0}, {1})";
+
     }
 }
