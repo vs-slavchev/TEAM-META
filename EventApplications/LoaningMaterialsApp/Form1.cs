@@ -15,14 +15,19 @@ namespace Loaning_materialsApp
 {
     public partial class Form1 : Form
     {
-        private decimal totalrentprofit = 0;
+        private DBConnection connection = new DBConnection();
+        private List<Material> materials = new List<Material>();
+        private decimal totalRentProfit = 0;
+        private Person visitor = null;
+        private string PcId;
 
         public Form1()
         {
             InitializeComponent();
+            listView2.FullRowSelect = true;
+            PcId = Prompt.ShowDialog("Enter PC ID", "Device setup");
         }
-        DBConnection conn = new DBConnection();
-        List<Material> mats = new List<Material>();
+
         private void Form1_Load(object sender, EventArgs e)
         {
             Restore();
@@ -31,55 +36,54 @@ namespace Loaning_materialsApp
 
         private void Restore()
         {
-            conn.Open();
-            MySqlDataReader datareader = conn.ExecuteReaderQuery("SELECT material.material_id, material.Type, "
-                                                                +"material_loan.user_qr, material.rent_price "
-                                                                +"FROM `material` INNER JOIN `material_loan` "
-                                                                +"ON material.material_id=material_loan.material_id");
+            connection.Open();
+            MySqlDataReader datareader = connection.ExecuteReaderQuery(
+                    "SELECT material.material_id, material.type, "
+                  + "material_loan.user_qr, material.rent_price "
+                  + "FROM `material` INNER JOIN `material_loan` "
+                  + "ON material.material_id=material_loan.material_id");
+
             while (datareader.Read())
             {
-                Material NewMat = new Material();
-                NewMat.ID = datareader.GetInt32("material_id");
-                NewMat.Name = datareader.GetString("Type");
-                NewMat.Price = datareader.GetDecimal("rent_price");
-                NewMat.Renter = datareader.GetString("user_qr");
-                totalrentprofit += NewMat.Price;
-                mats.Add(NewMat);
+                Material NewMat = new Material(datareader);
+                totalRentProfit += NewMat.Price;
+                materials.Add(NewMat);
             }
-            conn.Close();
+            connection.Close();
             UpdateListView1();
         }
 
         private void UpdateListView1()
         {
             listView1.Items.Clear();
-            foreach (Material mat in mats)
+            foreach (Material mat in materials)
             {
-                ListViewItem lvi = new ListViewItem();
-                lvi.SubItems.Add(mat.Name);
-                lvi.SubItems.Add(Convert.ToString(mat.Renter));
-                lvi.SubItems.Add(Convert.ToString(mat.Price));
-                listView1.Items.Add(lvi);
+                listView1.Items.Add(CreateListViewItem(mat));
             }
-            textBox2.Text = "Total: " + Convert.ToString(totalrentprofit);
+            textBox2.Text = Convert.ToString(totalRentProfit);
         }
 
         private void AddToListView1(Material mat)
         {
-            ListViewItem lvi = new ListViewItem();
-            lvi.SubItems.Add(mat.Name);
-            lvi.SubItems.Add(Convert.ToString(mat.Renter));
-            lvi.SubItems.Add(Convert.ToString(mat.Price));
-            listView1.Items.Add(lvi);
-            totalrentprofit += mat.Price;
-            textBox2.Text = "Total: " + Convert.ToString(totalrentprofit);
+            listView1.Items.Add(CreateListViewItem(mat));
+            totalRentProfit += mat.Price;
+            textBox2.Text = Convert.ToString(totalRentProfit);
+        }
+
+        private ListViewItem CreateListViewItem(Material material)
+        {
+            ListViewItem listViewItem = new ListViewItem();
+            listViewItem.SubItems.Add(material.Name);
+            listViewItem.SubItems.Add(Convert.ToString(material.Renter));
+            listViewItem.SubItems.Add(Convert.ToString(material.Price));
+            return listViewItem;
         }
 
         private void CreateListView2()
         {
             listView2.Items.Clear();
-            conn.Open();
-            MySqlDataReader datareader = conn.ExecuteReaderQuery("SELECT * FROM `material`");
+            connection.Open();
+            MySqlDataReader datareader = connection.ExecuteReaderQuery("SELECT * FROM `material`");
             while (datareader.Read())
             {
                 ListViewItem lvi = new ListViewItem();
@@ -89,71 +93,56 @@ namespace Loaning_materialsApp
                 lvi.SubItems.Add(datareader.GetString("quantity_left"));
                 listView2.Items.Add(lvi);
             }
-            conn.Close();
+            connection.Close();
         }
         
+        // loan material
         private void button1_Click(object sender, EventArgs e)
         {
-            InsertUpdate(0);
+            foreach (ListViewItem selectedItem in listView2.SelectedItems)
+            {
+                Material NewMat = new Material(selectedItem, visitor);
+                connection.Open();
+                string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
+                string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
+                connection.ExecuteNonQuery(insert);
+                connection.ExecuteNonQuery(update);
+                connection.Close();
+                AddToListView1(NewMat);
+                materials.Add(NewMat);
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            InsertUpdate(1);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            InsertUpdate(2);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            InsertUpdate(3);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            InsertUpdate(4);
-        }
-
+        //return material
         private void button6_Click(object sender, EventArgs e)
         {
             int matID = Convert.ToInt32(textBox1.Text);
-            string userID = textBox3.Text;
-            for (int i = 0; i<mats.Count(); i++)
+            for (int i = 0; i < materials.Count(); i++)
             {
-                if((matID == mats[i].ID) && (userID == mats[i].Renter))
+                if ((matID == materials[i].ID) && (visitor.QR_code == materials[i].Renter))
                 {
-                    mats.RemoveAt(i);
+                    materials.RemoveAt(i);
                     break;
                 }
             }
-            conn.Open();
-            conn.ExecuteNonQuery(String.Format(Queries.DELETE_LOAN_MATERIAL, userID, matID));
-            conn.ExecuteNonQuery(String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "+1", matID));
-            conn.Close();
+            connection.Open();
+            connection.ExecuteNonQuery(String.Format(Queries.DELETE_LOAN_MATERIAL, visitor.QR_code, matID));
+            connection.ExecuteNonQuery(String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "+1", matID));
+            connection.Close();
             UpdateListView1();
             CreateListView2();
         }
 
-        public void InsertUpdate(int item)
+        private void bt_retrieveQR_Click(object sender, EventArgs e)
         {
-            string r = Prompt.ShowDialog("Client ID:", "ID");
-            Material NewMat = new Material();
-            NewMat.ID = Convert.ToInt32(listView2.Items[item].SubItems[1].Text);
-            NewMat.Name = listView2.Items[item].SubItems[2].Text;
-            NewMat.Price = Convert.ToDecimal(listView2.Items[item].SubItems[3].Text);
-            NewMat.Renter = r;
-            listView2.Items[item].SubItems[4].Text = Convert.ToString(
-                        Convert.ToInt32(listView2.Items[item].SubItems[4].Text) - 1);
-            conn.Open();
-            conn.ExecuteNonQuery(String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID));
-            conn.ExecuteNonQuery(String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID));
-            conn.Close();
-            AddToListView1(NewMat);
-            mats.Add(NewMat);
+            visitor = connection.GetPersonFromQRreader(PcId);
+            lb_visitorName.Text = visitor.Last_name;
         }
 
+        private void bt_clearUser_Click(object sender, EventArgs e)
+        {
+            lb_visitorName.Text = "---";
+            connection.NullQRvalueInDB(PcId);
+        }
     }
 }

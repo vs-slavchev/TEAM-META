@@ -44,15 +44,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.bt_returnMaterial = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.bt_retrieveQR = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lb_visitorName = new System.Windows.Forms.Label();
+            this.bt_clearUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -62,9 +61,9 @@
             this.columnHeader1,
             this.columnHeader6,
             this.columnHeader3});
-            this.listView1.Location = new System.Drawing.Point(29, 34);
+            this.listView1.Location = new System.Drawing.Point(29, 136);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(245, 180);
+            this.listView1.Size = new System.Drawing.Size(360, 528);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -77,12 +76,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Material";
-            this.columnHeader1.Width = 100;
+            this.columnHeader1.Width = 175;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Rented to:";
-            this.columnHeader6.Width = 80;
+            this.columnHeader6.Width = 119;
             // 
             // columnHeader3
             // 
@@ -90,11 +89,11 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(212, 220);
+            this.textBox2.Location = new System.Drawing.Point(295, 677);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(62, 20);
+            this.textBox2.Size = new System.Drawing.Size(94, 20);
             this.textBox2.TabIndex = 12;
-            this.textBox2.Text = "Total: 0.00";
+            this.textBox2.Text = "0.00";
             // 
             // listView2
             // 
@@ -104,9 +103,9 @@
             this.columnHeader4,
             this.columnHeader8,
             this.columnHeader5});
-            this.listView2.Location = new System.Drawing.Point(29, 325);
+            this.listView2.Location = new System.Drawing.Point(452, 136);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(360, 118);
+            this.listView2.Size = new System.Drawing.Size(360, 441);
             this.listView2.TabIndex = 15;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -137,7 +136,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 9);
+            this.label1.Location = new System.Drawing.Point(31, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 16;
@@ -146,7 +145,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 299);
+            this.label2.Location = new System.Drawing.Point(450, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 17;
@@ -155,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 486);
+            this.label3.Location = new System.Drawing.Point(461, 651);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 18;
@@ -164,110 +163,100 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 511);
+            this.label4.Location = new System.Drawing.Point(461, 683);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "Material ID";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(214, 511);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Client ID";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(386, 343);
+            this.button1.Location = new System.Drawing.Point(453, 583);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(360, 51);
             this.button1.TabIndex = 21;
             this.button1.Text = "Loan";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // bt_returnMaterial
             // 
-            this.button2.Location = new System.Drawing.Point(386, 362);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Loan";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(386, 381);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "Loan";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(386, 400);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Loan";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(386, 419);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Loan";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(411, 511);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "Return";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.bt_returnMaterial.Location = new System.Drawing.Point(737, 677);
+            this.bt_returnMaterial.Name = "bt_returnMaterial";
+            this.bt_returnMaterial.Size = new System.Drawing.Size(75, 23);
+            this.bt_returnMaterial.TabIndex = 26;
+            this.bt_returnMaterial.Text = "Return";
+            this.bt_returnMaterial.UseVisualStyleBackColor = true;
+            this.bt_returnMaterial.Click += new System.EventHandler(this.button6_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 508);
+            this.textBox1.Location = new System.Drawing.Point(525, 680);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
             this.textBox1.TabIndex = 27;
             // 
-            // textBox3
+            // bt_retrieveQR
             // 
-            this.textBox3.Location = new System.Drawing.Point(276, 508);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 28;
+            this.bt_retrieveQR.Location = new System.Drawing.Point(29, 28);
+            this.bt_retrieveQR.Name = "bt_retrieveQR";
+            this.bt_retrieveQR.Size = new System.Drawing.Size(530, 62);
+            this.bt_retrieveQR.TabIndex = 28;
+            this.bt_retrieveQR.Text = "Retrieve QR code";
+            this.bt_retrieveQR.UseVisualStyleBackColor = true;
+            this.bt_retrieveQR.Click += new System.EventHandler(this.bt_retrieveQR_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(255, 680);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Total:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(583, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Current visitor:";
+            // 
+            // lb_visitorName
+            // 
+            this.lb_visitorName.AutoSize = true;
+            this.lb_visitorName.Location = new System.Drawing.Point(583, 66);
+            this.lb_visitorName.Name = "lb_visitorName";
+            this.lb_visitorName.Size = new System.Drawing.Size(16, 13);
+            this.lb_visitorName.TabIndex = 31;
+            this.lb_visitorName.Text = "---";
+            // 
+            // bt_clearUser
+            // 
+            this.bt_clearUser.Location = new System.Drawing.Point(684, 28);
+            this.bt_clearUser.Name = "bt_clearUser";
+            this.bt_clearUser.Size = new System.Drawing.Size(128, 62);
+            this.bt_clearUser.TabIndex = 32;
+            this.bt_clearUser.Text = "Clear selected visitor";
+            this.bt_clearUser.UseVisualStyleBackColor = true;
+            this.bt_clearUser.Click += new System.EventHandler(this.bt_clearUser_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(701, 712);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(824, 712);
+            this.Controls.Add(this.bt_clearUser);
+            this.Controls.Add(this.lb_visitorName);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.bt_retrieveQR);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.bt_returnMaterial);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -296,20 +285,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button bt_returnMaterial;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Button bt_retrieveQR;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lb_visitorName;
+        private System.Windows.Forms.Button bt_clearUser;
     }
 }
 

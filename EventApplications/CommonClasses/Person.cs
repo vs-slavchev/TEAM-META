@@ -10,6 +10,7 @@ namespace CommonClasses
 {
     public class Person
     {
+        public string QR_code { get; private set; }
         public string Email { get; private set; }
         public string First_name { get; private set; }
         public string Last_name { get; private set; }
@@ -22,6 +23,7 @@ namespace CommonClasses
 
         public Person(MySqlDataReader reader)
         {
+            this.QR_code = reader["qr_code"].ToString();
             this.Email = reader["email"].ToString();
             this.First_name = reader["first_name"].ToString();
             this.Last_name = reader["last_name"].ToString();
