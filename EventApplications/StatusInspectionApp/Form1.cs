@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 using CommonClasses;
 
 namespace StatusInspectionApp
@@ -70,19 +72,19 @@ namespace StatusInspectionApp
 
             //get updated info
             connection.Open();
-            int visitorsEntered =
-                (int)connection.ExecuteScalar(String.Format(Queries.SELECT_COUNT, "user", "has_entered"));
-            int visitorsNotEntered =
-                (int)connection.ExecuteScalar(String.Format(Queries.SELECT_COUNT, "user", "NOT has_entered"));
-            int visitorsLeft =
-                (int)connection.ExecuteScalar(String.Format(Queries.SELECT_COUNT, "user", "has_left"));
-            double totalMoneyBalance =
-                connection.ExecuteScalar(String.Format(Queries.SELECT_SUM, "money", "user"));
-            double totalMoneyPaid =
-                connection.ExecuteScalar(String.Format(Queries.SELECT_SUM, "total_money", "user"));
+            int visitorsEntered = (int)connection.ExecuteScalar(
+                    String.Format(Queries.SELECT_COUNT, "user", "has_entered"));
+            int visitorsNotEntered = (int)connection.ExecuteScalar(
+                    String.Format(Queries.SELECT_COUNT, "user", "NOT has_entered"));
+            int visitorsLeft = (int)connection.ExecuteScalar(
+                    String.Format(Queries.SELECT_COUNT, "user", "has_left"));
+            double totalMoneyBalance = connection.ExecuteScalar(
+                    String.Format(Queries.SELECT_SUM, "money", "user"));
+            double totalMoneyPaid = connection.ExecuteScalar(
+                    String.Format(Queries.SELECT_SUM, "total_money", "user"));
             totalMoneyPaid -= totalMoneyBalance;
-            int numberCampSpotsBooked =
-                (int)connection.ExecuteScalar(String.Format(Queries.SELECT_COUNT,"camp", "user_count > 0"));
+            int numberCampSpotsBooked = (int)connection.ExecuteScalar(
+                    String.Format(Queries.SELECT_COUNT,"camp", "user_count > 0"));
             connection.Close();
 
             //print updated info
@@ -94,8 +96,34 @@ namespace StatusInspectionApp
             lbCampSpotsBooked.Text = Convert.ToString(numberCampSpotsBooked);
 
             //add list of free camp spots
+            ListFreeCampSpots();
         }
 
-
+        private void ListFreeCampSpots()
+        {
+            MySqlDataReader reader = null;
+            try
+            {
+                connection.Open();
+                string query = String.Format(Queries.SELECT, "camp", "user_count", 0);
+                reader = connection.ExecuteReaderQuery(query);
+                while (reader.Read())
+                {
+                    liCampSpots.Items.Add(reader["camp_id"].ToString());
+                }
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+        }
     }
 }

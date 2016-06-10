@@ -63,7 +63,7 @@
             this.columnHeader3});
             this.listView1.Location = new System.Drawing.Point(29, 136);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(360, 528);
+            this.listView1.Size = new System.Drawing.Size(458, 528);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -76,12 +76,12 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Material";
-            this.columnHeader1.Width = 175;
+            this.columnHeader1.Width = 115;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Rented to:";
-            this.columnHeader6.Width = 119;
+            this.columnHeader6.Width = 177;
             // 
             // columnHeader3
             // 
@@ -89,7 +89,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(295, 677);
+            this.textBox2.Location = new System.Drawing.Point(393, 673);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(94, 20);
             this.textBox2.TabIndex = 12;
@@ -103,7 +103,7 @@
             this.columnHeader4,
             this.columnHeader8,
             this.columnHeader5});
-            this.listView2.Location = new System.Drawing.Point(452, 136);
+            this.listView2.Location = new System.Drawing.Point(541, 136);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(360, 441);
             this.listView2.TabIndex = 15;
@@ -145,7 +145,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(450, 120);
+            this.label2.Location = new System.Drawing.Point(538, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 17;
@@ -154,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(461, 651);
+            this.label3.Location = new System.Drawing.Point(550, 651);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 18;
@@ -163,7 +163,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(461, 683);
+            this.label4.Location = new System.Drawing.Point(550, 678);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 19;
@@ -171,7 +171,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(453, 583);
+            this.button1.Location = new System.Drawing.Point(541, 583);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(360, 51);
             this.button1.TabIndex = 21;
@@ -181,7 +181,7 @@
             // 
             // bt_returnMaterial
             // 
-            this.bt_returnMaterial.Location = new System.Drawing.Point(737, 677);
+            this.bt_returnMaterial.Location = new System.Drawing.Point(826, 671);
             this.bt_returnMaterial.Name = "bt_returnMaterial";
             this.bt_returnMaterial.Size = new System.Drawing.Size(75, 23);
             this.bt_returnMaterial.TabIndex = 26;
@@ -191,7 +191,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(525, 680);
+            this.textBox1.Location = new System.Drawing.Point(614, 673);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(206, 20);
             this.textBox1.TabIndex = 27;
@@ -200,7 +200,7 @@
             // 
             this.bt_retrieveQR.Location = new System.Drawing.Point(29, 28);
             this.bt_retrieveQR.Name = "bt_retrieveQR";
-            this.bt_retrieveQR.Size = new System.Drawing.Size(530, 62);
+            this.bt_retrieveQR.Size = new System.Drawing.Size(458, 62);
             this.bt_retrieveQR.TabIndex = 28;
             this.bt_retrieveQR.Text = "Retrieve QR code";
             this.bt_retrieveQR.UseVisualStyleBackColor = true;
@@ -209,7 +209,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(255, 680);
+            this.label5.Location = new System.Drawing.Point(353, 676);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 29;
@@ -218,7 +218,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(583, 39);
+            this.label6.Location = new System.Drawing.Point(538, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 30;
@@ -227,7 +227,7 @@
             // lb_visitorName
             // 
             this.lb_visitorName.AutoSize = true;
-            this.lb_visitorName.Location = new System.Drawing.Point(583, 66);
+            this.lb_visitorName.Location = new System.Drawing.Point(538, 65);
             this.lb_visitorName.Name = "lb_visitorName";
             this.lb_visitorName.Size = new System.Drawing.Size(16, 13);
             this.lb_visitorName.TabIndex = 31;
@@ -235,9 +235,9 @@
             // 
             // bt_clearUser
             // 
-            this.bt_clearUser.Location = new System.Drawing.Point(684, 28);
+            this.bt_clearUser.Location = new System.Drawing.Point(722, 28);
             this.bt_clearUser.Name = "bt_clearUser";
-            this.bt_clearUser.Size = new System.Drawing.Size(128, 62);
+            this.bt_clearUser.Size = new System.Drawing.Size(179, 62);
             this.bt_clearUser.TabIndex = 32;
             this.bt_clearUser.Text = "Clear selected visitor";
             this.bt_clearUser.UseVisualStyleBackColor = true;
@@ -248,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(824, 712);
+            this.ClientSize = new System.Drawing.Size(936, 712);
             this.Controls.Add(this.bt_clearUser);
             this.Controls.Add(this.lb_visitorName);
             this.Controls.Add(this.label6);

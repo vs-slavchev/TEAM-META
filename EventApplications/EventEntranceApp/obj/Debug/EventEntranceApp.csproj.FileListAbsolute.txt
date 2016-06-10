@@ -1,5 +1,11 @@
 C:\Users\vs\Files\C#-Projects\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
 C:\Users\vs\Files\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
+D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
+D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
+D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.pdb
@@ -7,14 +13,8 @@ C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\CommonClasses
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\MySql.Data.dll
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\CommonClasses.pdb
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.csprojResolveAssemblyReference.cache
+C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.Form1.resources
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.Properties.Resources.resources
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
-C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.Form1.resources
-C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
-C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
-C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
-D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
-D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
-D:\GitHub\Meta\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
