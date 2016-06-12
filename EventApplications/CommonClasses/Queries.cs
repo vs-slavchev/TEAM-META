@@ -46,9 +46,11 @@ namespace CommonClasses
 		INSERT_MATERIAL_LOAN = "INSERT INTO `material_loan`(`user_qr`, `material_id`) "
 														   + "VALUES('{0}', {1})",
 
-		USER_INSERT = "INSERT INTO user "
-					+ "(email, first_name, last_name, phone_number, paypal, qr_code, money_owed) "
-					+ "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', 55.00);",
+        INSERT_MATERIAL_LOAN_PT2 = "UPDATE `user` SET `money` = `money` - {0} WHERE `qr_code` = '{1}'",
+
+        USER_INSERT = "INSERT INTO user "
+                    + "(email, first_name, last_name, phone_number, paypal, qr_code, money_owed) "
+                    + "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', 55.00);",
 
 		SELECT_MONEY_SPENT_FOOD = "SELECT SUM(p.cost) AS FOOD_COST "
 								+ "FROM ( "

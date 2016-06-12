@@ -1,13 +1,3 @@
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe.config
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.pdb
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\bin\Debug\MySql.Data.dll
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Form1.resources
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Properties.Resources.resources
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csproj.GenerateResource.Cache
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.exe
-D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.pdb
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe.config
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.pdb
@@ -17,6 +7,7 @@ C:\Users\vs\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Pr
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.exe
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.pdb
+<<<<<<< HEAD
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Form1.resources
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Properties.Resources.resources
@@ -27,3 +18,24 @@ C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\bin\Deb
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.pdb
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\bin\Debug\MySql.Data.dll
+=======
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe.config
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.pdb
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\bin\Debug\MySql.Data.dll
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Form1.resources
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Properties.Resources.resources
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csproj.GenerateResource.Cache
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.exe
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.pdb
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe.config
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.pdb
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\bin\Debug\MySql.Data.dll
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Form1.resources
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Properties.Resources.resources
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csproj.GenerateResource.Cache
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.exe
+D:\GitHub\Meta\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.pdb
+>>>>>>> origin/master
