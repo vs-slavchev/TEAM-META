@@ -95,7 +95,7 @@ namespace Loaning_materialsApp
             }
             connection.Close();
         }
-        
+
         // loan material
         private void button1_Click(object sender, EventArgs e)
         {
@@ -103,7 +103,8 @@ namespace Loaning_materialsApp
             {
                 Material NewMat = new Material(selectedItem, visitor);
 
-                foreach (ListViewItem item in listView1.Items){
+                foreach (ListViewItem item in listView1.Items)
+                {
                     if (item.SubItems[1].Text.Equals(NewMat.Name)
                         && item.SubItems[2].Text.Equals(NewMat.Renter))
                     {
@@ -113,15 +114,21 @@ namespace Loaning_materialsApp
                 }
 
                 connection.Open();
-                string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
-                string insertpt2 = String.Format(Queries.INSERT_MATERIAL_LOAN_PT2, NewMat.Price, NewMat.Renter);
-                string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
-                connection.ExecuteNonQuery(insert);
-                connection.ExecuteNonQuery(insertpt2);
-                connection.ExecuteNonQuery(update);
+                double dr = connection.ExecuteScalar(String.Format("SELECT `money` FROM `user` WHERE `qr_code` = '{0}'", visitor.QR_code));
+                decimal drd = Convert.ToDecimal(dr);
+                if (drd >= NewMat.Price)
+                {
+                    string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
+                    string insertpt2 = String.Format(Queries.INSERT_MATERIAL_LOAN_PT2, NewMat.Price, NewMat.Renter);
+                    string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
+                    connection.ExecuteNonQuery(insert);
+                    connection.ExecuteNonQuery(insertpt2);
+                    connection.ExecuteNonQuery(update);
+                    AddToListView1(NewMat);
+                    materials.Add(NewMat);
+                }
+                else { MessageBox.Show("This visitor doesn't have enough money."); }
                 connection.Close();
-                AddToListView1(NewMat);
-                materials.Add(NewMat);
             }
         }
 

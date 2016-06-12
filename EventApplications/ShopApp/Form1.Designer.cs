@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.button18 = new System.Windows.Forms.Button();
 			this.button17 = new System.Windows.Forms.Button();
 			this.button16 = new System.Windows.Forms.Button();
 			this.button15 = new System.Windows.Forms.Button();
@@ -51,31 +50,18 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.lblTotal = new System.Windows.Forms.Label();
 			this.label25 = new System.Windows.Forms.Label();
-			this.button18 = new System.Windows.Forms.Button();
+			this.label2 = new System.Windows.Forms.Label();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this.button19 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(36, 46);
-			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(47, 13);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Client id:";
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(87, 44);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(95, 20);
-			this.textBox1.TabIndex = 1;
 			// 
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+			this.groupBox1.Controls.Add(this.numericUpDown1);
+			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.button18);
 			this.groupBox1.Controls.Add(this.button17);
 			this.groupBox1.Controls.Add(this.button16);
@@ -105,6 +91,16 @@
 			this.groupBox1.TabIndex = 2;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Products";
+			// 
+			// button18
+			// 
+			this.button18.Location = new System.Drawing.Point(99, 217);
+			this.button18.Name = "button18";
+			this.button18.Size = new System.Drawing.Size(75, 23);
+			this.button18.TabIndex = 58;
+			this.button18.Text = "Remove";
+			this.button18.UseVisualStyleBackColor = true;
+			this.button18.Click += new System.EventHandler(this.button18_Click);
 			// 
 			// button17
 			// 
@@ -305,15 +301,43 @@
 			this.label25.TabIndex = 38;
 			this.label25.Text = "Total:";
 			// 
-			// button18
+			// label2
 			// 
-			this.button18.Location = new System.Drawing.Point(99, 217);
-			this.button18.Name = "button18";
-			this.button18.Size = new System.Drawing.Size(75, 23);
-			this.button18.TabIndex = 58;
-			this.button18.Text = "Remove";
-			this.button18.UseVisualStyleBackColor = true;
-			this.button18.Click += new System.EventHandler(this.button18_Click);
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(178, 195);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(49, 13);
+			this.label2.TabIndex = 59;
+			this.label2.Text = "Quantity:";
+			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(233, 192);
+			this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(44, 20);
+			this.numericUpDown1.TabIndex = 60;
+			this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+			this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+			// 
+			// button19
+			// 
+			this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.button19.Location = new System.Drawing.Point(22, 12);
+			this.button19.Name = "button19";
+			this.button19.Size = new System.Drawing.Size(167, 62);
+			this.button19.TabIndex = 61;
+			this.button19.Text = "Scan QR";
+			this.button19.UseVisualStyleBackColor = true;
+			this.button19.Click += new System.EventHandler(this.button19_Click);
 			// 
 			// Form1
 			// 
@@ -321,23 +345,20 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(625, 357);
+			this.Controls.Add(this.button19);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.label1);
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "Form1";
 			this.Text = "Shop";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTotal;
 		private System.Windows.Forms.Label label25;
@@ -360,6 +381,9 @@
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.ListBox listBox1;
 		private System.Windows.Forms.Button button18;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.Button button19;
     }
 }
 
