@@ -81,9 +81,9 @@
             this.gbVisitorStatus.Controls.Add(this.label1);
             this.gbVisitorStatus.Controls.Add(this.lbLastname);
             this.gbVisitorStatus.Location = new System.Drawing.Point(29, 15);
-            this.gbVisitorStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbVisitorStatus.Margin = new System.Windows.Forms.Padding(4);
             this.gbVisitorStatus.Name = "gbVisitorStatus";
-            this.gbVisitorStatus.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbVisitorStatus.Padding = new System.Windows.Forms.Padding(4);
             this.gbVisitorStatus.Size = new System.Drawing.Size(572, 844);
             this.gbVisitorStatus.TabIndex = 1;
             this.gbVisitorStatus.TabStop = false;
@@ -92,7 +92,7 @@
             // btRetrieveQRData
             // 
             this.btRetrieveQRData.Location = new System.Drawing.Point(8, 23);
-            this.btRetrieveQRData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btRetrieveQRData.Margin = new System.Windows.Forms.Padding(4);
             this.btRetrieveQRData.Name = "btRetrieveQRData";
             this.btRetrieveQRData.Size = new System.Drawing.Size(556, 96);
             this.btRetrieveQRData.TabIndex = 22;
@@ -145,7 +145,7 @@
             this.liVisitors.FormattingEnabled = true;
             this.liVisitors.ItemHeight = 16;
             this.liVisitors.Location = new System.Drawing.Point(8, 572);
-            this.liVisitors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.liVisitors.Margin = new System.Windows.Forms.Padding(4);
             this.liVisitors.Name = "liVisitors";
             this.liVisitors.Size = new System.Drawing.Size(555, 196);
             this.liVisitors.TabIndex = 17;
@@ -154,7 +154,7 @@
             // btSearch
             // 
             this.btSearch.Location = new System.Drawing.Point(8, 523);
-            this.btSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btSearch.Name = "btSearch";
             this.btSearch.Size = new System.Drawing.Size(556, 42);
             this.btSearch.TabIndex = 16;
@@ -165,7 +165,7 @@
             // btClearResult
             // 
             this.btClearResult.Location = new System.Drawing.Point(8, 773);
-            this.btClearResult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btClearResult.Margin = new System.Windows.Forms.Padding(4);
             this.btClearResult.Name = "btClearResult";
             this.btClearResult.Size = new System.Drawing.Size(556, 64);
             this.btClearResult.TabIndex = 15;
@@ -176,7 +176,7 @@
             // tbSearchLastname
             // 
             this.tbSearchLastname.Location = new System.Drawing.Point(193, 491);
-            this.tbSearchLastname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSearchLastname.Margin = new System.Windows.Forms.Padding(4);
             this.tbSearchLastname.Name = "tbSearchLastname";
             this.tbSearchLastname.Size = new System.Drawing.Size(369, 22);
             this.tbSearchLastname.TabIndex = 14;
@@ -304,9 +304,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CampEntranceApp.Properties.Resources._1030_groot;
-            this.pictureBox1.Location = new System.Drawing.Point(608, 148);
+            this.pictureBox1.Location = new System.Drawing.Point(608, 119);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(821, 553);
+            this.pictureBox1.Size = new System.Drawing.Size(877, 632);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -316,10 +316,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1441, 874);
+            this.ClientSize = new System.Drawing.Size(1488, 874);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbVisitorStatus);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Camp Entrance";
             this.gbVisitorStatus.ResumeLayout(false);
