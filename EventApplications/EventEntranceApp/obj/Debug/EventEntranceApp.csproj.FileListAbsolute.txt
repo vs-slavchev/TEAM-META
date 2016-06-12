@@ -18,3 +18,15 @@ C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntrance
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
 C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe.config
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.exe
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\EventEntranceApp.pdb
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\CommonClasses.exe
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\MySql.Data.dll
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\CommonClasses.pdb
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.csprojResolveAssemblyReference.cache
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.Form1.resources
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.Properties.Resources.resources
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.csproj.GenerateResource.Cache
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
+D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb

@@ -16,3 +16,4 @@ D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonCla
 D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csproj.GenerateResource.Cache
 D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.exe
 D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.pdb
+D:\Project P-phase\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache

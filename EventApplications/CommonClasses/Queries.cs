@@ -57,6 +57,15 @@ namespace CommonClasses
                                     + "SELECT price * quantity AS cost "
                                     + "FROM purchase JOIN product "
                                     + "USING (product_id) "
-                                    + "WHERE category LIKE '%food%' AND user_qr = '{0}') p";
+                                    + "WHERE category LIKE '%food%' AND user_qr = '{0}') p",
+
+        RETURN_LOAN = "SELECT m.material_id, m.type "
+                    + "FROM material m JOIN material_loan l "
+                    + "ON(m.material_id = l.material_id) "
+                    + "WHERE l.user_qr = '{0}';",
+
+        UPDATE_USER_LEFT = "UPDATE user "
+                         + "SET has_left = 1, money = 0 "
+                         + "WHERE qr_code = '{0}';";
     }
 }

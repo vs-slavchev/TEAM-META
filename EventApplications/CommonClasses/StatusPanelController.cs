@@ -45,6 +45,7 @@ namespace CommonClasses
             Person visitor = connection.GetPersonFromQRreader(PcId);
             if (visitor != null)
             {
+                UserQrCode = visitor.QR_code;
                 Visitors.Items.Add(visitor);
                 Visitors.SelectedIndex = 0;
             }             
