@@ -46,6 +46,8 @@ namespace CommonClasses
         INSERT_MATERIAL_LOAN = "INSERT INTO `material_loan`(`user_qr`, `material_id`) "
                                                            + "VALUES('{0}', {1})",
 
+        INSERT_MATERIAL_LOAN_PT2 = "UPDATE `user` SET `money_owed` = `money_owed` + {0} WHERE `qr_code` = {1}",
+
         USER_INSERT = "INSERT INTO user "
                     + "(email, first_name, last_name, phone_number, paypal, qr_code, money_owed) "
                     + "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', 55.00);",
