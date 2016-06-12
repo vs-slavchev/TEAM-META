@@ -44,7 +44,7 @@
 	<div style="width:150px; margin-left:42%">
       <form method="post" action="./php/register.php">
         <fieldset>
-          <legend>Register:</legend>
+          <legend><font color="white">Register:</font></legend>
 					<ul style="padding:5px;">
 						<li style="padding:3px;">
             <input type="email" name="email" placeholder="Email Address">
@@ -57,7 +57,7 @@
 						</li><li style="padding:3px;">
             <input type="text" name="phone_number" placeholder="Phone number">
 						</li><li style="padding:3px;">
-						<p>You can select a camp if you want to book one:</p>
+						<p><font color="white">You can select a camp if you want to book one:</font></p>
 						<select name="selectCamp">
 						  <option value="NULL">Select...</option>
 

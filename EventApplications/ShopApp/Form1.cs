@@ -41,10 +41,10 @@ namespace ShopApp
 				{
 					string queryString = String.Format(Queries.PURCHASE_INSERT,
 									 per.QR_code, po.Id, ShopId, po.Quantity);
-					string queryString1 = String.Format(Queries.MONEY_UPDATE, total, per.QR_code);
 					connection.ExecuteNonQuery(queryString);
-					connection.ExecuteNonQuery(queryString1);
 				}
+					string queryString1 = String.Format(Queries.MONEY_UPDATE, total, per.QR_code);
+					connection.ExecuteNonQuery(queryString1);
 			}
 			finally
 			{
