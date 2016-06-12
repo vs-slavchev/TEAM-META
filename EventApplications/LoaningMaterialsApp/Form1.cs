@@ -114,8 +114,10 @@ namespace Loaning_materialsApp
 
                 connection.Open();
                 string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
+                string insertpt2 = String.Format(Queries.INSERT_MATERIAL_LOAN_PT2, NewMat.Price, NewMat.Renter);
                 string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
                 connection.ExecuteNonQuery(insert);
+                connection.ExecuteNonQuery(insertpt2);
                 connection.ExecuteNonQuery(update);
                 connection.Close();
                 AddToListView1(NewMat);
