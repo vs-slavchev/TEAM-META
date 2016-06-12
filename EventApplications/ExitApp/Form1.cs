@@ -10,10 +10,12 @@ using System.Windows.Forms;
 using CommonClasses;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace ExitApp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
 
         private DBConnection connection;
@@ -23,12 +25,18 @@ namespace ExitApp
         {
             InitializeComponent();
 
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
+                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+
             connection = new DBConnection();
             statusController = new StatusPanelController(connection);
 
-            statusController.RetrieveQRData = btRetrieveQRData;
+            statusController.RetrieveQRData = retrieveQRdata;
             statusController.SearchLastName = tbSearchLastname;
-            statusController.SearchByLastNameButton = btSearch;
+            statusController.SearchByLastNameButton = searchByLastName;
             statusController.Email = lbEmail;
             statusController.PhoneNumber = lbPhoneNumber;
             statusController.Money = lbMoney;
@@ -37,15 +45,15 @@ namespace ExitApp
             statusController.MoneySpentOnFood = lbMoneySpentFood;
             statusController.TotalMoney = lbMoneyTransferred;
             statusController.Visitors = liVisitors;
-            statusController.ClearResult = btClearResult;
+            statusController.ClearResult = clearResult;
         }
 
-        private void btSearch_Click(object sender, EventArgs e)
+        private void searchByLastName_Click(object sender, EventArgs e)
         {
             statusController.SearchByLastNameButtonClick();
         }
 
-        private void btRetrieveQRData_Click(object sender, EventArgs e)
+        private void retrieveQRdata_Click(object sender, EventArgs e)
         {
             statusController.SelectUserFromQRReaderCode();
         }
@@ -55,12 +63,12 @@ namespace ExitApp
             statusController.VisitorsListBoxSelectedIndexChanged();
         }
 
-        private void btClearResult_Click(object sender, EventArgs e)
+        private void clearResult_Click(object sender, EventArgs e)
         {
             statusController.ClearResultsButtonClick();
         }
 
-        private void btnLoan_Click(object sender, EventArgs e)
+        private void checkLoanedMats_Click(object sender, EventArgs e)
         {
             MySqlDataReader reader = null;
             try
@@ -89,7 +97,7 @@ namespace ExitApp
             }
         }
 
-        private void btnReturnMoney_Click(object sender, EventArgs e)
+        private void returnMoney_Click(object sender, EventArgs e)
         {
             try
             {

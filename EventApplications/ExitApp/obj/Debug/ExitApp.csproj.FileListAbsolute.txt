@@ -46,3 +46,4 @@ D:\Project P-phase\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.Propert
 D:\Project P-phase\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.csproj.GenerateResource.Cache
 D:\Project P-phase\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.exe
 D:\Project P-phase\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\ExitApp\bin\Debug\MaterialSkin.dll

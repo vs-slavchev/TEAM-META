@@ -26,3 +26,4 @@ C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_ma
 C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\LoaningMaterialsApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.exe
 C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\obj\Debug\Loaning_materialsApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\LoaningMaterialsApp\bin\Debug\MaterialSkin.dll

@@ -46,3 +46,4 @@ D:\Project P-phase\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEnt
 D:\Project P-phase\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.csproj.GenerateResource.Cache
 D:\Project P-phase\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.exe
 D:\Project P-phase\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\bin\Debug\MaterialSkin.dll

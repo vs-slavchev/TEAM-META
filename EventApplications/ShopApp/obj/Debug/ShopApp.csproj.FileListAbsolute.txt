@@ -31,3 +31,4 @@ C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.Properties.Res
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.exe
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\ShopApp\bin\Debug\MaterialSkin.dll

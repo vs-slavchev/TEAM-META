@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
+using MaterialSkin;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -120,6 +122,10 @@ namespace CommonClasses
                 while (reader.Read())
                 {
                     result = reader["FOOD_COST"].ToString();
+                    if (result.Equals(""))
+                    {
+                        result = "0.00";
+                    }
                 }
                 connection.Close();
             }

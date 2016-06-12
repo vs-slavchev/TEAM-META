@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
+using MaterialSkin;
 using CommonClasses;
 
 namespace CampEntranceApp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
 
         private DBConnection connection;
@@ -20,12 +22,19 @@ namespace CampEntranceApp
         public Form1()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
+                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+
             connection = new DBConnection();
             statusController = new StatusPanelController(connection);
 
-            statusController.RetrieveQRData = btRetrieveQRData;
+            statusController.RetrieveQRData = retrieveQRdata;
             statusController.SearchLastName = tbSearchLastname;
-            statusController.SearchByLastNameButton = btSearch;
+            statusController.SearchByLastNameButton = searchByLastName;
             statusController.Email = lbEmail;
             statusController.PhoneNumber = lbPhoneNumber;
             statusController.Money = lbMoney;
@@ -34,17 +43,7 @@ namespace CampEntranceApp
             statusController.MoneySpentOnFood = lbMoneySpentFood;
             statusController.TotalMoney = lbMoneyTransferred;
             statusController.Visitors = liVisitors;
-            statusController.ClearResult = btClearResult;
-        }
-
-        private void btRetrieveQRData_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btSearch_Click(object sender, EventArgs e)
-        {
-            statusController.SearchByLastNameButtonClick();
+            statusController.ClearResult = clearResult;
         }
 
         private void liVisitors_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,7 +51,17 @@ namespace CampEntranceApp
             statusController.VisitorsListBoxSelectedIndexChanged();
         }
 
-        private void btClearResult_Click(object sender, EventArgs e)
+        private void retrieveQRdata_Click(object sender, EventArgs e)
+        {
+            statusController.SelectUserFromQRReaderCode();
+        }
+
+        private void searchByLastName_Click(object sender, EventArgs e)
+        {
+            statusController.SearchByLastNameButtonClick();
+        }
+
+        private void clearResult_Click(object sender, EventArgs e)
         {
             statusController.ClearResultsButtonClick();
         }

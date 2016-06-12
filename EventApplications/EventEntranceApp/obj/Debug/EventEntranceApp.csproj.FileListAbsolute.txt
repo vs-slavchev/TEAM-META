@@ -30,3 +30,4 @@ D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventE
 D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.csproj.GenerateResource.Cache
 D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.exe
 D:\Project P-phase\TEAM-META\EventApplications\EventEntranceApp\obj\Debug\EventEntranceApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\EventEntranceApp\bin\Debug\MaterialSkin.dll

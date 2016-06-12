@@ -17,3 +17,4 @@ C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInsp
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.application
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.exe
 C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\obj\Debug\StatusInspectionApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\StatusInspectionApp\bin\Debug\MaterialSkin.dll

@@ -10,10 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace Loaning_materialsApp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
         private DBConnection connection = new DBConnection();
         private List<Material> materials = new List<Material>();
@@ -24,6 +26,13 @@ namespace Loaning_materialsApp
         public Form1()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
+                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+
             listView2.FullRowSelect = true;
             PcId = StatusPanelController.PromptForPcId();
         }
@@ -96,8 +105,7 @@ namespace Loaning_materialsApp
             connection.Close();
         }
 
-        // loan material
-        private void button1_Click(object sender, EventArgs e)
+        private void loan_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem selectedItem in listView2.SelectedItems)
             {
@@ -132,8 +140,7 @@ namespace Loaning_materialsApp
             }
         }
 
-        // return material
-        private void button6_Click(object sender, EventArgs e)
+        private void returnMaterial_Click(object sender, EventArgs e)
         {
             if (textBox1.Text.Equals(""))
             {
@@ -173,7 +180,7 @@ namespace Loaning_materialsApp
             CreateListView2();
         }
 
-        private void bt_retrieveQR_Click(object sender, EventArgs e)
+        private void retrieveQR_Click(object sender, EventArgs e)
         {
             visitor = connection.GetPersonFromQRreader(PcId);
             if (visitor == null)
@@ -183,7 +190,7 @@ namespace Loaning_materialsApp
             lb_visitorName.Text = visitor.Last_name;
         }
 
-        private void bt_clearUser_Click(object sender, EventArgs e)
+        private void clearUser_Click(object sender, EventArgs e)
         {
             if (visitor != null)
             {
@@ -192,5 +199,4 @@ namespace Loaning_materialsApp
                 connection.NullQRvalueInDB(PcId);
             }
         }
-    }
 }
