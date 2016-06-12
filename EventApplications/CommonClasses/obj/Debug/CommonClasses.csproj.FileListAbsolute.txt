@@ -17,3 +17,13 @@ C:\Users\vs\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Pr
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.exe
 C:\Users\vs\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.pdb
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csprojResolveAssemblyReference.cache
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Form1.resources
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.Properties.Resources.resources
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.csproj.GenerateResource.Cache
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.exe
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\obj\Debug\CommonClasses.pdb
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe.config
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.exe
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\bin\Debug\CommonClasses.pdb
+C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\CommonClasses\bin\Debug\MySql.Data.dll
