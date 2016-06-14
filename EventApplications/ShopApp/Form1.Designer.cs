@@ -53,6 +53,8 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lb_visitorName = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +62,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.MediumPurple;
+            this.groupBox1.Controls.Add(this.lb_visitorName);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.sumTotal);
             this.groupBox1.Controls.Add(this.remove);
             this.groupBox1.Controls.Add(this.buy);
@@ -135,11 +139,11 @@
             // retrieveQR
             // 
             this.retrieveQR.Depth = 0;
-            this.retrieveQR.Location = new System.Drawing.Point(26, 28);
+            this.retrieveQR.Location = new System.Drawing.Point(71, 28);
             this.retrieveQR.MouseState = MaterialSkin.MouseState.HOVER;
             this.retrieveQR.Name = "retrieveQR";
             this.retrieveQR.Primary = true;
-            this.retrieveQR.Size = new System.Drawing.Size(702, 62);
+            this.retrieveQR.Size = new System.Drawing.Size(270, 62);
             this.retrieveQR.TabIndex = 62;
             this.retrieveQR.Text = "Get visitor QR code";
             this.retrieveQR.UseVisualStyleBackColor = true;
@@ -338,9 +342,9 @@
             this.lblTotal.Location = new System.Drawing.Point(235, 332);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(106, 26);
+            this.lblTotal.Size = new System.Drawing.Size(72, 26);
             this.lblTotal.TabIndex = 39;
-            this.lblTotal.Text = "total price";
+            this.lblTotal.Text = "0.00 €";
             // 
             // label25
             // 
@@ -352,6 +356,24 @@
             this.label25.Size = new System.Drawing.Size(48, 20);
             this.label25.TabIndex = 38;
             this.label25.Text = "Total:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(504, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "Current visitor:";
+            // 
+            // lb_visitorName
+            // 
+            this.lb_visitorName.AutoSize = true;
+            this.lb_visitorName.Location = new System.Drawing.Point(504, 67);
+            this.lb_visitorName.Name = "lb_visitorName";
+            this.lb_visitorName.Size = new System.Drawing.Size(16, 13);
+            this.lb_visitorName.TabIndex = 67;
+            this.lb_visitorName.Text = "---";
             // 
             // Form1
             // 
@@ -397,6 +419,8 @@
         private MaterialSkin.Controls.MaterialRaisedButton buy;
         private MaterialSkin.Controls.MaterialRaisedButton remove;
         private MaterialSkin.Controls.MaterialRaisedButton sumTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lb_visitorName;
     }
 }
 

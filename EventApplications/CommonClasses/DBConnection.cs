@@ -169,12 +169,3 @@ namespace CommonClasses
         }
     }
 }
-
-
-
-
-/*  TODO:
- * 
- *  - list free camp spots
- * 
- */

@@ -122,9 +122,8 @@ namespace Loaning_materialsApp
                 }
 
                 connection.Open();
-                double dr = connection.ExecuteScalar(String.Format("SELECT `money` FROM `user` WHERE `qr_code` = '{0}'", visitor.QR_code));
-                decimal drd = Convert.ToDecimal(dr);
-                if (drd >= NewMat.Price)
+                double visitor_money = connection.ExecuteScalar(String.Format("SELECT `money` FROM `user` WHERE `qr_code` = '{0}'", visitor.QR_code));
+                if (Convert.ToDecimal(visitor_money) >= NewMat.Price)
                 {
                     string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
                     string insertpt2 = String.Format(Queries.INSERT_MATERIAL_LOAN_PT2, NewMat.Price, NewMat.Renter);
@@ -199,4 +198,5 @@ namespace Loaning_materialsApp
                 connection.NullQRvalueInDB(PcId);
             }
         }
+    }
 }

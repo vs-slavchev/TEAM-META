@@ -34,10 +34,9 @@ namespace ShopApp
                                             Primary.Purple400, Accent.Purple100, TextShade.WHITE);
 
 			connection = new DBConnection();
-
-			ShopId = Prompt.ShowDialog("Enter Shop ID", "Shops");
-
 			products = new List<Product>();
+
+            ShopId = PromptForShopId();
 			PcId = StatusPanelController.PromptForPcId();
 		}
 
@@ -61,7 +60,7 @@ namespace ShopApp
 				connection.NullQRvalueInDB(PcId);
 				listBox1.Items.Clear();
 				numericUpDown1.Value = 1;
-				lblTotal.Text = "0€";
+				lblTotal.Text = "0.00 €";
 				products = new List<Product>();
 			}
 		}
@@ -265,6 +264,32 @@ namespace ShopApp
         private void retrieveQR_Click(object sender, EventArgs e)
 		{
 			person = connection.GetPersonFromQRreader(PcId);
+            if (person == null)
+            {
+                return;
+            }
+            lb_visitorName.Text = person.Last_name;
 		}
+
+        private string PromptForShopId()
+        {
+            string shop_id = Prompt.ShowDialog("Enter Shop ID", "Shops");
+            int id;
+            try
+            {
+                id = Convert.ToInt32(shop_id);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The shop ID is not valid!");
+                return PromptForShopId();
+            }
+            if (id <= 0 || id >= 100)
+            {
+                MessageBox.Show("The shop ID is not in the valid range!");
+                return PromptForShopId();
+            }
+            return shop_id;
+        }
 	}
 }
