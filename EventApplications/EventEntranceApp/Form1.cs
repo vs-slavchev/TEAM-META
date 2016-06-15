@@ -10,11 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Net;
+using MaterialSkin.Controls;
+using MaterialSkin;
 using CommonClasses;
 
 namespace EventEntranceApp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
 
         private DBConnection connection;
@@ -23,12 +25,19 @@ namespace EventEntranceApp
         public Form1()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
+                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+
             connection = new DBConnection();
             statusController = new StatusPanelController(connection);
 
-            statusController.RetrieveQRData = btRetrieveQRData;
+            statusController.RetrieveQRData = retrieveQRdata;
             statusController.SearchLastName = tbSearchLastname;
-            statusController.SearchByLastNameButton = btSearch;
+            statusController.SearchByLastNameButton = searchByLastName;
             statusController.Email = lbEmail;
             statusController.PhoneNumber = lbPhoneNumber;
             statusController.Money = lbMoney;
@@ -37,10 +46,10 @@ namespace EventEntranceApp
             statusController.MoneySpentOnFood = lbMoneySpentFood;
             statusController.TotalMoney = lbMoneyTransferred;
             statusController.Visitors = liVisitors;
-            statusController.ClearResult = btClearResult;
+            statusController.ClearResult = clearResult;
         }
 
-        private void btRetrieveQRData_Click(object sender, EventArgs e)
+        private void retrieveQRdata_Click(object sender, EventArgs e)
         {
             statusController.SelectUserFromQRReaderCode();
 
@@ -52,29 +61,7 @@ namespace EventEntranceApp
             AllowedToEnterReasonsPrint((Person)statusController.Visitors.SelectedItem);
         }
 
-        private void AllowedToEnterReasonsPrint(Person visitor)
-        {
-            bool allowedToEnter = true;
-            if (visitor.MoneyOwed > 0.00)
-            {
-                liReasons.Items.Add("Not all fees have been paid.");
-                allowedToEnter = false;
-            }
-            if (visitor.HasLeft)
-            {
-                liReasons.Items.Add("Visitor has already left.");
-                allowedToEnter = false;
-            }
-            if (visitor.First_name.Equals("") || visitor.Last_name.Equals(""))
-            {
-                liReasons.Items.Add("Not all information about visitor was supplied.");
-                allowedToEnter = false;
-            }
-
-            lbAllowedToEnter.Text = allowedToEnter ? "YES" : "NO";
-        }
-
-        private void btSearch_Click(object sender, EventArgs e)
+        private void searchByLastName_Click(object sender, EventArgs e)
         {
             statusController.SearchByLastNameButtonClick();
         }
@@ -84,14 +71,14 @@ namespace EventEntranceApp
             statusController.VisitorsListBoxSelectedIndexChanged();
         }
 
-        private void btClearResult_Click(object sender, EventArgs e)
+        private void clearResult_Click(object sender, EventArgs e)
         {
             statusController.ClearResultsButtonClick();
             liReasons.Items.Clear();
             lbAllowedToEnter.Text = "--";
         }
 
-        private void btInsertInfo_Click(object sender, EventArgs e)
+        private void insertInfo_Click(object sender, EventArgs e)
         {
             string email = tbEmail.Text;
             string firstName = tbFirstName.Text;
@@ -120,12 +107,12 @@ namespace EventEntranceApp
             MessageBox.Show("User successfuly added.", "Success");
         }
 
-        private void btClearFields_Click(object sender, EventArgs e)
+        private void clearFields_Click(object sender, EventArgs e)
         {
             ClearInsertFields();
         }
 
-        private void btMarkAsEntered_Click(object sender, EventArgs e)
+        private void markAsEntered_Click(object sender, EventArgs e)
         {
             if (statusController.UserQrCode.Equals(""))
             {
@@ -138,6 +125,28 @@ namespace EventEntranceApp
             connection.Open();
             connection.ExecuteNonQuery(queryString);
             connection.Close();
+        }
+
+        private void AllowedToEnterReasonsPrint(Person visitor)
+        {
+            bool allowedToEnter = true;
+            if (visitor.MoneyOwed > 0.00)
+            {
+                liReasons.Items.Add("Not all fees have been paid.");
+                allowedToEnter = false;
+            }
+            if (visitor.HasLeft)
+            {
+                liReasons.Items.Add("Visitor has already left.");
+                allowedToEnter = false;
+            }
+            if (visitor.First_name.Equals("") || visitor.Last_name.Equals(""))
+            {
+                liReasons.Items.Add("Not all information about visitor was supplied.");
+                allowedToEnter = false;
+            }
+
+            lbAllowedToEnter.Text = allowedToEnter ? "YES" : "NO";
         }
 
         private void ClearInsertFields()
@@ -162,6 +171,5 @@ namespace EventEntranceApp
                 return HtmlResult;
             }
         }
-
     }
 }

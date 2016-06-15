@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
+using MaterialSkin;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -36,7 +38,7 @@ namespace CommonClasses
         public StatusPanelController(DBConnection connection)
         {
             this.connection = connection;
-            PcId = Prompt.ShowDialog("Enter PC ID", "Device setup");
+            PcId = PromptForPcId();
         }
 
         public void SelectUserFromQRReaderCode()
@@ -45,6 +47,7 @@ namespace CommonClasses
             Person visitor = connection.GetPersonFromQRreader(PcId);
             if (visitor != null)
             {
+                UserQrCode = visitor.QR_code;
                 Visitors.Items.Add(visitor);
                 Visitors.SelectedIndex = 0;
             }             
@@ -63,7 +66,8 @@ namespace CommonClasses
             try
             {
                 connection.Open();
-                string query = String.Format(Queries.SELECT, "user", "last_name", SearchLastName.Text);
+                string query = String.Format(Queries.SELECT, "user", "last_name",
+                                             SearchLastName.Text);
                 reader = connection.ExecuteReaderQuery(query);
                 while (reader.Read())
                 {
@@ -99,12 +103,45 @@ namespace CommonClasses
                 Money.Text = String.Format(Queries.MONEY_FORMAT, visitor.Money);
                 HasEntered.Text = visitor.HasEntered.ToString();
                 HasLeft.Text = visitor.HasLeft.ToString();
-                //MoneySpentOnFood.Text = String.Format(moneyStringFormat, complex query);
+                MoneySpentOnFood.Text = String.Format(Queries.MONEY_FORMAT,
+                                                      QueryMoneySpentOnFood(visitor.QR_code));
                 TotalMoney.Text = String.Format(Queries.MONEY_FORMAT, visitor.TotalMoney);
             }
         }
 
-        
+        public string QueryMoneySpentOnFood(string QRcode)
+        {
+            MySqlDataReader reader = null;
+            string result = "";
+            try
+            {
+                connection.Open();
+                string query = String.Format(Queries.SELECT_MONEY_SPENT_FOOD,
+                                             QRcode);
+                reader = connection.ExecuteReaderQuery(query);
+                while (reader.Read())
+                {
+                    result = reader["FOOD_COST"].ToString();
+                    if (result.Equals(""))
+                    {
+                        result = "0.00";
+                    }
+                }
+                connection.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+            }
+            return result;
+        }
 
         public void ClearResultsButtonClick()
         {
@@ -133,6 +170,27 @@ namespace CommonClasses
         public static void ClearLabel(Label lb)
         {
             lb.Text = "---";
+        }
+
+        public static string PromptForPcId()
+        {
+            string PcId = Prompt.ShowDialog("Enter PC ID", "Device setup");
+            int id;
+            try
+            {
+                id = Convert.ToInt32(PcId);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("The PC ID is not valid!");
+                return PromptForPcId();
+            }
+            if (id <= 0 || id >= 100)
+            {
+                MessageBox.Show("The PC ID is not in the valid range!");
+                return PromptForPcId();
+            }
+            return PcId;
         }
     }
 }

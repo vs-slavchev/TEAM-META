@@ -30,15 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gbVisitorStatus = new System.Windows.Forms.GroupBox();
-            this.btRetrieveQRData = new System.Windows.Forms.Button();
+            this.clearResult = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.searchByLastName = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.retrieveQRdata = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbHasLeft = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lbPhoneNumber = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.liVisitors = new System.Windows.Forms.ListBox();
-            this.btSearch = new System.Windows.Forms.Button();
-            this.btClearResult = new System.Windows.Forms.Button();
-            this.tbSearchLastname = new System.Windows.Forms.TextBox();
             this.lbMoneyTransferred = new System.Windows.Forms.Label();
             this.lbMoneySpentFood = new System.Windows.Forms.Label();
             this.lbHasEntered = new System.Windows.Forms.Label();
@@ -52,7 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbLastname = new System.Windows.Forms.Label();
             this.bgOverallStatus = new System.Windows.Forms.GroupBox();
-            this.btUpdateOverallStatus = new System.Windows.Forms.Button();
+            this.updateOverallStatus = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lbCampSpotsBooked = new System.Windows.Forms.Label();
             this.lbTotalMoneyPaid = new System.Windows.Forms.Label();
             this.lbTotalBalance = new System.Windows.Forms.Label();
@@ -67,22 +66,23 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.liCampSpots = new System.Windows.Forms.ListBox();
+            this.tbSearchLastname = new System.Windows.Forms.TextBox();
             this.gbVisitorStatus.SuspendLayout();
             this.bgOverallStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbVisitorStatus
             // 
-            this.gbVisitorStatus.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.gbVisitorStatus.BackColor = System.Drawing.Color.MediumPurple;
             this.gbVisitorStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gbVisitorStatus.Controls.Add(this.btRetrieveQRData);
+            this.gbVisitorStatus.Controls.Add(this.clearResult);
+            this.gbVisitorStatus.Controls.Add(this.searchByLastName);
+            this.gbVisitorStatus.Controls.Add(this.retrieveQRdata);
             this.gbVisitorStatus.Controls.Add(this.lbHasLeft);
             this.gbVisitorStatus.Controls.Add(this.label15);
             this.gbVisitorStatus.Controls.Add(this.lbPhoneNumber);
             this.gbVisitorStatus.Controls.Add(this.label14);
             this.gbVisitorStatus.Controls.Add(this.liVisitors);
-            this.gbVisitorStatus.Controls.Add(this.btSearch);
-            this.gbVisitorStatus.Controls.Add(this.btClearResult);
             this.gbVisitorStatus.Controls.Add(this.tbSearchLastname);
             this.gbVisitorStatus.Controls.Add(this.lbMoneyTransferred);
             this.gbVisitorStatus.Controls.Add(this.lbMoneySpentFood);
@@ -96,22 +96,51 @@
             this.gbVisitorStatus.Controls.Add(this.label2);
             this.gbVisitorStatus.Controls.Add(this.label1);
             this.gbVisitorStatus.Controls.Add(this.lbLastname);
-            this.gbVisitorStatus.Location = new System.Drawing.Point(22, 12);
+            this.gbVisitorStatus.Location = new System.Drawing.Point(3, 67);
             this.gbVisitorStatus.Name = "gbVisitorStatus";
             this.gbVisitorStatus.Size = new System.Drawing.Size(429, 686);
             this.gbVisitorStatus.TabIndex = 0;
             this.gbVisitorStatus.TabStop = false;
             this.gbVisitorStatus.Text = "Visitor Status";
             // 
-            // btRetrieveQRData
+            // clearResult
             // 
-            this.btRetrieveQRData.Location = new System.Drawing.Point(6, 19);
-            this.btRetrieveQRData.Name = "btRetrieveQRData";
-            this.btRetrieveQRData.Size = new System.Drawing.Size(417, 78);
-            this.btRetrieveQRData.TabIndex = 22;
-            this.btRetrieveQRData.Text = "Retrieve ID from QR reader";
-            this.btRetrieveQRData.UseVisualStyleBackColor = true;
-            this.btRetrieveQRData.Click += new System.EventHandler(this.btRetrieveQRData_Click);
+            this.clearResult.Depth = 0;
+            this.clearResult.Location = new System.Drawing.Point(6, 631);
+            this.clearResult.MouseState = MaterialSkin.MouseState.HOVER;
+            this.clearResult.Name = "clearResult";
+            this.clearResult.Primary = true;
+            this.clearResult.Size = new System.Drawing.Size(417, 49);
+            this.clearResult.TabIndex = 25;
+            this.clearResult.Text = "Clear result";
+            this.clearResult.UseVisualStyleBackColor = true;
+            this.clearResult.Click += new System.EventHandler(this.clearResult_Click);
+            // 
+            // searchByLastName
+            // 
+            this.searchByLastName.Depth = 0;
+            this.searchByLastName.Location = new System.Drawing.Point(6, 425);
+            this.searchByLastName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.searchByLastName.Name = "searchByLastName";
+            this.searchByLastName.Primary = true;
+            this.searchByLastName.Size = new System.Drawing.Size(417, 34);
+            this.searchByLastName.TabIndex = 24;
+            this.searchByLastName.Text = "Search";
+            this.searchByLastName.UseVisualStyleBackColor = true;
+            this.searchByLastName.Click += new System.EventHandler(this.searchByLastName_Click);
+            // 
+            // retrieveQRdata
+            // 
+            this.retrieveQRdata.Depth = 0;
+            this.retrieveQRdata.Location = new System.Drawing.Point(6, 19);
+            this.retrieveQRdata.MouseState = MaterialSkin.MouseState.HOVER;
+            this.retrieveQRdata.Name = "retrieveQRdata";
+            this.retrieveQRdata.Primary = true;
+            this.retrieveQRdata.Size = new System.Drawing.Size(417, 78);
+            this.retrieveQRdata.TabIndex = 23;
+            this.retrieveQRdata.Text = "Get user from QR reader";
+            this.retrieveQRdata.UseVisualStyleBackColor = true;
+            this.retrieveQRdata.Click += new System.EventHandler(this.retrieveQRdata_Click);
             // 
             // lbHasLeft
             // 
@@ -157,33 +186,6 @@
             this.liVisitors.Size = new System.Drawing.Size(417, 160);
             this.liVisitors.TabIndex = 17;
             this.liVisitors.SelectedIndexChanged += new System.EventHandler(this.liVisitors_SelectedIndexChanged);
-            // 
-            // btSearch
-            // 
-            this.btSearch.Location = new System.Drawing.Point(6, 425);
-            this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(417, 34);
-            this.btSearch.TabIndex = 16;
-            this.btSearch.Text = "Search";
-            this.btSearch.UseVisualStyleBackColor = true;
-            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
-            // 
-            // btClearResult
-            // 
-            this.btClearResult.Location = new System.Drawing.Point(6, 628);
-            this.btClearResult.Name = "btClearResult";
-            this.btClearResult.Size = new System.Drawing.Size(417, 52);
-            this.btClearResult.TabIndex = 15;
-            this.btClearResult.Text = "Clear result";
-            this.btClearResult.UseVisualStyleBackColor = true;
-            this.btClearResult.Click += new System.EventHandler(this.btClearResult_Click);
-            // 
-            // tbSearchLastname
-            // 
-            this.tbSearchLastname.Location = new System.Drawing.Point(145, 399);
-            this.tbSearchLastname.Name = "tbSearchLastname";
-            this.tbSearchLastname.Size = new System.Drawing.Size(278, 20);
-            this.tbSearchLastname.TabIndex = 14;
             // 
             // lbMoneyTransferred
             // 
@@ -278,9 +280,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(142, 116);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(141, 109);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.Size = new System.Drawing.Size(41, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Info:";
             // 
@@ -295,9 +298,9 @@
             // 
             // bgOverallStatus
             // 
-            this.bgOverallStatus.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.bgOverallStatus.BackColor = System.Drawing.Color.MediumPurple;
             this.bgOverallStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bgOverallStatus.Controls.Add(this.btUpdateOverallStatus);
+            this.bgOverallStatus.Controls.Add(this.updateOverallStatus);
             this.bgOverallStatus.Controls.Add(this.lbCampSpotsBooked);
             this.bgOverallStatus.Controls.Add(this.lbTotalMoneyPaid);
             this.bgOverallStatus.Controls.Add(this.lbTotalBalance);
@@ -312,27 +315,30 @@
             this.bgOverallStatus.Controls.Add(this.label8);
             this.bgOverallStatus.Controls.Add(this.label7);
             this.bgOverallStatus.Controls.Add(this.liCampSpots);
-            this.bgOverallStatus.Location = new System.Drawing.Point(472, 12);
+            this.bgOverallStatus.Location = new System.Drawing.Point(438, 67);
             this.bgOverallStatus.Name = "bgOverallStatus";
             this.bgOverallStatus.Size = new System.Drawing.Size(450, 686);
             this.bgOverallStatus.TabIndex = 1;
             this.bgOverallStatus.TabStop = false;
             this.bgOverallStatus.Text = "Overall Status";
             // 
-            // btUpdateOverallStatus
+            // updateOverallStatus
             // 
-            this.btUpdateOverallStatus.Location = new System.Drawing.Point(10, 26);
-            this.btUpdateOverallStatus.Name = "btUpdateOverallStatus";
-            this.btUpdateOverallStatus.Size = new System.Drawing.Size(434, 23);
-            this.btUpdateOverallStatus.TabIndex = 14;
-            this.btUpdateOverallStatus.Text = "Update information";
-            this.btUpdateOverallStatus.UseVisualStyleBackColor = true;
-            this.btUpdateOverallStatus.Click += new System.EventHandler(this.btUpdateOverallStatus_Click);
+            this.updateOverallStatus.Depth = 0;
+            this.updateOverallStatus.Location = new System.Drawing.Point(9, 19);
+            this.updateOverallStatus.MouseState = MaterialSkin.MouseState.HOVER;
+            this.updateOverallStatus.Name = "updateOverallStatus";
+            this.updateOverallStatus.Primary = true;
+            this.updateOverallStatus.Size = new System.Drawing.Size(431, 78);
+            this.updateOverallStatus.TabIndex = 15;
+            this.updateOverallStatus.Text = "Update information";
+            this.updateOverallStatus.UseVisualStyleBackColor = true;
+            this.updateOverallStatus.Click += new System.EventHandler(this.updateOverallStatus_Click);
             // 
             // lbCampSpotsBooked
             // 
             this.lbCampSpotsBooked.AutoSize = true;
-            this.lbCampSpotsBooked.Location = new System.Drawing.Point(147, 201);
+            this.lbCampSpotsBooked.Location = new System.Drawing.Point(157, 256);
             this.lbCampSpotsBooked.Name = "lbCampSpotsBooked";
             this.lbCampSpotsBooked.Size = new System.Drawing.Size(16, 13);
             this.lbCampSpotsBooked.TabIndex = 13;
@@ -341,7 +347,7 @@
             // lbTotalMoneyPaid
             // 
             this.lbTotalMoneyPaid.AutoSize = true;
-            this.lbTotalMoneyPaid.Location = new System.Drawing.Point(147, 174);
+            this.lbTotalMoneyPaid.Location = new System.Drawing.Point(157, 229);
             this.lbTotalMoneyPaid.Name = "lbTotalMoneyPaid";
             this.lbTotalMoneyPaid.Size = new System.Drawing.Size(16, 13);
             this.lbTotalMoneyPaid.TabIndex = 12;
@@ -350,7 +356,7 @@
             // lbTotalBalance
             // 
             this.lbTotalBalance.AutoSize = true;
-            this.lbTotalBalance.Location = new System.Drawing.Point(147, 144);
+            this.lbTotalBalance.Location = new System.Drawing.Point(157, 199);
             this.lbTotalBalance.Name = "lbTotalBalance";
             this.lbTotalBalance.Size = new System.Drawing.Size(16, 13);
             this.lbTotalBalance.TabIndex = 11;
@@ -359,7 +365,7 @@
             // lbVisitorsLeft
             // 
             this.lbVisitorsLeft.AutoSize = true;
-            this.lbVisitorsLeft.Location = new System.Drawing.Point(147, 116);
+            this.lbVisitorsLeft.Location = new System.Drawing.Point(157, 171);
             this.lbVisitorsLeft.Name = "lbVisitorsLeft";
             this.lbVisitorsLeft.Size = new System.Drawing.Size(16, 13);
             this.lbVisitorsLeft.TabIndex = 10;
@@ -368,7 +374,7 @@
             // lbVisitorsNotEntered
             // 
             this.lbVisitorsNotEntered.AutoSize = true;
-            this.lbVisitorsNotEntered.Location = new System.Drawing.Point(147, 87);
+            this.lbVisitorsNotEntered.Location = new System.Drawing.Point(157, 142);
             this.lbVisitorsNotEntered.Name = "lbVisitorsNotEntered";
             this.lbVisitorsNotEntered.Size = new System.Drawing.Size(16, 13);
             this.lbVisitorsNotEntered.TabIndex = 9;
@@ -377,7 +383,7 @@
             // lbVisitorsEntered
             // 
             this.lbVisitorsEntered.AutoSize = true;
-            this.lbVisitorsEntered.Location = new System.Drawing.Point(147, 61);
+            this.lbVisitorsEntered.Location = new System.Drawing.Point(157, 116);
             this.lbVisitorsEntered.Name = "lbVisitorsEntered";
             this.lbVisitorsEntered.Size = new System.Drawing.Size(16, 13);
             this.lbVisitorsEntered.TabIndex = 8;
@@ -395,7 +401,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 201);
+            this.label12.Location = new System.Drawing.Point(17, 256);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(103, 13);
             this.label12.TabIndex = 6;
@@ -404,7 +410,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 174);
+            this.label11.Location = new System.Drawing.Point(17, 229);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 13);
             this.label11.TabIndex = 5;
@@ -413,7 +419,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 144);
+            this.label10.Location = new System.Drawing.Point(17, 199);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(105, 13);
             this.label10.TabIndex = 4;
@@ -422,7 +428,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 116);
+            this.label9.Location = new System.Drawing.Point(17, 171);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 13);
             this.label9.TabIndex = 3;
@@ -431,7 +437,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 87);
+            this.label8.Location = new System.Drawing.Point(17, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(116, 13);
             this.label8.TabIndex = 2;
@@ -440,7 +446,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 61);
+            this.label7.Location = new System.Drawing.Point(17, 116);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 1;
@@ -454,12 +460,19 @@
             this.liCampSpots.Size = new System.Drawing.Size(434, 329);
             this.liCampSpots.TabIndex = 0;
             // 
+            // tbSearchLastname
+            // 
+            this.tbSearchLastname.Location = new System.Drawing.Point(145, 399);
+            this.tbSearchLastname.Name = "tbSearchLastname";
+            this.tbSearchLastname.Size = new System.Drawing.Size(278, 20);
+            this.tbSearchLastname.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(942, 710);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(892, 755);
             this.Controls.Add(this.bgOverallStatus);
             this.Controls.Add(this.gbVisitorStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -476,7 +489,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbVisitorStatus;
-        private System.Windows.Forms.TextBox tbSearchLastname;
         private System.Windows.Forms.Label lbMoneyTransferred;
         private System.Windows.Forms.Label lbMoneySpentFood;
         private System.Windows.Forms.Label lbHasEntered;
@@ -504,15 +516,16 @@
         private System.Windows.Forms.ListBox liCampSpots;
         private System.Windows.Forms.Label lbCampSpotsBooked;
         private System.Windows.Forms.Label lbTotalMoneyPaid;
-        private System.Windows.Forms.Button btSearch;
-        private System.Windows.Forms.Button btClearResult;
-        private System.Windows.Forms.Button btUpdateOverallStatus;
         private System.Windows.Forms.ListBox liVisitors;
         private System.Windows.Forms.Label lbPhoneNumber;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbHasLeft;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btRetrieveQRData;
+        private MaterialSkin.Controls.MaterialRaisedButton updateOverallStatus;
+        private MaterialSkin.Controls.MaterialRaisedButton retrieveQRdata;
+        private MaterialSkin.Controls.MaterialRaisedButton searchByLastName;
+        private MaterialSkin.Controls.MaterialRaisedButton clearResult;
+        private System.Windows.Forms.TextBox tbSearchLastname;
     }
 }
 

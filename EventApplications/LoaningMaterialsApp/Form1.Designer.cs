@@ -44,14 +44,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.bt_returnMaterial = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.bt_retrieveQR = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lb_visitorName = new System.Windows.Forms.Label();
-            this.bt_clearUser = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.returnMaterial = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.loan = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.clearUser = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.retrieveQR = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
@@ -61,9 +63,9 @@
             this.columnHeader1,
             this.columnHeader6,
             this.columnHeader3});
-            this.listView1.Location = new System.Drawing.Point(29, 136);
+            this.listView1.Location = new System.Drawing.Point(16, 136);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(360, 528);
+            this.listView1.Size = new System.Drawing.Size(458, 528);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -76,20 +78,21 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Material";
-            this.columnHeader1.Width = 175;
+            this.columnHeader1.Width = 165;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Rented to:";
-            this.columnHeader6.Width = 119;
+            this.columnHeader6.Width = 212;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Price";
+            this.columnHeader3.Width = 76;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(295, 677);
+            this.textBox2.Location = new System.Drawing.Point(370, 696);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(94, 20);
             this.textBox2.TabIndex = 12;
@@ -103,9 +106,9 @@
             this.columnHeader4,
             this.columnHeader8,
             this.columnHeader5});
-            this.listView2.Location = new System.Drawing.Point(452, 136);
+            this.listView2.Location = new System.Drawing.Point(503, 136);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(360, 441);
+            this.listView2.Size = new System.Drawing.Size(368, 389);
             this.listView2.TabIndex = 15;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -122,7 +125,7 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Material";
-            this.columnHeader4.Width = 120;
+            this.columnHeader4.Width = 133;
             // 
             // columnHeader8
             // 
@@ -136,7 +139,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 120);
+            this.label1.Location = new System.Drawing.Point(22, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 16;
@@ -145,7 +148,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(450, 120);
+            this.label2.Location = new System.Drawing.Point(506, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 17;
@@ -154,7 +157,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(461, 651);
+            this.label3.Location = new System.Drawing.Point(517, 616);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 18;
@@ -163,53 +166,23 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(461, 683);
+            this.label4.Location = new System.Drawing.Point(506, 641);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "Material ID";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(453, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(360, 51);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Loan";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // bt_returnMaterial
-            // 
-            this.bt_returnMaterial.Location = new System.Drawing.Point(737, 677);
-            this.bt_returnMaterial.Name = "bt_returnMaterial";
-            this.bt_returnMaterial.Size = new System.Drawing.Size(75, 23);
-            this.bt_returnMaterial.TabIndex = 26;
-            this.bt_returnMaterial.Text = "Return";
-            this.bt_returnMaterial.UseVisualStyleBackColor = true;
-            this.bt_returnMaterial.Click += new System.EventHandler(this.button6_Click);
-            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(525, 680);
+            this.textBox1.Location = new System.Drawing.Point(570, 638);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
+            this.textBox1.Size = new System.Drawing.Size(150, 20);
             this.textBox1.TabIndex = 27;
-            // 
-            // bt_retrieveQR
-            // 
-            this.bt_retrieveQR.Location = new System.Drawing.Point(29, 28);
-            this.bt_retrieveQR.Name = "bt_retrieveQR";
-            this.bt_retrieveQR.Size = new System.Drawing.Size(530, 62);
-            this.bt_retrieveQR.TabIndex = 28;
-            this.bt_retrieveQR.Text = "Retrieve QR code";
-            this.bt_retrieveQR.UseVisualStyleBackColor = true;
-            this.bt_retrieveQR.Click += new System.EventHandler(this.bt_retrieveQR_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(255, 680);
+            this.label5.Location = new System.Drawing.Point(330, 699);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 29;
@@ -218,7 +191,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(583, 39);
+            this.label6.Location = new System.Drawing.Point(500, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 30;
@@ -227,49 +200,103 @@
             // lb_visitorName
             // 
             this.lb_visitorName.AutoSize = true;
-            this.lb_visitorName.Location = new System.Drawing.Point(583, 66);
+            this.lb_visitorName.Location = new System.Drawing.Point(500, 60);
             this.lb_visitorName.Name = "lb_visitorName";
             this.lb_visitorName.Size = new System.Drawing.Size(16, 13);
             this.lb_visitorName.TabIndex = 31;
             this.lb_visitorName.Text = "---";
             // 
-            // bt_clearUser
+            // groupBox1
             // 
-            this.bt_clearUser.Location = new System.Drawing.Point(684, 28);
-            this.bt_clearUser.Name = "bt_clearUser";
-            this.bt_clearUser.Size = new System.Drawing.Size(128, 62);
-            this.bt_clearUser.TabIndex = 32;
-            this.bt_clearUser.Text = "Clear selected visitor";
-            this.bt_clearUser.UseVisualStyleBackColor = true;
-            this.bt_clearUser.Click += new System.EventHandler(this.bt_clearUser_Click);
+            this.groupBox1.BackColor = System.Drawing.Color.MediumPurple;
+            this.groupBox1.Controls.Add(this.returnMaterial);
+            this.groupBox1.Controls.Add(this.loan);
+            this.groupBox1.Controls.Add(this.clearUser);
+            this.groupBox1.Controls.Add(this.retrieveQR);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.lb_visitorName);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.listView2);
+            this.groupBox1.Location = new System.Drawing.Point(3, 67);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(902, 743);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // returnMaterial
+            // 
+            this.returnMaterial.Depth = 0;
+            this.returnMaterial.Location = new System.Drawing.Point(503, 664);
+            this.returnMaterial.MouseState = MaterialSkin.MouseState.HOVER;
+            this.returnMaterial.Name = "returnMaterial";
+            this.returnMaterial.Primary = true;
+            this.returnMaterial.Size = new System.Drawing.Size(368, 54);
+            this.returnMaterial.TabIndex = 36;
+            this.returnMaterial.Text = "return material";
+            this.returnMaterial.UseVisualStyleBackColor = true;
+            this.returnMaterial.Click += new System.EventHandler(this.returnMaterial_Click);
+            // 
+            // loan
+            // 
+            this.loan.Depth = 0;
+            this.loan.Location = new System.Drawing.Point(503, 549);
+            this.loan.MouseState = MaterialSkin.MouseState.HOVER;
+            this.loan.Name = "loan";
+            this.loan.Primary = true;
+            this.loan.Size = new System.Drawing.Size(368, 51);
+            this.loan.TabIndex = 35;
+            this.loan.Text = "loan";
+            this.loan.UseVisualStyleBackColor = true;
+            this.loan.Click += new System.EventHandler(this.loan_Click);
+            // 
+            // clearUser
+            // 
+            this.clearUser.Depth = 0;
+            this.clearUser.Location = new System.Drawing.Point(686, 19);
+            this.clearUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.clearUser.Name = "clearUser";
+            this.clearUser.Primary = true;
+            this.clearUser.Size = new System.Drawing.Size(185, 62);
+            this.clearUser.TabIndex = 34;
+            this.clearUser.Text = "clear selected visitor";
+            this.clearUser.UseVisualStyleBackColor = true;
+            this.clearUser.Click += new System.EventHandler(this.clearUser_Click);
+            // 
+            // retrieveQR
+            // 
+            this.retrieveQR.Depth = 0;
+            this.retrieveQR.Location = new System.Drawing.Point(16, 19);
+            this.retrieveQR.MouseState = MaterialSkin.MouseState.HOVER;
+            this.retrieveQR.Name = "retrieveQR";
+            this.retrieveQR.Primary = true;
+            this.retrieveQR.Size = new System.Drawing.Size(458, 62);
+            this.retrieveQR.TabIndex = 33;
+            this.retrieveQR.Text = "get user from qr reader";
+            this.retrieveQR.UseVisualStyleBackColor = true;
+            this.retrieveQR.Click += new System.EventHandler(this.retrieveQR_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(824, 712);
-            this.Controls.Add(this.bt_clearUser);
-            this.Controls.Add(this.lb_visitorName);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.bt_retrieveQR);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.bt_returnMaterial);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(909, 814);
+            this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Loan Materials Stand";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -285,19 +312,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button bt_returnMaterial;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.Button bt_retrieveQR;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lb_visitorName;
-        private System.Windows.Forms.Button bt_clearUser;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MaterialSkin.Controls.MaterialRaisedButton retrieveQR;
+        private MaterialSkin.Controls.MaterialRaisedButton clearUser;
+        private MaterialSkin.Controls.MaterialRaisedButton loan;
+        private MaterialSkin.Controls.MaterialRaisedButton returnMaterial;
     }
 }
 

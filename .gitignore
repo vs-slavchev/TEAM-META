@@ -1,10 +1,21 @@
+# Connection details
 *db_login_details.php
 Scripts/connection_data.py
 EventApplications/CommonClasses/DatabaseDetails.cs
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+
+# Useless
 ~$*
-*.txt~
-*.md~
-*.cache
-*.Cache
+*~
+.vs/
+*.[Cc]ache
+*.pdb
 *.suo
-visual studio 2013
+visual studio 2013/

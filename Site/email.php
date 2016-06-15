@@ -45,7 +45,7 @@
 	<div style="width:150px; margin-left:42%">
       <form method="post" action="./php/friend_emails.php">
         <fieldset>
-          <legend>E-mails:</legend>
+          <legend><font color="white">E-mails:</font></legend>
 					<ul style="padding:5px;">
 						<li style="padding:3px;">
             <input type="email" name="email1" placeholder="Email Address 1"></li>
@@ -67,7 +67,7 @@
 				will receive an email informing them of your invite and the offer. If they register
 				through your invite they can easily choose to be in your camp spot. A QR code will
 				be automatically assigned to them, so they can register online with their email
-				address or use the QR code they received to register on the entrance of the event.
+				address or use the QR code they received to register on the entrance of the event.<br><br><br><br>
 		</div>
 </div>
     </div>

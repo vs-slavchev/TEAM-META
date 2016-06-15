@@ -169,14 +169,3 @@ namespace CommonClasses
         }
     }
 }
-
-
-
-
-/*  TODO:
- * 
- *  - validate pc id string
- *  - insert user in camp entrance app - add money_owed
- *  - loaning - qr value not read - crash
- * 
- */

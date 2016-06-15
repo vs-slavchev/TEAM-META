@@ -28,44 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBoxMatId = new System.Windows.Forms.ListBox();
-            this.listBoxMatName = new System.Windows.Forms.ListBox();
-            this.lblBalance = new System.Windows.Forms.Label();
-            this.btnReturnMoney = new System.Windows.Forms.Button();
-            this.txtClientID = new System.Windows.Forms.TextBox();
+            this.returnMoney = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.checkLoanedMats = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.gbVisitorStatus = new System.Windows.Forms.GroupBox();
+            this.clearResult = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.searchByLastName = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.retrieveQRdata = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lbHasLeft = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbPhoneNumber = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.liVisitors = new System.Windows.Forms.ListBox();
+            this.tbSearchLastname = new System.Windows.Forms.TextBox();
+            this.lbMoneyTransferred = new System.Windows.Forms.Label();
+            this.lbMoneySpentFood = new System.Windows.Forms.Label();
+            this.lbHasEntered = new System.Windows.Forms.Label();
+            this.lbMoney = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbLastname = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.gbVisitorStatus.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Client id:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 244);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Money balance:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 24);
+            this.label3.Location = new System.Drawing.Point(23, 140);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
@@ -75,121 +73,345 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(214, 24);
+            this.label4.Location = new System.Drawing.Point(124, 140);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "material_id";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(436, 24);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "return";
-            // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.groupBox1.Controls.Add(this.listBoxMatId);
-            this.groupBox1.Controls.Add(this.listBoxMatName);
+            this.groupBox1.BackColor = System.Drawing.Color.MediumPurple;
+            this.groupBox1.Controls.Add(this.returnMoney);
+            this.groupBox1.Controls.Add(this.checkLoanedMats);
+            this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(27, 65);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(437, 67);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(502, 159);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(497, 686);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Loaned materials to return";
             // 
-            // listBoxMatId
+            // returnMoney
             // 
-            this.listBoxMatId.FormattingEnabled = true;
-            this.listBoxMatId.Location = new System.Drawing.Point(198, 39);
-            this.listBoxMatId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.listBoxMatId.Name = "listBoxMatId";
-            this.listBoxMatId.Size = new System.Drawing.Size(171, 108);
-            this.listBoxMatId.TabIndex = 6;
+            this.returnMoney.Depth = 0;
+            this.returnMoney.Location = new System.Drawing.Point(26, 290);
+            this.returnMoney.MouseState = MaterialSkin.MouseState.HOVER;
+            this.returnMoney.Name = "returnMoney";
+            this.returnMoney.Primary = true;
+            this.returnMoney.Size = new System.Drawing.Size(445, 66);
+            this.returnMoney.TabIndex = 10;
+            this.returnMoney.Text = "return money and mark account as invalid";
+            this.returnMoney.UseVisualStyleBackColor = true;
+            this.returnMoney.Click += new System.EventHandler(this.returnMoney_Click);
             // 
-            // listBoxMatName
+            // checkLoanedMats
             // 
-            this.listBoxMatName.FormattingEnabled = true;
-            this.listBoxMatName.Location = new System.Drawing.Point(16, 39);
-            this.listBoxMatName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.listBoxMatName.Name = "listBoxMatName";
-            this.listBoxMatName.Size = new System.Drawing.Size(168, 108);
-            this.listBoxMatName.TabIndex = 5;
+            this.checkLoanedMats.Depth = 0;
+            this.checkLoanedMats.Location = new System.Drawing.Point(26, 59);
+            this.checkLoanedMats.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkLoanedMats.Name = "checkLoanedMats";
+            this.checkLoanedMats.Primary = true;
+            this.checkLoanedMats.Size = new System.Drawing.Size(445, 70);
+            this.checkLoanedMats.TabIndex = 9;
+            this.checkLoanedMats.Text = "Check loaned materials";
+            this.checkLoanedMats.UseVisualStyleBackColor = true;
+            this.checkLoanedMats.Click += new System.EventHandler(this.checkLoanedMats_Click);
             // 
-            // lblBalance
+            // listBox1
             // 
-            this.lblBalance.AutoSize = true;
-            this.lblBalance.Location = new System.Drawing.Point(135, 244);
-            this.lblBalance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(45, 13);
-            this.lblBalance.TabIndex = 6;
-            this.lblBalance.Text = "balance";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(26, 155);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(445, 108);
+            this.listBox1.TabIndex = 5;
             // 
-            // btnReturnMoney
+            // gbVisitorStatus
             // 
-            this.btnReturnMoney.Location = new System.Drawing.Point(106, 293);
-            this.btnReturnMoney.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnReturnMoney.Name = "btnReturnMoney";
-            this.btnReturnMoney.Size = new System.Drawing.Size(127, 63);
-            this.btnReturnMoney.TabIndex = 7;
-            this.btnReturnMoney.Text = "Return money and mark account as invalid";
-            this.btnReturnMoney.UseVisualStyleBackColor = true;
+            this.gbVisitorStatus.BackColor = System.Drawing.Color.MediumPurple;
+            this.gbVisitorStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.gbVisitorStatus.Controls.Add(this.clearResult);
+            this.gbVisitorStatus.Controls.Add(this.searchByLastName);
+            this.gbVisitorStatus.Controls.Add(this.retrieveQRdata);
+            this.gbVisitorStatus.Controls.Add(this.lbHasLeft);
+            this.gbVisitorStatus.Controls.Add(this.label15);
+            this.gbVisitorStatus.Controls.Add(this.lbPhoneNumber);
+            this.gbVisitorStatus.Controls.Add(this.label14);
+            this.gbVisitorStatus.Controls.Add(this.liVisitors);
+            this.gbVisitorStatus.Controls.Add(this.tbSearchLastname);
+            this.gbVisitorStatus.Controls.Add(this.lbMoneyTransferred);
+            this.gbVisitorStatus.Controls.Add(this.lbMoneySpentFood);
+            this.gbVisitorStatus.Controls.Add(this.lbHasEntered);
+            this.gbVisitorStatus.Controls.Add(this.lbMoney);
+            this.gbVisitorStatus.Controls.Add(this.lbEmail);
+            this.gbVisitorStatus.Controls.Add(this.label6);
+            this.gbVisitorStatus.Controls.Add(this.label5);
+            this.gbVisitorStatus.Controls.Add(this.label1);
+            this.gbVisitorStatus.Controls.Add(this.label2);
+            this.gbVisitorStatus.Controls.Add(this.label7);
+            this.gbVisitorStatus.Controls.Add(this.label8);
+            this.gbVisitorStatus.Controls.Add(this.lbLastname);
+            this.gbVisitorStatus.Location = new System.Drawing.Point(3, 67);
+            this.gbVisitorStatus.Name = "gbVisitorStatus";
+            this.gbVisitorStatus.Size = new System.Drawing.Size(429, 686);
+            this.gbVisitorStatus.TabIndex = 9;
+            this.gbVisitorStatus.TabStop = false;
+            this.gbVisitorStatus.Text = "Visitor Status";
             // 
-            // txtClientID
+            // clearResult
             // 
-            this.txtClientID.Location = new System.Drawing.Point(100, 24);
-            this.txtClientID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtClientID.Name = "txtClientID";
-            this.txtClientID.Size = new System.Drawing.Size(102, 20);
-            this.txtClientID.TabIndex = 8;
+            this.clearResult.Depth = 0;
+            this.clearResult.Location = new System.Drawing.Point(6, 631);
+            this.clearResult.MouseState = MaterialSkin.MouseState.HOVER;
+            this.clearResult.Name = "clearResult";
+            this.clearResult.Primary = true;
+            this.clearResult.Size = new System.Drawing.Size(417, 49);
+            this.clearResult.TabIndex = 25;
+            this.clearResult.Text = "Clear result";
+            this.clearResult.UseVisualStyleBackColor = true;
+            this.clearResult.Click += new System.EventHandler(this.clearResult_Click);
+            // 
+            // searchByLastName
+            // 
+            this.searchByLastName.Depth = 0;
+            this.searchByLastName.Location = new System.Drawing.Point(6, 425);
+            this.searchByLastName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.searchByLastName.Name = "searchByLastName";
+            this.searchByLastName.Primary = true;
+            this.searchByLastName.Size = new System.Drawing.Size(417, 34);
+            this.searchByLastName.TabIndex = 24;
+            this.searchByLastName.Text = "Search";
+            this.searchByLastName.UseVisualStyleBackColor = true;
+            this.searchByLastName.Click += new System.EventHandler(this.searchByLastName_Click);
+            // 
+            // retrieveQRdata
+            // 
+            this.retrieveQRdata.Depth = 0;
+            this.retrieveQRdata.Location = new System.Drawing.Point(6, 19);
+            this.retrieveQRdata.MouseState = MaterialSkin.MouseState.HOVER;
+            this.retrieveQRdata.Name = "retrieveQRdata";
+            this.retrieveQRdata.Primary = true;
+            this.retrieveQRdata.Size = new System.Drawing.Size(417, 78);
+            this.retrieveQRdata.TabIndex = 23;
+            this.retrieveQRdata.Text = "Get user from QR reader";
+            this.retrieveQRdata.UseVisualStyleBackColor = true;
+            this.retrieveQRdata.Click += new System.EventHandler(this.retrieveQRdata_Click);
+            // 
+            // lbHasLeft
+            // 
+            this.lbHasLeft.AutoSize = true;
+            this.lbHasLeft.Location = new System.Drawing.Point(142, 260);
+            this.lbHasLeft.Name = "lbHasLeft";
+            this.lbHasLeft.Size = new System.Drawing.Size(16, 13);
+            this.lbHasLeft.TabIndex = 21;
+            this.lbHasLeft.Text = "---";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(10, 260);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 13);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "has left:";
+            // 
+            // lbPhoneNumber
+            // 
+            this.lbPhoneNumber.AutoSize = true;
+            this.lbPhoneNumber.Location = new System.Drawing.Point(142, 170);
+            this.lbPhoneNumber.Name = "lbPhoneNumber";
+            this.lbPhoneNumber.Size = new System.Drawing.Size(16, 13);
+            this.lbPhoneNumber.TabIndex = 19;
+            this.lbPhoneNumber.Text = "---";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 170);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(78, 13);
+            this.label14.TabIndex = 18;
+            this.label14.Text = "phone number:";
+            // 
+            // liVisitors
+            // 
+            this.liVisitors.FormattingEnabled = true;
+            this.liVisitors.Location = new System.Drawing.Point(6, 465);
+            this.liVisitors.Name = "liVisitors";
+            this.liVisitors.Size = new System.Drawing.Size(417, 160);
+            this.liVisitors.TabIndex = 17;
+            this.liVisitors.SelectedIndexChanged += new System.EventHandler(this.liVisitors_SelectedIndexChanged);
+            // 
+            // tbSearchLastname
+            // 
+            this.tbSearchLastname.Location = new System.Drawing.Point(145, 399);
+            this.tbSearchLastname.Name = "tbSearchLastname";
+            this.tbSearchLastname.Size = new System.Drawing.Size(278, 20);
+            this.tbSearchLastname.TabIndex = 14;
+            // 
+            // lbMoneyTransferred
+            // 
+            this.lbMoneyTransferred.AutoSize = true;
+            this.lbMoneyTransferred.Location = new System.Drawing.Point(142, 320);
+            this.lbMoneyTransferred.Name = "lbMoneyTransferred";
+            this.lbMoneyTransferred.Size = new System.Drawing.Size(16, 13);
+            this.lbMoneyTransferred.TabIndex = 12;
+            this.lbMoneyTransferred.Text = "---";
+            // 
+            // lbMoneySpentFood
+            // 
+            this.lbMoneySpentFood.AutoSize = true;
+            this.lbMoneySpentFood.Location = new System.Drawing.Point(142, 290);
+            this.lbMoneySpentFood.Name = "lbMoneySpentFood";
+            this.lbMoneySpentFood.Size = new System.Drawing.Size(16, 13);
+            this.lbMoneySpentFood.TabIndex = 11;
+            this.lbMoneySpentFood.Text = "---";
+            // 
+            // lbHasEntered
+            // 
+            this.lbHasEntered.AutoSize = true;
+            this.lbHasEntered.Location = new System.Drawing.Point(142, 230);
+            this.lbHasEntered.Name = "lbHasEntered";
+            this.lbHasEntered.Size = new System.Drawing.Size(16, 13);
+            this.lbHasEntered.TabIndex = 10;
+            this.lbHasEntered.Text = "---";
+            // 
+            // lbMoney
+            // 
+            this.lbMoney.AutoSize = true;
+            this.lbMoney.Location = new System.Drawing.Point(142, 200);
+            this.lbMoney.Name = "lbMoney";
+            this.lbMoney.Size = new System.Drawing.Size(16, 13);
+            this.lbMoney.TabIndex = 9;
+            this.lbMoney.Text = "---";
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(142, 140);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(16, 13);
+            this.lbEmail.TabIndex = 8;
+            this.lbEmail.Text = "---";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 320);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "total money transferred:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 290);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "money spent on food:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 230);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "has entered:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 200);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "money:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 140);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "email:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(141, 109);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 20);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Info:";
+            // 
+            // lbLastname
+            // 
+            this.lbLastname.AutoSize = true;
+            this.lbLastname.Location = new System.Drawing.Point(15, 402);
+            this.lbLastname.Name = "lbLastname";
+            this.lbLastname.Size = new System.Drawing.Size(104, 13);
+            this.lbLastname.TabIndex = 1;
+            this.lbLastname.Text = "search by last name:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(659, 619);
-            this.Controls.Add(this.txtClientID);
-            this.Controls.Add(this.btnReturnMoney);
-            this.Controls.Add(this.lblBalance);
+            this.ClientSize = new System.Drawing.Size(938, 756);
+            this.Controls.Add(this.gbVisitorStatus);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Exit";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbVisitorStatus.ResumeLayout(false);
+            this.gbVisitorStatus.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBoxMatId;
-        private System.Windows.Forms.ListBox listBoxMatName;
-        private System.Windows.Forms.Label lblBalance;
-        private System.Windows.Forms.Button btnReturnMoney;
-        private System.Windows.Forms.TextBox txtClientID;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.GroupBox gbVisitorStatus;
+        private MaterialSkin.Controls.MaterialRaisedButton clearResult;
+        private MaterialSkin.Controls.MaterialRaisedButton searchByLastName;
+        private MaterialSkin.Controls.MaterialRaisedButton retrieveQRdata;
+        private System.Windows.Forms.Label lbHasLeft;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbPhoneNumber;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ListBox liVisitors;
+        private System.Windows.Forms.TextBox tbSearchLastname;
+        private System.Windows.Forms.Label lbMoneyTransferred;
+        private System.Windows.Forms.Label lbMoneySpentFood;
+        private System.Windows.Forms.Label lbHasEntered;
+        private System.Windows.Forms.Label lbMoney;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbLastname;
+        private MaterialSkin.Controls.MaterialRaisedButton checkLoanedMats;
+        private MaterialSkin.Controls.MaterialRaisedButton returnMoney;
     }
 }
 

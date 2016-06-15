@@ -10,22 +10,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace Loaning_materialsApp
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
         private DBConnection connection = new DBConnection();
         private List<Material> materials = new List<Material>();
-        private decimal totalRentProfit = 0;
         private Person visitor = null;
+        private decimal totalRentProfit = 0;
         private string PcId;
 
         public Form1()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
+                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+
             listView2.FullRowSelect = true;
-            PcId = Prompt.ShowDialog("Enter PC ID", "Device setup");
+            PcId = StatusPanelController.PromptForPcId();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -95,54 +104,99 @@ namespace Loaning_materialsApp
             }
             connection.Close();
         }
-        
-        // loan material
-        private void button1_Click(object sender, EventArgs e)
+
+        private void loan_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem selectedItem in listView2.SelectedItems)
             {
                 Material NewMat = new Material(selectedItem, visitor);
+
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    if (item.SubItems[1].Text.Equals(NewMat.Name)
+                        && item.SubItems[2].Text.Equals(NewMat.Renter))
+                    {
+                        MessageBox.Show("This visitor already has this item.");
+                        return;
+                    }
+                }
+
                 connection.Open();
-                string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
-                string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
-                connection.ExecuteNonQuery(insert);
-                connection.ExecuteNonQuery(update);
+                double visitor_money = connection.ExecuteScalar(String.Format("SELECT `money` FROM `user` WHERE `qr_code` = '{0}'", visitor.QR_code));
+                if (Convert.ToDecimal(visitor_money) >= NewMat.Price)
+                {
+                    string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
+                    string insertpt2 = String.Format(Queries.INSERT_MATERIAL_LOAN_PT2, NewMat.Price, NewMat.Renter);
+                    string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
+                    connection.ExecuteNonQuery(insert);
+                    connection.ExecuteNonQuery(insertpt2);
+                    connection.ExecuteNonQuery(update);
+                    AddToListView1(NewMat);
+                    materials.Add(NewMat);
+                }
+                else { MessageBox.Show("This visitor doesn't have enough money."); }
                 connection.Close();
-                AddToListView1(NewMat);
-                materials.Add(NewMat);
             }
         }
 
-        //return material
-        private void button6_Click(object sender, EventArgs e)
+        private void returnMaterial_Click(object sender, EventArgs e)
         {
-            int matID = Convert.ToInt32(textBox1.Text);
+            if (textBox1.Text.Equals(""))
+            {
+                MessageBox.Show("No material ID is entered!");
+                return;
+            }
+            if (visitor == null)
+            {
+                MessageBox.Show("No user is currently selected!");
+                return;
+            }
+
+            int matID;
+            try
+            {
+                matID = Convert.ToInt32(textBox1.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Material ID is not valid!");
+                return;
+            }
+
             for (int i = 0; i < materials.Count(); i++)
             {
                 if ((matID == materials[i].ID) && (visitor.QR_code == materials[i].Renter))
                 {
                     materials.RemoveAt(i);
+                    connection.Open();
+                    connection.ExecuteNonQuery(String.Format(Queries.DELETE_LOAN_MATERIAL, visitor.QR_code, matID));
+                    connection.ExecuteNonQuery(String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "+1", matID));
+                    connection.Close();
                     break;
                 }
             }
-            connection.Open();
-            connection.ExecuteNonQuery(String.Format(Queries.DELETE_LOAN_MATERIAL, visitor.QR_code, matID));
-            connection.ExecuteNonQuery(String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "+1", matID));
-            connection.Close();
             UpdateListView1();
             CreateListView2();
         }
 
-        private void bt_retrieveQR_Click(object sender, EventArgs e)
+        private void retrieveQR_Click(object sender, EventArgs e)
         {
             visitor = connection.GetPersonFromQRreader(PcId);
+            if (visitor == null)
+            {
+                return;
+            }
             lb_visitorName.Text = visitor.Last_name;
         }
 
-        private void bt_clearUser_Click(object sender, EventArgs e)
+        private void clearUser_Click(object sender, EventArgs e)
         {
-            lb_visitorName.Text = "---";
-            connection.NullQRvalueInDB(PcId);
+            if (visitor != null)
+            {
+                StatusPanelController.ClearLabel(lb_visitorName);
+                visitor = null;
+                connection.NullQRvalueInDB(PcId);
+            }
         }
     }
 }
