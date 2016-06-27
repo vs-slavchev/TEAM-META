@@ -2,6 +2,8 @@
 <HEAD>
 <TITLE>Event Info</TITLE>
 
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />`
+
 <LINK REL="stylesheet" HREF="css\base.css" TYPE="text/css" charset="utf-8">
 <LINK REL="stylesheet" HREF="css\txtformat.css" TYPE="text/css" charset="utf-8">
 <LINK REL="stylesheet" HREF="css\homebody.css" TYPE="text/css" charset="utf-8">
