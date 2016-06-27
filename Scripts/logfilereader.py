@@ -13,12 +13,12 @@ with open(root.filename, "r") as f:
 	for i in range(4): f.readline()
 	for line in f:
 		SLog = line.split()
-		qr_code = SLog[0]
+		email = SLog[0]
 		## kakuv data type sa parite tuka? iskam ama moga li da gi subiram kato int?
 		money_to_add = int(SLog[1])
 		money_previously, money_owed, money_current = 0, 0, 0
 	
-		c.execute("SELECT `money`, `money_owed` FROM `user` WHERE `qr_code` = ('%s')" % (qr_code))
+		c.execute("SELECT `money`, `money_owed` FROM `user` WHERE `email` = ('%s')" % (email))
 		results = c.fetchall()
 
 		for row in results:
@@ -31,7 +31,7 @@ with open(root.filename, "r") as f:
 				money_current, money_owed = 0, money_owed - money_current
 
 			## kak se pi6e na nekolko reda bez da s4upa placeholderite? a tova query pre4i li si s gornoto?
-			c.execute("UPDATE USER SET money = ('%s'), total_money = total_money + ('%s'), money_owed = ('%s') WHERE QR_CODE = ('%s')" % (money_current, money_to_add, money_owed, qr_code))
+			c.execute("UPDATE USER SET money = ('%s'), total_money = total_money + ('%s'), money_owed = ('%s') WHERE email = ('%s')" % (money_current, money_to_add, money_owed, email))
 			conn.commit()
 
 conn.close()
