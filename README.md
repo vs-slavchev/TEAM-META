@@ -29,7 +29,6 @@ The 'Scripts' folder contains the Paypal logfile parsing script, an example logf
 To run the python script you will need to install MySQLDB driver with pip.
 
 The 'QRreaderApp' folder contains the android app for reading QR codes. Developed with Android Studio. To start it up:
-
 	1. Enable USB Debugging on your phone in the development settings.
 	2. Connect your phone and your PC with the cable.
 	3. Run the app from Android Studio.
