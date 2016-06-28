@@ -10,12 +10,14 @@ Software for event management. The solution consists of:
 
 
 The 'Site' folder contains the website with: css, fonts, pictures and the php backend. Pages contain:
+
 	- information about the event;
 	- registration form and a way to book a camp spot;
 	- friend invitation form. Invited people receive an email and are able to be put in the same camp their friends have chosen;
 	- twitter feed about the event;
 
 The 'EventApplications' folder contains the C# solution with the 6 applications. Open with Visual Studio 2013 and 2015. Each application is in a separate project.
+
 	- event entrance: check if a visitor is allowed to enter and whether all fees are collected;
 	- camp entrance: chech status and help visitors find their camp;
 	- shops: buy food and drinks with their event account money by just showing the QR code;
@@ -27,6 +29,7 @@ The 'Scripts' folder contains the Paypal logfile parsing script, an example logf
 To run the python script you will need to install MySQLDB driver with pip.
 
 The 'QRreaderApp' folder contains the android app for reading QR codes. Developed with Android Studio. To start it up:
+
 	1. Enable USB Debugging on your phone in the development settings.
 	2. Connect your phone and your PC with the cable.
 	3. Run the app from Android Studio.
@@ -34,6 +37,7 @@ The 'QRreaderApp' folder contains the android app for reading QR codes. Develope
 
 
 Finally, the 'Documents' folder contains all of the documentation about the project:
+
 	- diagrams and charts;
 	- GUI design and wireframes;
 	- agendas and minutes regularly tracking our progress on detailed tasks;
