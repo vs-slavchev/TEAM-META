@@ -24,7 +24,7 @@ The 'EventApplications' folder contains the C# solution with the 6 applications.
 Open with Visual Studio 2013 and 2015. Each application is in a separate project.
 
 	- event entrance: check if a visitor is allowed to enter and whether all fees are collected;
-	- camp entrance: chech status and help visitors find their camp;
+	- camp entrance: check status and help visitors find their camp;
 	- shops: buy food and drinks with their event account money by just showing the QR code;
 	- stands to loan materials: loan chargers, laptops or other equipment for the duration of the event;
 	- event exit: check if user has returned all loaned items and mark their leaving;
@@ -46,7 +46,7 @@ Finally, the 'Documents' folder contains all of the documentation about the proj
 	- diagrams and charts;
 	- GUI design and wireframes;
 	- agendas and minutes regularly tracking our progress on detailed tasks;
-	- process report describing our research, planning, acompished tasks and achievements, problems and the
+	- process report describing our research, planning, accompished tasks and achievements, problems and the
 	  situation for each week;
 	- setup document reflecting our initial approach and planning according the problem description and
 	  requirements;
