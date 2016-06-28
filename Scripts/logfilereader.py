@@ -14,7 +14,7 @@ with open(root.filename, "r") as f:
 	for line in f:
 		SLog = line.split()
 		email = SLog[0]
-		## kakuv data type sa parite tuka? iskam ama moga li da gi subiram kato int?
+		
 		money_to_add = int(SLog[1])
 		money_previously, money_owed, money_current = 0, 0, 0
 	
@@ -30,7 +30,6 @@ with open(root.filename, "r") as f:
 			else:
 				money_current, money_owed = 0, money_owed - money_current
 
-			## kak se pi6e na nekolko reda bez da s4upa placeholderite? a tova query pre4i li si s gornoto?
 			c.execute("UPDATE USER SET money = ('%s'), total_money = total_money + ('%s'), money_owed = ('%s') WHERE email = ('%s')" % (money_current, money_to_add, money_owed, email))
 			conn.commit()
 

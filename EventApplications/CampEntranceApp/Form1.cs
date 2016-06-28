@@ -26,8 +26,7 @@ namespace CampEntranceApp
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
-                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = SkinColors.GetDefaultColor();
 
             connection = new DBConnection();
             statusController = new StatusPanelController(connection);

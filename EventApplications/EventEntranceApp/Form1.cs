@@ -29,8 +29,7 @@ namespace EventEntranceApp
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
-                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = SkinColors.GetDefaultColor();
 
             connection = new DBConnection();
             statusController = new StatusPanelController(connection);
@@ -119,16 +118,24 @@ namespace EventEntranceApp
                 MessageBox.Show("No user is currently selected.", "Warning");
                 return;
             }
+            else if (lbAllowedToEnter.Text.Equals("NO"))
+            {
+                MessageBox.Show("This visitor is not allowed to enter!", "Warning");
+                return;
+            }
             string queryString = String.Format(Queries.USER_UPDATE,
                                  "has_entered", "true", statusController.UserQrCode);
 
             connection.Open();
             connection.ExecuteNonQuery(queryString);
             connection.Close();
+
+            MessageBox.Show("Visitor successfully marked as entered!");
         }
 
         private void AllowedToEnterReasonsPrint(Person visitor)
         {
+            liReasons.Items.Clear();
             bool allowedToEnter = true;
             if (visitor.MoneyOwed > 0.00)
             {
@@ -158,6 +165,9 @@ namespace EventEntranceApp
             tbPaypal.Clear();
         }
 
+        /* Send the email field by http to the php file that is responsible
+         * for calculating the hash of the email. This is done to reduce
+         * duplication of code. */
         public static string GetPost(string value)
         {
             string URI = "http://athena.fhict.nl/users/i345959/php/email_hasher.php";

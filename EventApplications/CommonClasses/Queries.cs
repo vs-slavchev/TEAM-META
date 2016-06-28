@@ -31,7 +31,7 @@ namespace CommonClasses
 
 		USER_UPDATE = "UPDATE user "
 					+ "SET {0} = {1} "
-					+ "WHERE qr_code = {2};",
+					+ "WHERE qr_code = '{2}';",
 
 		NULL_QR_READER_DEVICE = "UPDATE reader_device "
 							  + "SET qr_value = NULL "
@@ -44,9 +44,9 @@ namespace CommonClasses
 								 + "WHERE `material_id` = {1}",
 
 		INSERT_MATERIAL_LOAN = "INSERT INTO `material_loan`(`user_qr`, `material_id`) "
-														   + "VALUES('{0}', {1})",
+			                 + "VALUES('{0}', {1})",
 
-        INSERT_MATERIAL_LOAN_PT2 = "UPDATE `user` SET `money` = `money` - {0} WHERE `qr_code` = '{1}'",
+        USER_SUBTRACT_LOAN_COST = "UPDATE `user` SET `money` = `money` - {0} WHERE `qr_code` = '{1}'",
 
         USER_INSERT = "INSERT INTO user "
                     + "(email, first_name, last_name, phone_number, paypal, qr_code, money_owed) "
@@ -55,10 +55,10 @@ namespace CommonClasses
 
         SELECT_MONEY_SPENT_FOOD = "SELECT SUM(p.cost) AS FOOD_COST "
                                 + "FROM ( "
-                                    + "SELECT price * quantity AS cost "
-                                    + "FROM purchase JOIN product "
-                                    + "USING (product_id) "
-                                    + "WHERE category LIKE '%food%' AND user_qr = '{0}') p",
+                                + "SELECT price * quantity AS cost "
+                                + "FROM purchase JOIN product "
+                                + "USING (product_id) "
+                                + "WHERE category LIKE '%food%' AND user_qr = '{0}') p",
 
         RETURN_LOAN = "SELECT m.material_id, m.type "
                     + "FROM material m JOIN material_loan l "

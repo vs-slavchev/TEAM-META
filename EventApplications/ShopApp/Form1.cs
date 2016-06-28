@@ -30,8 +30,7 @@ namespace ShopApp
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
-                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = SkinColors.GetDefaultColor();
 
 			connection = new DBConnection();
 			products = new List<Product>();
@@ -42,6 +41,21 @@ namespace ShopApp
 
         private void buy_Click(object sender, EventArgs e)
 		{
+            if (person == null)
+            {
+                MessageBox.Show("No visitor is selected!");
+                return;
+            }
+            if (person.Money - total < 0)
+            {
+                MessageBox.Show("Visitor only has " + person.Money + "€ out of " + total + "€ !");
+                return;
+            }
+            if (total == 0)
+            {
+                MessageBox.Show("The products list is empty!");
+                return;
+            }
 			try
 			{
 				connection.Open();
@@ -53,201 +67,125 @@ namespace ShopApp
 				}
 				string queryString1 = String.Format(Queries.MONEY_UPDATE, total, person.QR_code);
 				connection.ExecuteNonQuery(queryString1);
+                MessageBox.Show("Purchase successful!");
 			}
 			finally
 			{
 				connection.Close();
 				connection.NullQRvalueInDB(PcId);
 				listBox1.Items.Clear();
+                lb_visitorLastName.Text = "";
+                lb_visitorFirstName.Text = "";
 				numericUpDown1.Value = 1;
 				lblTotal.Text = "0.00 €";
 				products = new List<Product>();
 			}
 		}
 
-        private void sumTotal_Click(object sender, EventArgs e)
+        private void showTotal()
 		{
+            if (person == null)
+            {
+                MessageBox.Show("No visitor is selected!");
+                return;
+            }
+
 			total = 0;
 			foreach (Product p in products)
 			{
-				total += p.Price*p.Quantity;
+				total += p.Price * p.Quantity;
 			}
 			lblTotal.Text = String.Format(Queries.MONEY_FORMAT, total.ToString());
 
 			if (person.Money - total < 0)
 			{
-				lblTotal.Text = "Error !!!";
-				MessageBox.Show("Not enough money in your account!!!");
+				lblTotal.Text = "Error";
+				MessageBox.Show("Visitor doesn't have enough money!");
 			}
 		}
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11110, 3.50, "Hamburger",quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11110);
 		}
 
 		private void button4_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11111, 4.00, "Cheeseburger", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11111);
 		}
 
 		private void button5_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11112, 3.50, "Hot dog", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11112);
 		}
 
 		private void button6_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11113, 5.00, "Chicken wings", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11113);
 		}
 
 		private void button7_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11114, 3.00, "French fries", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11114);
 		}
 
 		private void button8_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11115, 6.00, "Chicken doner", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11115);
 		}
 
 		private void button9_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11116, 7.00, "Mixed doner", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11116);
 		}
 
 		private void button10_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11120, 0.50, "Ketchup", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11120);
 		}
 
 		private void button11_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11121, 0.50, "Mayo", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11121);
 		}
 
 		private void button12_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11122, 0.50, "Chili", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11122);
 		}
 
 		private void button13_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11123, 0.50, "Garlic sauce", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11123);
 		}
 
 		private void button14_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11130, 2.50, "Coca Cola", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11130);
 		}
 
 		private void button15_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11131, 2.50, "Fanta", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11131);
 		}
 
 		private void button16_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11132, 1.50, "Water", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11132);
 		}
 
 		private void button17_Click(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			Product p = new Product(11133, 3.00, "Beer", quantity);
-			products.Add(p);
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
+            productButtonClick(11133);
 		}
 
         private void remove_Click(object sender, EventArgs e)
 		{
+            if (listBox1.Items.Count <= 0)
+            {
+                MessageBox.Show("No items are present!");
+                return;
+            }
 			products.RemoveAt(listBox1.SelectedIndex);
 			listBox1.Items.Clear();
 			foreach (Product a in products)
@@ -268,7 +206,8 @@ namespace ShopApp
             {
                 return;
             }
-            lb_visitorName.Text = person.Last_name;
+            lb_visitorLastName.Text = person.Last_name;
+            lb_visitorFirstName.Text = person.First_name;
 		}
 
         private string PromptForShopId()
@@ -290,6 +229,63 @@ namespace ShopApp
                 return PromptForShopId();
             }
             return shop_id;
+        }
+
+        private Product createProduct(int productId)
+        {
+            switch (productId)
+            {
+                case 11110:
+                    return new Product(productId, 3.50, "Hamburger", quantity);
+                case 11111:
+                    return new Product(productId, 4.00, "Cheeseburger", quantity);
+                case 11112:
+                    return new Product(productId, 3.50, "Hot dog", quantity);
+                case 11113:
+                    return new Product(productId, 5.00, "Chicken wings", quantity);
+                case 11114:
+                    return new Product(productId, 3.00, "French fries", quantity);
+                case 11115:
+                    return new Product(productId, 6.00, "Chicken doner", quantity);
+                case 11116:
+                    return new Product(productId, 7.00, "Mixed doner", quantity);
+                case 11120:
+                    return new Product(productId, 0.50, "Ketchup", quantity);
+                case 11121:
+                    return new Product(productId, 0.50, "Mayo", quantity);
+                case 11122:
+                    return new Product(productId, 0.50, "Chili", quantity);
+                case 11123:
+                    return new Product(productId, 0.50, "Garlic sauce", quantity);
+                case 11130:
+                    return new Product(productId, 2.50, "Coca Cola", quantity);
+                case 11131:
+                    return new Product(productId, 2.50, "Fanta", quantity);
+                case 11132:
+                    return new Product(productId, 1.50, "Water", quantity);
+                case 11133:
+                    return new Product(productId, 3.00, "Beer", quantity);
+                default:
+                    MessageBox.Show("Invalid product id supplied!");
+                    return null;
+            }
+        }
+
+        private void productButtonClick(int productId)
+        {
+            if (person == null)
+            {
+                MessageBox.Show("No visitor is selected!");
+                return;
+            }
+            listBox1.Items.Clear();
+            Product p = createProduct(productId);
+            products.Add(p);
+            foreach (Product a in products)
+            {
+                listBox1.Items.Add(a.Info());
+            }
+            showTotal();
         }
 	}
 }

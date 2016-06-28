@@ -28,8 +28,7 @@ namespace StatusInspectionApp
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
-                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = SkinColors.GetDefaultColor();
 
             connection = new DBConnection();
             statusController = new StatusPanelController(connection);
@@ -103,7 +102,9 @@ namespace StatusInspectionApp
                     String.Format(Queries.SELECT_SUM, "money", "user"));
             double totalMoneyPaid = connection.ExecuteScalar(
                     String.Format(Queries.SELECT_SUM, "total_money", "user"));
+
             totalMoneyPaid -= totalMoneyBalance;
+
             int numberCampSpotsBooked = (int)connection.ExecuteScalar(
                     String.Format(Queries.SELECT_COUNT, "camp", "user_count > 0"));
             connection.Close();

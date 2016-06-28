@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.sumTotal = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.lb_visitorFirstName = new System.Windows.Forms.Label();
+            this.lb_visitorLastName = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.remove = new MaterialSkin.Controls.MaterialRaisedButton();
             this.buy = new MaterialSkin.Controls.MaterialRaisedButton();
             this.retrieveQR = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -53,8 +55,6 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lb_visitorName = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -62,9 +62,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.MediumPurple;
-            this.groupBox1.Controls.Add(this.lb_visitorName);
+            this.groupBox1.Controls.Add(this.lb_visitorFirstName);
+            this.groupBox1.Controls.Add(this.lb_visitorLastName);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.sumTotal);
             this.groupBox1.Controls.Add(this.remove);
             this.groupBox1.Controls.Add(this.buy);
             this.groupBox1.Controls.Add(this.retrieveQR);
@@ -97,18 +97,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Products";
             // 
-            // sumTotal
+            // lb_visitorFirstName
             // 
-            this.sumTotal.Depth = 0;
-            this.sumTotal.Location = new System.Drawing.Point(255, 378);
-            this.sumTotal.MouseState = MaterialSkin.MouseState.HOVER;
-            this.sumTotal.Name = "sumTotal";
-            this.sumTotal.Primary = true;
-            this.sumTotal.Size = new System.Drawing.Size(86, 41);
-            this.sumTotal.TabIndex = 65;
-            this.sumTotal.Text = "total";
-            this.sumTotal.UseVisualStyleBackColor = true;
-            this.sumTotal.Click += new System.EventHandler(this.sumTotal_Click);
+            this.lb_visitorFirstName.AutoSize = true;
+            this.lb_visitorFirstName.Location = new System.Drawing.Point(504, 63);
+            this.lb_visitorFirstName.Name = "lb_visitorFirstName";
+            this.lb_visitorFirstName.Size = new System.Drawing.Size(16, 13);
+            this.lb_visitorFirstName.TabIndex = 68;
+            this.lb_visitorFirstName.Text = "---";
+            // 
+            // lb_visitorLastName
+            // 
+            this.lb_visitorLastName.AutoSize = true;
+            this.lb_visitorLastName.Location = new System.Drawing.Point(504, 89);
+            this.lb_visitorLastName.Name = "lb_visitorLastName";
+            this.lb_visitorLastName.Size = new System.Drawing.Size(16, 13);
+            this.lb_visitorLastName.TabIndex = 67;
+            this.lb_visitorLastName.Text = "---";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(504, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "Current visitor:";
             // 
             // remove
             // 
@@ -117,9 +131,9 @@
             this.remove.MouseState = MaterialSkin.MouseState.HOVER;
             this.remove.Name = "remove";
             this.remove.Primary = true;
-            this.remove.Size = new System.Drawing.Size(86, 41);
+            this.remove.Size = new System.Drawing.Size(178, 41);
             this.remove.TabIndex = 64;
-            this.remove.Text = "remove";
+            this.remove.Text = "remove selected";
             this.remove.UseVisualStyleBackColor = true;
             this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
@@ -357,24 +371,6 @@
             this.label25.TabIndex = 38;
             this.label25.Text = "Total:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(504, 38);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 66;
-            this.label6.Text = "Current visitor:";
-            // 
-            // lb_visitorName
-            // 
-            this.lb_visitorName.AutoSize = true;
-            this.lb_visitorName.Location = new System.Drawing.Point(504, 67);
-            this.lb_visitorName.Name = "lb_visitorName";
-            this.lb_visitorName.Size = new System.Drawing.Size(16, 13);
-            this.lb_visitorName.TabIndex = 67;
-            this.lb_visitorName.Text = "---";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,9 +414,9 @@
         private MaterialSkin.Controls.MaterialRaisedButton retrieveQR;
         private MaterialSkin.Controls.MaterialRaisedButton buy;
         private MaterialSkin.Controls.MaterialRaisedButton remove;
-        private MaterialSkin.Controls.MaterialRaisedButton sumTotal;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lb_visitorName;
+        private System.Windows.Forms.Label lb_visitorLastName;
+        private System.Windows.Forms.Label lb_visitorFirstName;
     }
 }
 

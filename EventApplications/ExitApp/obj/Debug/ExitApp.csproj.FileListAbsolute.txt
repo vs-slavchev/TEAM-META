@@ -34,15 +34,3 @@ D:\Project P-phase\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.Propert
 D:\Project P-phase\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.csproj.GenerateResource.Cache
 D:\Project P-phase\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.exe
 D:\Project P-phase\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.pdb
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\bin\Debug\ExitApp.exe.config
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\bin\Debug\ExitApp.exe
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\bin\Debug\ExitApp.pdb
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\bin\Debug\CommonClasses.exe
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\bin\Debug\MaterialSkin.dll
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\bin\Debug\MySql.Data.dll
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\bin\Debug\CommonClasses.pdb
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.Form1.resources
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.Properties.Resources.resources
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.csproj.GenerateResource.Cache
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.exe
-C:\Users\vs\TEAM-META\EventApplications\ExitApp\obj\Debug\ExitApp.pdb

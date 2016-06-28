@@ -32,7 +32,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.returnMoney = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.checkLoanedMats = new MaterialSkin.Controls.MaterialRaisedButton();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.gbVisitorStatus = new System.Windows.Forms.GroupBox();
             this.clearResult = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -84,7 +83,6 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.MediumPurple;
             this.groupBox1.Controls.Add(this.returnMoney);
-            this.groupBox1.Controls.Add(this.checkLoanedMats);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -109,19 +107,6 @@
             this.returnMoney.Text = "return money and mark account as invalid";
             this.returnMoney.UseVisualStyleBackColor = true;
             this.returnMoney.Click += new System.EventHandler(this.returnMoney_Click);
-            // 
-            // checkLoanedMats
-            // 
-            this.checkLoanedMats.Depth = 0;
-            this.checkLoanedMats.Location = new System.Drawing.Point(26, 59);
-            this.checkLoanedMats.MouseState = MaterialSkin.MouseState.HOVER;
-            this.checkLoanedMats.Name = "checkLoanedMats";
-            this.checkLoanedMats.Primary = true;
-            this.checkLoanedMats.Size = new System.Drawing.Size(445, 70);
-            this.checkLoanedMats.TabIndex = 9;
-            this.checkLoanedMats.Text = "Check loaned materials";
-            this.checkLoanedMats.UseVisualStyleBackColor = true;
-            this.checkLoanedMats.Click += new System.EventHandler(this.checkLoanedMats_Click);
             // 
             // listBox1
             // 
@@ -410,7 +395,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbLastname;
-        private MaterialSkin.Controls.MaterialRaisedButton checkLoanedMats;
         private MaterialSkin.Controls.MaterialRaisedButton returnMoney;
     }
 }

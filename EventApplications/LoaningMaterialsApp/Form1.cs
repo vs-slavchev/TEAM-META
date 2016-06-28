@@ -30,8 +30,7 @@ namespace Loaning_materialsApp
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
-                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = SkinColors.GetDefaultColor();
 
             listView2.FullRowSelect = true;
             PcId = StatusPanelController.PromptForPcId();
@@ -107,6 +106,18 @@ namespace Loaning_materialsApp
 
         private void loan_Click(object sender, EventArgs e)
         {
+            if (visitor == null)
+            {
+                MessageBox.Show("No visitor is selected!");
+                return;
+            }
+
+            if (listView2.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("No material is selected!");
+                return;
+            }
+
             foreach (ListViewItem selectedItem in listView2.SelectedItems)
             {
                 Material NewMat = new Material(selectedItem, visitor);
@@ -126,10 +137,10 @@ namespace Loaning_materialsApp
                 if (Convert.ToDecimal(visitor_money) >= NewMat.Price)
                 {
                     string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
-                    string insertpt2 = String.Format(Queries.INSERT_MATERIAL_LOAN_PT2, NewMat.Price, NewMat.Renter);
+                    string subtractCost = String.Format(Queries.USER_SUBTRACT_LOAN_COST, NewMat.Price, NewMat.Renter);
                     string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
                     connection.ExecuteNonQuery(insert);
-                    connection.ExecuteNonQuery(insertpt2);
+                    connection.ExecuteNonQuery(subtractCost);
                     connection.ExecuteNonQuery(update);
                     AddToListView1(NewMat);
                     materials.Add(NewMat);

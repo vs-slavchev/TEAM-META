@@ -28,8 +28,7 @@ namespace ExitApp
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Purple700, Primary.Purple900,
-                                            Primary.Purple400, Accent.Purple100, TextShade.WHITE);
+            materialSkinManager.ColorScheme = SkinColors.GetDefaultColor();
 
             connection = new DBConnection();
             statusController = new StatusPanelController(connection);
@@ -56,6 +55,7 @@ namespace ExitApp
         private void retrieveQRdata_Click(object sender, EventArgs e)
         {
             statusController.SelectUserFromQRReaderCode();
+            checkLoanedMaterials();
         }
 
         private void liVisitors_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,8 +68,9 @@ namespace ExitApp
             statusController.ClearResultsButtonClick();
         }
 
-        private void checkLoanedMats_Click(object sender, EventArgs e)
+        public void checkLoanedMaterials()
         {
+            listBox1.Items.Clear();
             MySqlDataReader reader = null;
             try
             {
@@ -99,6 +100,12 @@ namespace ExitApp
 
         private void returnMoney_Click(object sender, EventArgs e)
         {
+            if (listBox1.Items.Count > 0)
+            {
+                MessageBox.Show("Visitor must return some loaned materials!");
+                return;
+            }
+
             try
             {
                 connection.Open();
@@ -110,6 +117,8 @@ namespace ExitApp
             {
                 MessageBox.Show("Error:" + ex.ToString());
             }
+
+            MessageBox.Show("Successfully marked account as invalid.");
         }
     }
 }
