@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonClasses;
 
 namespace ShopApp
 {
@@ -26,7 +27,7 @@ namespace ShopApp
 
 		public string Info()
 		{
-			return name + ": " + Price + "€ " + "  x" + Quantity;
+			return name + ": " + String.Format(Queries.MONEY_FORMAT, Price) + "  x" + Quantity;
 		}
 	}
 }

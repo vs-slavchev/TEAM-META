@@ -48,7 +48,7 @@ namespace ShopApp
             }
             if (person.Money - total < 0)
             {
-                MessageBox.Show("Visitor only has " + person.Money + "€ out of " + total + "€ !");
+                MessageBox.Show("Visitor only has " + person.Money + "€ out of the required " + total + "€ !");
                 return;
             }
             if (total == 0)
@@ -95,11 +95,10 @@ namespace ShopApp
 			{
 				total += p.Price * p.Quantity;
 			}
-			lblTotal.Text = String.Format(Queries.MONEY_FORMAT, total.ToString());
+			lblTotal.Text = String.Format(Queries.MONEY_FORMAT, total);
 
 			if (person.Money - total < 0)
 			{
-				lblTotal.Text = "Error";
 				MessageBox.Show("Visitor doesn't have enough money!");
 			}
 		}
@@ -288,9 +287,9 @@ namespace ShopApp
             listBox1.Items.Clear();
             Product p = createProduct(productId);
             products.Add(p);
-            foreach (Product a in products)
+            foreach (Product product in products)
             {
-                listBox1.Items.Add(a.Info());
+                listBox1.Items.Add(product.Info());
             }
             showTotal();
         }
