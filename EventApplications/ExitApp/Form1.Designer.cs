@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.returnMoney = new MaterialSkin.Controls.MaterialRaisedButton();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -55,6 +54,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lbLastname = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lb_moneyToReturn = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbVisitorStatus.SuspendLayout();
             this.SuspendLayout();
@@ -69,23 +70,14 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "material name";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(124, 140);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "material_id";
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.MediumPurple;
+            this.groupBox1.Controls.Add(this.lb_moneyToReturn);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.returnMoney);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(437, 67);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -98,7 +90,7 @@
             // returnMoney
             // 
             this.returnMoney.Depth = 0;
-            this.returnMoney.Location = new System.Drawing.Point(26, 290);
+            this.returnMoney.Location = new System.Drawing.Point(26, 339);
             this.returnMoney.MouseState = MaterialSkin.MouseState.HOVER;
             this.returnMoney.Name = "returnMoney";
             this.returnMoney.Primary = true;
@@ -349,6 +341,26 @@
             this.lbLastname.TabIndex = 1;
             this.lbLastname.Text = "search by last name:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(131, 290);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 24);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Money:";
+            // 
+            // lb_moneyToReturn
+            // 
+            this.lb_moneyToReturn.AutoSize = true;
+            this.lb_moneyToReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_moneyToReturn.Location = new System.Drawing.Point(279, 290);
+            this.lb_moneyToReturn.Name = "lb_moneyToReturn";
+            this.lb_moneyToReturn.Size = new System.Drawing.Size(54, 26);
+            this.lb_moneyToReturn.TabIndex = 12;
+            this.lb_moneyToReturn.Text = "0.00";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,7 +382,6 @@
 
         #endregion
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox gbVisitorStatus;
@@ -396,6 +407,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lbLastname;
         private MaterialSkin.Controls.MaterialRaisedButton returnMoney;
+        private System.Windows.Forms.Label lb_moneyToReturn;
+        private System.Windows.Forms.Label label4;
     }
 }
 

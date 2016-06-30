@@ -18,6 +18,7 @@ namespace CommonClasses
         public double Money { get; private set; }
         public double TotalMoney { get; private set; }
         public double MoneyOwed { get; private set; }
+        public string Camp { get; set; }
         public bool HasEntered { get; private set; }
         public bool HasLeft { get; private set; }
 
@@ -31,6 +32,7 @@ namespace CommonClasses
             this.Money = Convert.ToDouble(reader["money"]);
             this.TotalMoney = Convert.ToDouble(reader["total_money"]);
             this.MoneyOwed = Convert.ToDouble(reader["money_owed"]);
+            this.Camp = reader["camp_id"].ToString();
             this.HasEntered = Convert.ToBoolean(reader["has_entered"]);
             this.HasLeft = Convert.ToBoolean(reader["has_left"]);
         }

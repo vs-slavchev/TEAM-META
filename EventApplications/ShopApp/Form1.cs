@@ -186,12 +186,19 @@ namespace ShopApp
                 MessageBox.Show("No items are present!");
                 return;
             }
+            if (listBox1.SelectedItem == null)
+            {
+                MessageBox.Show("No item is selected!");
+                return;
+            }
+
 			products.RemoveAt(listBox1.SelectedIndex);
 			listBox1.Items.Clear();
 			foreach (Product a in products)
 			{
 				listBox1.Items.Add(a.Info());
 			}
+            showTotal();
 		}
 
 		private void numericUpDown1_ValueChanged(object sender, EventArgs e)

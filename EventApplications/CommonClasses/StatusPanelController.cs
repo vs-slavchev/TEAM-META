@@ -41,7 +41,7 @@ namespace CommonClasses
             PcId = PromptForPcId();
         }
 
-        public void SelectUserFromQRReaderCode()
+        public Person SelectUserFromQRReaderCode()
         {
             ClearResultsAndVisitors();
             Person visitor = connection.GetPersonFromQRreader(PcId);
@@ -50,7 +50,9 @@ namespace CommonClasses
                 UserQrCode = visitor.QR_code;
                 Visitors.Items.Add(visitor);
                 Visitors.SelectedIndex = 0;
-            }             
+                return visitor;
+            }
+            return null;
         }
 
         public void SearchByLastNameButtonClick()

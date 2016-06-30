@@ -54,8 +54,13 @@ namespace ExitApp
 
         private void retrieveQRdata_Click(object sender, EventArgs e)
         {
-            statusController.SelectUserFromQRReaderCode();
+            Person visitor;
+            visitor = statusController.SelectUserFromQRReaderCode();
             checkLoanedMaterials();
+            if (visitor != null)
+            {
+                lb_moneyToReturn.Text = String.Format(Queries.MONEY_FORMAT, visitor.Money);
+            }
         }
 
         private void liVisitors_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,6 +71,7 @@ namespace ExitApp
         private void clearResult_Click(object sender, EventArgs e)
         {
             statusController.ClearResultsButtonClick();
+            lb_moneyToReturn.Text = String.Format(Queries.MONEY_FORMAT, 0);
         }
 
         public void checkLoanedMaterials()
@@ -79,9 +85,8 @@ namespace ExitApp
 
                 while (reader.Read())
                 {
-                    string materialID = reader["material_id"].ToString();
                     string materialName = reader["type"].ToString();
-                    listBox1.Items.Add(materialName + " - " + materialID);
+                    listBox1.Items.Add(materialName);
                 }
                 connection.Close();
             }
@@ -118,6 +123,7 @@ namespace ExitApp
                 MessageBox.Show("Error:" + ex.ToString());
             }
 
+            lb_moneyToReturn.Text = String.Format(Queries.MONEY_FORMAT, 0);
             MessageBox.Show("Successfully marked account as invalid.");
         }
     }

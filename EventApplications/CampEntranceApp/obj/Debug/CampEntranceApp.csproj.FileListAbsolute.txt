@@ -34,3 +34,16 @@ D:\Project P-phase\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEnt
 D:\Project P-phase\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.csproj.GenerateResource.Cache
 D:\Project P-phase\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.exe
 D:\Project P-phase\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\bin\Debug\CampEntranceApp.exe.config
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\bin\Debug\CampEntranceApp.exe
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\bin\Debug\CampEntranceApp.pdb
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\bin\Debug\CommonClasses.exe
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\bin\Debug\MaterialSkin.dll
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\bin\Debug\MySql.Data.dll
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\bin\Debug\CommonClasses.pdb
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.csprojResolveAssemblyReference.cache
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.Form1.resources
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.Properties.Resources.resources
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.csproj.GenerateResource.Cache
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.exe
+C:\Users\vs\TEAM-META\EventApplications\CampEntranceApp\obj\Debug\CampEntranceApp.pdb

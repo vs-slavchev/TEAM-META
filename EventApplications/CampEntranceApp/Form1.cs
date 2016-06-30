@@ -52,7 +52,9 @@ namespace CampEntranceApp
 
         private void retrieveQRdata_Click(object sender, EventArgs e)
         {
-            statusController.SelectUserFromQRReaderCode();
+            Person visitor;
+            visitor = statusController.SelectUserFromQRReaderCode();
+            lb_camp.Text = visitor.Camp;
         }
 
         private void searchByLastName_Click(object sender, EventArgs e)
@@ -63,6 +65,7 @@ namespace CampEntranceApp
         private void clearResult_Click(object sender, EventArgs e)
         {
             statusController.ClearResultsButtonClick();
+            lb_camp.Text = "-";
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbVisitorStatus = new System.Windows.Forms.GroupBox();
+            this.tbSearchLastname = new System.Windows.Forms.TextBox();
             this.clearResult = new MaterialSkin.Controls.MaterialRaisedButton();
             this.searchByLastName = new MaterialSkin.Controls.MaterialRaisedButton();
             this.retrieveQRdata = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -50,7 +51,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbLastname = new System.Windows.Forms.Label();
-            this.tbSearchLastname = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lb_camp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbVisitorStatus.SuspendLayout();
             this.SuspendLayout();
@@ -97,6 +99,13 @@
             this.gbVisitorStatus.TabIndex = 3;
             this.gbVisitorStatus.TabStop = false;
             this.gbVisitorStatus.Text = "Visitor Status";
+            // 
+            // tbSearchLastname
+            // 
+            this.tbSearchLastname.Location = new System.Drawing.Point(145, 399);
+            this.tbSearchLastname.Name = "tbSearchLastname";
+            this.tbSearchLastname.Size = new System.Drawing.Size(278, 20);
+            this.tbSearchLastname.TabIndex = 26;
             // 
             // clearResult
             // 
@@ -291,12 +300,25 @@
             this.lbLastname.TabIndex = 1;
             this.lbLastname.Text = "search by last name:";
             // 
-            // tbSearchLastname
+            // label7
             // 
-            this.tbSearchLastname.Location = new System.Drawing.Point(145, 399);
-            this.tbSearchLastname.Name = "tbSearchLastname";
-            this.tbSearchLastname.Size = new System.Drawing.Size(278, 20);
-            this.tbSearchLastname.TabIndex = 26;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(722, 95);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 24);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Camp:";
+            // 
+            // lb_camp
+            // 
+            this.lb_camp.AutoSize = true;
+            this.lb_camp.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_camp.Location = new System.Drawing.Point(812, 93);
+            this.lb_camp.Name = "lb_camp";
+            this.lb_camp.Size = new System.Drawing.Size(20, 26);
+            this.lb_camp.TabIndex = 5;
+            this.lb_camp.Text = "-";
             // 
             // Form1
             // 
@@ -304,6 +326,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1116, 756);
+            this.Controls.Add(this.lb_camp);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.gbVisitorStatus);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
@@ -312,6 +336,7 @@
             this.gbVisitorStatus.ResumeLayout(false);
             this.gbVisitorStatus.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -340,6 +365,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbLastname;
         private System.Windows.Forms.TextBox tbSearchLastname;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_camp;
     }
 }
 
