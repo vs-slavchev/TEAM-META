@@ -105,26 +105,42 @@ namespace ExitApp
 
         private void returnMoney_Click(object sender, EventArgs e)
         {
-            if (listBox1.Items.Count > 0)
-            {
-                MessageBox.Show("Visitor must return some loaned materials!");
-                return;
-            }
-
             try
             {
+                if (listBox1.Items.Count > 0)
+                {
+                    throw new TeamMetaException("Visitor must return some loaned materials!");
+                }
+                if (statusController.UserQrCode == null || statusController.UserQrCode.Equals(String.Empty))
+                {
+                    throw new TeamMetaException("No visitor is selected!");
+                }
                 connection.Open();
-                connection.ExecuteNonQuery(String.Format(Queries.UPDATE_USER_LEFT, statusController.UserQrCode));
-
+                int result = connection.ExecuteNonQuery(String.Format(Queries.UPDATE_USER_LEFT, statusController.UserQrCode));
                 connection.Close();
+
+
+                if (result > 0)
+                {
+                    lb_moneyToReturn.Text = String.Format(Queries.MONEY_FORMAT, 0);
+                    MessageBox.Show("Successfully marked account as invalid.");
+                }
+                else
+                {
+                    throw new TeamMetaException("Marking visitor as entered was NOT successful!");
+                }
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("Error:" + ex.ToString());
+                return;
+            }
+            catch (TeamMetaException tmex)
+            {
+                MessageBox.Show(tmex.Message);
+                return;
             }
 
-            lb_moneyToReturn.Text = String.Format(Queries.MONEY_FORMAT, 0);
-            MessageBox.Show("Successfully marked account as invalid.");
         }
     }
 }

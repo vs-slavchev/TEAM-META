@@ -33,7 +33,8 @@ namespace CommonClasses
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error: Could not connect to database! /n" + Environment.NewLine + ex.Message);
+                return;
             }
         }
 
@@ -45,7 +46,8 @@ namespace CommonClasses
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error: Could not close the database connection!" + Environment.NewLine + ex.Message);
+                return;
             }
         }
 
@@ -65,9 +67,9 @@ namespace CommonClasses
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error: Could not read the query results!" + Environment.NewLine + ex.Message);
+                return null;
             }
-            return null;
         }
 
         public double ExecuteScalar(string query)
@@ -78,20 +80,21 @@ namespace CommonClasses
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error: " + Environment.NewLine + ex.Message);
+                return -1;
             }
-            return -1;
         }
 
-        public void ExecuteNonQuery(string query)
+        public int ExecuteNonQuery(string query)
         {
             try
             {
-                createCommand(query).ExecuteNonQuery();
+                return createCommand(query).ExecuteNonQuery();
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error: " + ex.ToString());
+                MessageBox.Show("Error: " + Environment.NewLine + ex.Message);
+                return -1;
             }
         }
 

@@ -21,6 +21,9 @@ namespace EventEntranceApp
 
         private DBConnection connection;
         private StatusPanelController statusController;
+        private static readonly string YES = "YES";
+        private static readonly string NO = "NO";
+
 
         public Form1()
         {
@@ -85,25 +88,38 @@ namespace EventEntranceApp
             string phoneNumber = tbPhoneNumber.Text;
             string paypal = tbPaypal.Text;
 
-            if (email.Equals("") || lastName.Equals("") || paypal.Equals(""))
+            try
             {
-                MessageBox.Show("Required info is not input!", "Warning");
-                return;
-            }
-            string qr_code = GetPost(email);
-            if (qr_code.Equals(string.Empty))
-            {
-                MessageBox.Show("Could not generate a QR code.", "Failure");
-                return;
-            }
-            string queryString = String.Format(Queries.USER_INSERT,
-                                 email, firstName, lastName, phoneNumber, paypal, qr_code);
-            connection.Open();
-            connection.ExecuteNonQuery(queryString);
-            connection.Close();
+                if (email.Equals("") || lastName.Equals("") || paypal.Equals(""))
+                {
+                    throw new TeamMetaException("Required info is not input!");
+                }
+                string qr_code = GetPost(email);
+                if (qr_code.Equals(string.Empty))
+                {
+                    throw new TeamMetaException("Could not generate a QR code.");
+                }
+                string queryString = String.Format(Queries.USER_INSERT,
+                                     email, firstName, lastName, phoneNumber, paypal, qr_code);
+                connection.Open();
+                int result = connection.ExecuteNonQuery(queryString);
+                connection.Close();
 
-            ClearInsertFields();
-            MessageBox.Show("User successfuly added.", "Success");
+                if (result > 0)
+                {
+                    ClearInsertFields();
+                    MessageBox.Show("User successfuly added.", "Success");
+                }
+                else
+                {
+                    throw new TeamMetaException("Marking visitor as entered was NOT successful!");
+                }
+            }
+            catch (TeamMetaException tmex)
+            {
+                MessageBox.Show(tmex.Message);
+                return;
+            }
         }
 
         private void clearFields_Click(object sender, EventArgs e)
@@ -113,24 +129,37 @@ namespace EventEntranceApp
 
         private void markAsEntered_Click(object sender, EventArgs e)
         {
-            if (statusController.UserQrCode.Equals(""))
+            try
             {
-                MessageBox.Show("No user is currently selected.", "Warning");
+                if (statusController.UserQrCode == null || statusController.UserQrCode.Equals(String.Empty))
+                {
+                    throw new TeamMetaException("No user is currently selected.");
+                }
+                else if (lbAllowedToEnter.Text.Equals(NO))
+                {
+                    throw new TeamMetaException("This visitor is not allowed to enter!");
+                }
+
+                string queryString = String.Format(Queries.USER_UPDATE,
+                                     "has_entered", "true", statusController.UserQrCode);
+                connection.Open();
+                int result = connection.ExecuteNonQuery(queryString);
+                connection.Close();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Visitor successfully marked as entered!");
+                }
+                else
+                {
+                    throw new TeamMetaException("Marking visitor as entered was unsuccessful!");
+                }
+            }
+            catch (TeamMetaException tmex)
+            {
+                MessageBox.Show(tmex.Message);
                 return;
             }
-            else if (lbAllowedToEnter.Text.Equals("NO"))
-            {
-                MessageBox.Show("This visitor is not allowed to enter!", "Warning");
-                return;
-            }
-            string queryString = String.Format(Queries.USER_UPDATE,
-                                 "has_entered", "true", statusController.UserQrCode);
-
-            connection.Open();
-            connection.ExecuteNonQuery(queryString);
-            connection.Close();
-
-            MessageBox.Show("Visitor successfully marked as entered!");
         }
 
         private void AllowedToEnterReasonsPrint(Person visitor)
@@ -153,7 +182,7 @@ namespace EventEntranceApp
                 allowedToEnter = false;
             }
 
-            lbAllowedToEnter.Text = allowedToEnter ? "YES" : "NO";
+            lbAllowedToEnter.Text = allowedToEnter ? YES : NO;
         }
 
         private void ClearInsertFields()

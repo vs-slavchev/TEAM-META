@@ -106,69 +106,82 @@ namespace Loaning_materialsApp
 
         private void loan_Click(object sender, EventArgs e)
         {
-            if (visitor == null)
+            try
             {
-                MessageBox.Show("No visitor is selected!");
-                return;
-            }
-
-            if (listView2.SelectedItems.Count <= 0)
-            {
-                MessageBox.Show("No material is selected!");
-                return;
-            }
-
-            foreach (ListViewItem selectedItem in listView2.SelectedItems)
-            {
-                Material NewMat = new Material(selectedItem, visitor);
-
-                foreach (ListViewItem item in listView1.Items)
+                if (visitor == null)
                 {
-                    if (item.SubItems[1].Text.Equals(NewMat.Name)
-                        && item.SubItems[2].Text.Equals(NewMat.Renter))
+                    throw new TeamMetaException("No visitor is selected!");
+                }
+                if (listView2.SelectedItems.Count <= 0)
+                {
+                    throw new TeamMetaException("No material is selected!");
+                }
+
+                foreach (ListViewItem selectedItem in listView2.SelectedItems)
+                {
+                    Material NewMat = new Material(selectedItem, visitor);
+
+                    foreach (ListViewItem item in listView1.Items)
                     {
-                        MessageBox.Show("This visitor already has this item.");
-                        return;
+                        if (item.SubItems[1].Text.Equals(NewMat.Name)
+                            && item.SubItems[2].Text.Equals(NewMat.Renter))
+                        {
+                            throw new TeamMetaException("This visitor already has this item.");
+                        }
                     }
-                }
 
-                connection.Open();
-                double visitor_money = connection.ExecuteScalar(String.Format("SELECT `money` FROM `user` WHERE `qr_code` = '{0}'", visitor.QR_code));
-                if (Convert.ToDecimal(visitor_money) >= NewMat.Price)
-                {
-                    string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
-                    string subtractCost = String.Format(Queries.USER_SUBTRACT_LOAN_COST, NewMat.Price, NewMat.Renter);
-                    string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
-                    connection.ExecuteNonQuery(insert);
-                    connection.ExecuteNonQuery(subtractCost);
-                    connection.ExecuteNonQuery(update);
-                    AddToListView1(NewMat);
-                    materials.Add(NewMat);
+                    connection.Open();
+                    double visitor_money = connection.ExecuteScalar(String.Format(
+                        "SELECT `money` FROM `user` WHERE `qr_code` = '{0}'", visitor.QR_code));
+                    if (Convert.ToDecimal(visitor_money) >= NewMat.Price)
+                    {
+
+                        // TRANSACTION PLS
+
+                        string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
+                        string subtractCost = String.Format(Queries.USER_SUBTRACT_LOAN_COST, NewMat.Price, NewMat.Renter);
+                        string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
+                        connection.ExecuteNonQuery(insert);
+                        connection.ExecuteNonQuery(subtractCost);
+                        connection.ExecuteNonQuery(update);
+                        AddToListView1(NewMat);
+                        materials.Add(NewMat);
+                    }
+                    else
+                    {
+                        throw new TeamMetaException("This visitor doesn't have enough money.");
+                    }
+                    connection.Close();
                 }
-                else { MessageBox.Show("This visitor doesn't have enough money."); }
-                connection.Close();
+            }
+            catch (TeamMetaException tmex)
+            {
+                MessageBox.Show(tmex.Message);
+                return;
             }
         }
 
         private void returnMaterial_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Equals(""))
-            {
-                MessageBox.Show("No material ID is entered!");
-                return;
-            }
-            if (visitor == null)
-            {
-                MessageBox.Show("No user is currently selected!");
-                return;
-            }
-
             int matID;
             try
             {
+                if (textBox1.Text.Equals(""))
+                {
+                    throw new TeamMetaException("No material ID is entered!");
+                }
+                if (visitor == null)
+                {
+                    throw new TeamMetaException("No user is currently selected!");
+                }
                 matID = Convert.ToInt32(textBox1.Text);
             }
-            catch (Exception)
+            catch (TeamMetaException tmex)
+            {
+                MessageBox.Show(tmex.Message);
+                return;
+            }
+            catch (InvalidCastException)
             {
                 MessageBox.Show("Material ID is not valid!");
                 return;
@@ -180,6 +193,9 @@ namespace Loaning_materialsApp
                 {
                     materials.RemoveAt(i);
                     connection.Open();
+
+                    // TRANSACTION PLS
+
                     connection.ExecuteNonQuery(String.Format(Queries.DELETE_LOAN_MATERIAL, visitor.QR_code, matID));
                     connection.ExecuteNonQuery(String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "+1", matID));
                     connection.Close();

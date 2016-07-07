@@ -68,6 +68,7 @@
     <Compile Include="Queries.cs" />
     <Compile Include="SkinColors.cs" />
     <Compile Include="StatusPanelController.cs" />
+    <Compile Include="TeamMetaException.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

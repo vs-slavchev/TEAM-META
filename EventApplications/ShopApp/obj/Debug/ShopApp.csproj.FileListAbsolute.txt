@@ -19,6 +19,10 @@ C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\ShopApp\obj\Debug\Sho
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.Form1.resources
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.Properties.Resources.resources
 C:\Users\Ivan\Documents\GitHub\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.csproj.GenerateResource.Cache
+C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.csprojResolveAssemblyReference.cache
+C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.Form1.resources
+C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.Properties.Resources.resources
+C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\bin\Debug\ShopApp.exe.config
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\bin\Debug\ShopApp.exe
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\bin\Debug\ShopApp.pdb
@@ -26,9 +30,5 @@ C:\Users\vs\TEAM-META\EventApplications\ShopApp\bin\Debug\CommonClasses.exe
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\bin\Debug\MaterialSkin.dll
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\bin\Debug\MySql.Data.dll
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\bin\Debug\CommonClasses.pdb
-C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.csprojResolveAssemblyReference.cache
-C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.Form1.resources
-C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.Properties.Resources.resources
-C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.csproj.GenerateResource.Cache
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.exe
 C:\Users\vs\TEAM-META\EventApplications\ShopApp\obj\Debug\ShopApp.pdb

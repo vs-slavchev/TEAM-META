@@ -48,6 +48,7 @@
             this.lbAllowedToEnter = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.gbVisitorStatus = new System.Windows.Forms.GroupBox();
+            this.tbSearchLastname = new System.Windows.Forms.TextBox();
             this.clearResult = new MaterialSkin.Controls.MaterialRaisedButton();
             this.searchByLastName = new MaterialSkin.Controls.MaterialRaisedButton();
             this.retrieveQRdata = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -68,7 +69,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbLastname = new System.Windows.Forms.Label();
-            this.tbSearchLastname = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbVisitorStatus.SuspendLayout();
@@ -220,11 +220,11 @@
             // markAsEntered
             // 
             this.markAsEntered.Depth = 0;
-            this.markAsEntered.Location = new System.Drawing.Point(341, 19);
+            this.markAsEntered.Location = new System.Drawing.Point(353, 19);
             this.markAsEntered.MouseState = MaterialSkin.MouseState.HOVER;
             this.markAsEntered.Name = "markAsEntered";
             this.markAsEntered.Primary = true;
-            this.markAsEntered.Size = new System.Drawing.Size(155, 78);
+            this.markAsEntered.Size = new System.Drawing.Size(143, 78);
             this.markAsEntered.TabIndex = 5;
             this.markAsEntered.Text = "mark as entered";
             this.markAsEntered.UseVisualStyleBackColor = true;
@@ -298,6 +298,13 @@
             this.gbVisitorStatus.TabIndex = 4;
             this.gbVisitorStatus.TabStop = false;
             this.gbVisitorStatus.Text = "Visitor Status";
+            // 
+            // tbSearchLastname
+            // 
+            this.tbSearchLastname.Location = new System.Drawing.Point(145, 399);
+            this.tbSearchLastname.Name = "tbSearchLastname";
+            this.tbSearchLastname.Size = new System.Drawing.Size(278, 20);
+            this.tbSearchLastname.TabIndex = 26;
             // 
             // clearResult
             // 
@@ -491,13 +498,6 @@
             this.lbLastname.Size = new System.Drawing.Size(104, 13);
             this.lbLastname.TabIndex = 1;
             this.lbLastname.Text = "search by last name:";
-            // 
-            // tbSearchLastname
-            // 
-            this.tbSearchLastname.Location = new System.Drawing.Point(145, 399);
-            this.tbSearchLastname.Name = "tbSearchLastname";
-            this.tbSearchLastname.Size = new System.Drawing.Size(278, 20);
-            this.tbSearchLastname.TabIndex = 26;
             // 
             // Form1
             // 

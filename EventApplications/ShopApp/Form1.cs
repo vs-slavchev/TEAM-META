@@ -15,206 +15,161 @@ using MaterialSkin;
 namespace ShopApp
 {
     public partial class Form1 : MaterialForm
-	{
-		private DBConnection connection;
-		private string ShopId, PcId;
-		private List<Product> products;
-		private int quantity = 1;
-		private double total = 0;
-		private Person person;
-		
-		public Form1()
-		{
-			InitializeComponent();
+    {
+        private DBConnection connection;
+        private string ShopId, PcId;
+        private List<Product> products;
+        private int quantity = 1;
+        private double total = 0;
+        private Person person;
+
+        public Form1()
+        {
+            InitializeComponent();
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = SkinColors.GetDefaultColor();
 
-			connection = new DBConnection();
-			products = new List<Product>();
+            connection = new DBConnection();
+            products = new List<Product>();
 
             ShopId = PromptForShopId();
-			PcId = StatusPanelController.PromptForPcId();
-		}
+            PcId = StatusPanelController.PromptForPcId();
+        }
 
         private void buy_Click(object sender, EventArgs e)
-		{
-            if (person == null)
+        {
+            try
             {
-                MessageBox.Show("No visitor is selected!");
+                if (person == null)
+                {
+                    throw new TeamMetaException("No visitor is selected!");
+                }
+                if (person.Money - total < 0)
+                {
+                    throw new TeamMetaException("Visitor only has " + person.Money + "€ out of the required " + total + "€ !");
+                }
+                if (total == 0)
+                {
+                    throw new TeamMetaException("The products list is empty!");
+                }
+
+                connection.Open();
+
+                // TRANSACTION PLS
+
+                foreach (Product product in products)
+                {
+                    string queryString = String.Format(Queries.PURCHASE_INSERT,
+                                     person.QR_code, product.Id, ShopId, product.Quantity);
+                    int purchaseResult = connection.ExecuteNonQuery(queryString);
+                    if (purchaseResult <= 0)
+                    {
+                        throw new TeamMetaException("Purchase of " + product.Name + " was NOT successful!");
+                    }
+                }
+                string queryString1 = String.Format(Queries.MONEY_UPDATE, total, person.QR_code);
+                int paymentResult = connection.ExecuteNonQuery(queryString1);
+                if (paymentResult > 0)
+                {
+                    MessageBox.Show("Purchase successful!");
+                }
+                else
+                {
+                    throw new TeamMetaException("Payment was NOT successful!");
+                }
+            }
+            catch (TeamMetaException tmex)
+            {
+                MessageBox.Show(tmex.Message);
                 return;
             }
-            if (person.Money - total < 0)
+            finally
             {
-                MessageBox.Show("Visitor only has " + person.Money + "€ out of the required " + total + "€ !");
-                return;
-            }
-            if (total == 0)
-            {
-                MessageBox.Show("The products list is empty!");
-                return;
-            }
-			try
-			{
-				connection.Open();
-				foreach (Product po in products)
-				{
-					string queryString = String.Format(Queries.PURCHASE_INSERT,
-									 person.QR_code, po.Id, ShopId, po.Quantity);
-					connection.ExecuteNonQuery(queryString);
-				}
-				string queryString1 = String.Format(Queries.MONEY_UPDATE, total, person.QR_code);
-				connection.ExecuteNonQuery(queryString1);
-                MessageBox.Show("Purchase successful!");
-			}
-			finally
-			{
-				connection.Close();
-				connection.NullQRvalueInDB(PcId);
-				listBox1.Items.Clear();
+                connection.Close();
+                connection.NullQRvalueInDB(PcId);
+                listBox1.Items.Clear();
                 lb_visitorLastName.Text = "";
                 lb_visitorFirstName.Text = "";
-				numericUpDown1.Value = 1;
-				lblTotal.Text = "0.00 €";
-				products = new List<Product>();
-			}
-		}
+                numericUpDown1.Value = 1;
+                lblTotal.Text = "0.00 €";
+                products = new List<Product>();
+            }
+        }
 
         private void showTotal()
-		{
-            if (person == null)
+        {
+            try
             {
-                MessageBox.Show("No visitor is selected!");
+                if (person == null)
+                {
+                    throw new TeamMetaException("No visitor is selected!");
+                }
+
+                total = 0;
+                foreach (Product p in products)
+                {
+                    total += p.Price * p.Quantity;
+                }
+                lblTotal.Text = String.Format(Queries.MONEY_FORMAT, total);
+
+                if (person.Money - total < 0)
+                {
+                    throw new TeamMetaException("Visitor doesn't have enough money!");
+                }
+            }
+            catch (TeamMetaException tmex)
+            {
+                MessageBox.Show(tmex.Message);
                 return;
             }
-
-			total = 0;
-			foreach (Product p in products)
-			{
-				total += p.Price * p.Quantity;
-			}
-			lblTotal.Text = String.Format(Queries.MONEY_FORMAT, total);
-
-			if (person.Money - total < 0)
-			{
-				MessageBox.Show("Visitor doesn't have enough money!");
-			}
-		}
-
-		private void button3_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11110);
-		}
-
-		private void button4_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11111);
-		}
-
-		private void button5_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11112);
-		}
-
-		private void button6_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11113);
-		}
-
-		private void button7_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11114);
-		}
-
-		private void button8_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11115);
-		}
-
-		private void button9_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11116);
-		}
-
-		private void button10_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11120);
-		}
-
-		private void button11_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11121);
-		}
-
-		private void button12_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11122);
-		}
-
-		private void button13_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11123);
-		}
-
-		private void button14_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11130);
-		}
-
-		private void button15_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11131);
-		}
-
-		private void button16_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11132);
-		}
-
-		private void button17_Click(object sender, EventArgs e)
-		{
-            productButtonClick(11133);
-		}
+        }
 
         private void remove_Click(object sender, EventArgs e)
-		{
-            if (listBox1.Items.Count <= 0)
+        {
+            try
             {
-                MessageBox.Show("No items are present!");
+                if (listBox1.Items.Count <= 0)
+                {
+                    throw new TeamMetaException("No items are present!");
+                }
+                if (listBox1.SelectedItem == null)
+                {
+                    throw new TeamMetaException("No item is selected!");
+                }
+
+                products.RemoveAt(listBox1.SelectedIndex);
+                listBox1.Items.Clear();
+                foreach (Product a in products)
+                {
+                    listBox1.Items.Add(a.Info());
+                }
+                showTotal();
+            }
+            catch (TeamMetaException tmex)
+            {
+                MessageBox.Show(tmex.Message);
                 return;
             }
-            if (listBox1.SelectedItem == null)
-            {
-                MessageBox.Show("No item is selected!");
-                return;
-            }
+        }
 
-			products.RemoveAt(listBox1.SelectedIndex);
-			listBox1.Items.Clear();
-			foreach (Product a in products)
-			{
-				listBox1.Items.Add(a.Info());
-			}
-            showTotal();
-		}
-
-		private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-		{
-			quantity = Convert.ToInt16(numericUpDown1.Value);
-		}
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            quantity = Convert.ToInt16(numericUpDown1.Value);
+        }
 
         private void retrieveQR_Click(object sender, EventArgs e)
-		{
-			person = connection.GetPersonFromQRreader(PcId);
+        {
+            person = connection.GetPersonFromQRreader(PcId);
             if (person == null)
             {
                 return;
             }
             lb_visitorLastName.Text = person.Last_name;
             lb_visitorFirstName.Text = person.First_name;
-		}
+        }
 
         private string PromptForShopId()
         {
@@ -235,6 +190,98 @@ namespace ShopApp
                 return PromptForShopId();
             }
             return shop_id;
+        }
+
+        private void productButtonClick(int productId)
+        {
+            if (person == null)
+            {
+                MessageBox.Show("No visitor is selected!");
+                return;
+            }
+            listBox1.Items.Clear();
+            Product p = createProduct(productId);
+            products.Add(p);
+            foreach (Product product in products)
+            {
+                listBox1.Items.Add(product.Info());
+            }
+            showTotal();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11110);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11111);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11112);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11113);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11114);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11115);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11116);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11120);
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11121);
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11122);
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11123);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11130);
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11131);
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11132);
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            productButtonClick(11133);
         }
 
         private Product createProduct(int productId)
@@ -276,22 +323,5 @@ namespace ShopApp
                     return null;
             }
         }
-
-        private void productButtonClick(int productId)
-        {
-            if (person == null)
-            {
-                MessageBox.Show("No visitor is selected!");
-                return;
-            }
-            listBox1.Items.Clear();
-            Product p = createProduct(productId);
-            products.Add(p);
-            foreach (Product product in products)
-            {
-                listBox1.Items.Add(product.Info());
-            }
-            showTotal();
-        }
-	}
+    }
 }

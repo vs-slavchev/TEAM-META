@@ -9,7 +9,7 @@ namespace ShopApp
 {
 	class Product
 	{
-		private string name;
+		public string Name { get; set; }
 
         public double Price { get; set; }
 
@@ -21,13 +21,13 @@ namespace ShopApp
 		{
 			this.Id = id;
 			this.Price = price;
-			this.name = name;
+			this.Name = name;
 			this.Quantity = q;
 		}
 
 		public string Info()
 		{
-			return name + ": " + String.Format(Queries.MONEY_FORMAT, Price) + "  x" + Quantity;
+			return Name + ": " + String.Format(Queries.MONEY_FORMAT, Price) + "  x" + Quantity;
 		}
 	}
 }
