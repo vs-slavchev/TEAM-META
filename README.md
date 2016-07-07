@@ -51,3 +51,7 @@ Finally, the 'Documents' folder contains all of the documentation about the proj
 	- setup document reflecting our initial approach and planning according the problem description and
 	  requirements;
 	- project plan describing our view on the risks, constraints and expected deliverables;
+
+![alt tag](https://cloud.githubusercontent.com/assets/10689151/16662692/efbb0bfe-4478-11e6-999a-7fe1b3c68b63.png)
+![alt tag](https://cloud.githubusercontent.com/assets/10689151/16662690/efb7c8a4-4478-11e6-89f5-a3bd8384d155.png)
+![alt tag](https://cloud.githubusercontent.com/assets/10689151/16662691/efb820c4-4478-11e6-95dd-23f1a0746621.png)
