@@ -133,25 +133,20 @@ namespace Loaning_materialsApp
                     connection.Open();
                     double visitor_money = connection.ExecuteScalar(String.Format(
                         "SELECT `money` FROM `user` WHERE `qr_code` = '{0}'", visitor.QR_code));
-                    if (Convert.ToDecimal(visitor_money) >= NewMat.Price)
-                    {
-
-                        // TRANSACTION PLS
-
-                        string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
-                        string subtractCost = String.Format(Queries.USER_SUBTRACT_LOAN_COST, NewMat.Price, NewMat.Renter);
-                        string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
-                        connection.ExecuteNonQuery(insert);
-                        connection.ExecuteNonQuery(subtractCost);
-                        connection.ExecuteNonQuery(update);
-                        AddToListView1(NewMat);
-                        materials.Add(NewMat);
-                    }
-                    else
+                    if (Convert.ToDecimal(visitor_money) < NewMat.Price)
                     {
                         throw new TeamMetaException("This visitor doesn't have enough money.");
                     }
+
+                    string insert = String.Format(Queries.INSERT_MATERIAL_LOAN, NewMat.Renter, NewMat.ID);
+                    string subtractCost = String.Format(Queries.USER_SUBTRACT_LOAN_COST, NewMat.Price, NewMat.Renter);
+                    string update = String.Format(Queries.UPDATE_MATERIAL_QUANTITY, "-1", NewMat.ID);
+
+                    connection.DoTransaction(insert, subtractCost, update);
                     connection.Close();
+
+                    AddToListView1(NewMat);
+                    materials.Add(NewMat);
                 }
             }
             catch (TeamMetaException tmex)

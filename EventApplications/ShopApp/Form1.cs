@@ -58,21 +58,18 @@ namespace ShopApp
 
                 connection.Open();
 
-                // TRANSACTION PLS
-
-                foreach (Product product in products)
+                string[] commands = new string[products.Count + 1];
+                for (int product_i = 0; product_i < products.Count; product_i++)
                 {
-                    string queryString = String.Format(Queries.PURCHASE_INSERT,
-                                     person.QR_code, product.Id, ShopId, product.Quantity);
-                    int purchaseResult = connection.ExecuteNonQuery(queryString);
-                    if (purchaseResult <= 0)
-                    {
-                        throw new TeamMetaException("Purchase of " + product.Name + " was NOT successful!");
-                    }
+                    string updateMoneyStr = String.Format(Queries.PURCHASE_INSERT,
+                                     person.QR_code, products[product_i].Id, ShopId, products[product_i].Quantity);
+                    commands[product_i] = updateMoneyStr;
                 }
-                string queryString1 = String.Format(Queries.MONEY_UPDATE, total, person.QR_code);
-                int paymentResult = connection.ExecuteNonQuery(queryString1);
-                if (paymentResult > 0)
+                string updateMoney = String.Format(Queries.MONEY_UPDATE, total, person.QR_code);
+                int lastIndex = commands.Length - 1;
+                commands[lastIndex] = updateMoney;
+                bool transactionResult = connection.DoTransaction(commands);
+                if (transactionResult)
                 {
                     MessageBox.Show("Purchase successful!");
                 }

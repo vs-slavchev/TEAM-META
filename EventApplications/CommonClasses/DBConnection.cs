@@ -170,5 +170,45 @@ namespace CommonClasses
                 MessageBox.Show("Error: " + ex.ToString());
             }
         }
+
+        public bool DoTransaction(params string[] commands)
+        {
+            if (commands.Length < 1)
+            {
+                MessageBox.Show("No commands to perform transaction on");
+                return false;
+            }
+
+            MySqlTransaction transaction = null;
+            try
+            {
+                transaction = mysqlConnection.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = mysqlConnection;
+                cmd.Transaction = transaction;
+
+                foreach (string command in commands)
+                {
+                    cmd.CommandText = command;
+                    cmd.ExecuteNonQuery();
+                }
+                transaction.Commit();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    transaction.Rollback();
+                }
+                catch (MySqlException trex)
+                {
+                    MessageBox.Show("Transaction error: " + trex.Message);
+                }
+                MessageBox.Show("Transaction error: " + ex.Message);
+            }
+            return false;
+        }
     }
 }
