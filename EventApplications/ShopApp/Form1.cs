@@ -68,8 +68,8 @@ namespace ShopApp
                 string updateMoney = String.Format(Queries.MONEY_UPDATE, total, person.QR_code);
                 int lastIndex = commands.Length - 1;
                 commands[lastIndex] = updateMoney;
-                bool transactionResult = connection.DoTransaction(commands);
-                if (transactionResult)
+                bool transactionSuccess = connection.DoTransaction(commands);
+                if (transactionSuccess)
                 {
                     MessageBox.Show("Purchase successful!");
                 }
